@@ -17,15 +17,29 @@ import com.andamiro.pos.service.IMemberService;
 public class HomeController {
 	@Autowired
 	IMemberService MemberService;
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		return "home";
 	}
-	
+
+	@RequestMapping(value = "/settings.do", method = RequestMethod.GET)
+	public String settings(Locale locale, Model model) {
+		return "settings";
+	}
+
+	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
+	public String order(Locale locale, Model model) {
+		return "order";
+	}
+
+	@RequestMapping(value = "/sales_account.do", method = RequestMethod.GET)
+	public String sales_account(Locale locale, Model model) {
+		return "sales_account";
+	}
 }
