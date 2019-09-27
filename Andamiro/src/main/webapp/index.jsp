@@ -55,11 +55,6 @@
 					<div class="modal-body">
 						<form>
 							<div class="form-group">
-								<label for="recipient-name" class="control-label"></label> <input
-									type="text" class="form-control" id="recipient-name"
-									placeholder="아이디를 입력해 주세요." required autofocus>
-							</div>
-							<div class="form-group">
 								<label for="message-text" class="control-label"></label> <input
 									type="text" class="form-control" id="recipient-name"
 									placeholder="비밀번호를 입력해 주세요." required autofocus>
@@ -114,14 +109,14 @@
 									placeholder="비밀번호를 재입력 해주세요." required autofocus>
 							</div>
 							<div class="form-group">
-								<label for="message-text" class="control-label"></label> <input
+								<label for="message-text" class="control-label">이메일 입력</label> <input
 									type="text" class="form-control" id="recipient-name"
-									placeholder="이메일를 입력해 주세요" required autofocus>
+									placeholder="host123@example.com" required autofocus>
 							</div>
 							<div class="form-group">
-								<label for="message-text" class="control-label"></label> <input
+								<label for="message-text" class="control-label">휴대폰</label> <input
 									type="text" class="form-control" id="recipient-name"
-									placeholder="휴대폰 번호를 입력해주세요" required autofocus>
+									placeholder="'-'없이 입력" required autofocus>
 							</div>
 						</form>
 					</div>
