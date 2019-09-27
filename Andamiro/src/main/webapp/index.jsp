@@ -55,6 +55,11 @@
 					<div class="modal-body">
 						<form>
 							<div class="form-group">
+								<label for="recipient-name" class="control-label"></label> <input
+									type="text" class="form-control" id="recipient-name"
+									placeholder="아이디를 입력해 주세요." required autofocus>
+							</div>
+							<div class="form-group">
 								<label for="message-text" class="control-label"></label> <input
 									type="text" class="form-control" id="recipient-name"
 									placeholder="비밀번호를 입력해 주세요." required autofocus>

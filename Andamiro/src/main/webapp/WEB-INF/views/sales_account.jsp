@@ -5,17 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./Resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
-<script src="./Resource/js/bootstrap.min.js"></script>
-<link href="Resource/css/fullcalendar.css" rel='stylesheet'>
-<link href="Resource/css/fullcalendar.print.css" rel='stylesheet'
+<script src="./resources/js/bootstrap.min.js"></script>
+<link href="./resources/css/fullcalendar.css" rel='stylesheet'>
+<link href="./resources/css/fullcalendar.print.css" rel='stylesheet'
 	media='print'>
-<script src="Resource/js/fullcalendar.js" type="text/javascript"></script>
+<script src="./resources/js/fullcalendar.js" type="text/javascript"></script>
 <script>
 	$(document).ready(
 			function() {
