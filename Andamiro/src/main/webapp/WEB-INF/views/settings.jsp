@@ -87,17 +87,10 @@
 						</a></td>
 					</tr>
 					<td><a>
-							<button type="button" id="money">돈통</button>
+							<button type="button" id="money">테이블 관리</button>
 					</a></td>
 					<tr>
-						<!-- 
-						<td><a>
-								<form action="#.jsp">
-									<input type="submit" value="메뉴관리 " id="menuSettings">
-								</form>
-						</a></td>
-						</td>
-						 -->
+
 						<td><a>
 								<form action="sales_account.do">
 									<input type="submit" value="매출 확인 " id="sales_account">
@@ -105,9 +98,10 @@
 						</a></td>
 						<td><a>
 								<form action="#.jsp">
-									<input type="submit" value="프로그램 재시작 " id="restart">
+									<input type="submit" value="메뉴관리 " id="menuSettings">
 								</form>
 						</a></td>
+						</td>
 					</tr>
 				</tbody>
 			</table>

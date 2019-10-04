@@ -42,4 +42,8 @@ public class HomeController {
 	public String sales_account(Locale locale, Model model) {
 		return "sales_account";
 	}
+	@RequestMapping(value = "/table_settings.do", method = RequestMethod.GET)
+	public String table_settings(Locale locale, Model model) {
+		return "table_settings";
+	}
 }
