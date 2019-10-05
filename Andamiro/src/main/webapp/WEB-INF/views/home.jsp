@@ -16,7 +16,25 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="./resources/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
+	rel="stylesheet">
 
+<link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
+
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/magnific-popup.css">
+<link rel="stylesheet" href="./resources/css/jquery-ui.css">
+<link rel="stylesheet" href="./resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./resources/css/owl.theme.default.min.css">
+
+<link rel="stylesheet" href="./resources/css/bootstrap-datepicker.css">
+
+<link rel="stylesheet"
+	href="./resources/fonts/flaticon/font/flaticon.css">
+
+<link rel="stylesheet" href="./resources/css/aos.css">
+
+<link rel="stylesheet" href="./resources/css/style.css">
 <style>
 #ImageSettings {
 	max-width: 300px;
@@ -24,53 +42,120 @@
 }
 </style>
 </head>
-<body>
-	<div class="row">
-		<div class="col-xs-6 col-md-3">
-			<table style="margin-left: auto; margin-right: auto;">
-				<tr>
-					<td><div class="thumbnail" data-toggle="modal"
-							data-target="#exampleModal" data-whatever="@mdo">
-							<img src="./resources/image/twosome.png" id="ImageSettings">
-						</div></td>
-					<td><a href="main.jsp" class="thumbnail"> <img
-							src="./resources/image/def.jpg" id="ImageSettings"></a></td>
-				</tr>
-			</table>
-		</div>
-	</div>
+<body data-spy="scroll" data-target=".site-navbar-target"
+	data-offset="300">
+	<div class="site-wrap" id="home-section">
 
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-
-					<h4 class="modal-title" id="exampleModalLabel">Login</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form>
-						<div class="form-group">
-							<label for="message-text" class="control-label"></label> <input
-								type="text" class="form-control" id="recipient-name"
-								placeholder="비밀번호를 입력해 주세요." required autofocus>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-
-					<form action="settings.do">
-						<input class="btn btn-success" type="submit" value="login">
-					</form>
+		<div class="site-mobile-menu site-navbar-target">
+			<div class="site-mobile-menu-header">
+				<div class="site-mobile-menu-close mt-3">
+					<span class="icon-close2 js-menu-toggle"></span>
 				</div>
 			</div>
+			<div class="site-mobile-menu-body"></div>
+		</div>
+
+
+		<header class="site-navbar js-sticky-header site-navbar-target"
+			role="banner">
+
+			<div class="container">
+				<div class="row align-items-center position-relative">
+					<div class="site-logo">
+						<a href="index.do" class="text-black"><span
+							class="text-primary">Andamiro</span></a>
+					</div>
+
+					<nav class="site-navigation text-center ml-auto" role="navigation">
+
+						<ul
+							class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+							<li><a href="index.do" class="nav-link">Home</a></li>
+							<!-- <li><a href="#investors-section" class="nav-link">여기 나중에 사장이 볼거</a></li> -->
+							<li><a href="join_admin.do" class="nav-link">Join</a></li>
+							<li><a href="#" class="nav-link" data-toggle="modal"
+								data-target="#exampleModal" data-whatever="@mdo">Login </a></li>
+						</ul>
+					</nav>
+
+					<div class="toggle-button d-inline-block d-lg-none">
+						<a href="#"
+							class="site-menu-toggle py-5 js-menu-toggle text-black"><span
+							class="icon-menu h3"></span></a>
+					</div>
+				</div>
+			</div>
+
+		</header>
+
+		<div class="row">
+			<div class="col-xs-6 col-md-3">
+				<table style="margin-left: auto; margin-right: auto;">
+					<tr>
+						<td><div class="thumbnail" data-toggle="modal"
+								data-target="#exampleModal" data-whatever="@mdo">
+								<img src="./resources/image/twosome.png" id="ImageSettings">
+							</div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+
+						<h4 class="modal-title" id="exampleModalLabel">Login</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="message-text" class="control-label"></label> <input
+									type="text" class="form-control" id="recipient-name"
+									placeholder="비밀번호를 입력해 주세요." required autofocus>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+						<form action="settings.do">
+							<input class="btn btn-success" type="submit" value="login">
+						</form>
+					</div>
+				</div>
+			</div>
+			<footer class="bg- py-3 fixed-bottom">
+				<div class="container">
+					<div class="small text-center text-muted">
+						<p>
+							Copyright &copy;
+							<script>
+								document.write(new Date().getFullYear());
+							</script>
+							Andamiro
+						</p>
+					</div>
+				</div>
+			</footer>
 		</div>
 	</div>
-
+	<script src="./resources/js/jquery-3.3.1.min.js"></script>
+	<script src="./resources/js/jquery-ui.js"></script>
+	<script src="./resources/js/popper.min.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/js/owl.carousel.min.js"></script>
+	<script src="./resources/js/jquery.magnific-popup.min.js"></script>
+	<script src="./resources/js/jquery.sticky.js"></script>
+	<script src="./resources/js/jquery.waypoints.min.js"></script>
+	<script src="./resources/js/jquery.animateNumber.min.js"></script>
+	<script src="./resources/js/aos.js"></script>
+	<script src="./resources/js/main.js"></script>
 </body>
 </html>

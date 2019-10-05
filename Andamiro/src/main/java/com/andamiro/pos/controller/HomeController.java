@@ -46,4 +46,8 @@ public class HomeController {
 	public String table_settings(Locale locale, Model model) {
 		return "table_settings";
 	}
+	@RequestMapping(value = "/join_admin.do", method = RequestMethod.GET)
+	public String join_admin(Locale locale, Model model) {
+		return "join_admin";
+	}
 }
