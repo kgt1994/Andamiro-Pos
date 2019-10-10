@@ -90,24 +90,22 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form>
+					
+						<form action="login.do" method="post">
 							<div class="form-group">
-								<label for="message-text" class="control-label"></label> <input
-									type="text" class="form-control" id="recipient-name"
-									placeholder="id" required autofocus>
+								<label for="recipient-name" class="control-label"></label> 
+								<input type="text" class="form-control" name="id"
+									placeholder="아이디를 입력해 주세요." required autofocus>
 							</div>
 							<div class="form-group">
-								<label for="message-text" class="control-label"></label> <input
-									type="text" class="form-control" id="recipient-name"
-									placeholder="password" required autofocus>
+								<label for="message-text" class="control-label"></label> 
+								<input type="password" class="form-control" name="pw"
+									placeholder="비밀번호를 입력해 주세요." required autofocus>
 							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-
-						<form action="login.do">
-							<input class="btn btn-success" type="submit" value="login">
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+								<input class="btn btn-success" type="submit" value="login">
+							</div>
 						</form>
 					</div>
 				</div>
