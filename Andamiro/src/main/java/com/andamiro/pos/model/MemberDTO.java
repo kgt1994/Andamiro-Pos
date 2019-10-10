@@ -19,9 +19,6 @@ public class MemberDTO {
     @Pattern(regexp = "[0-9]{10,11}", message = "10~11자리의 숫자만 입력가능합니다")
 	private String phone;
 	
-	
-	private String gender;
-	
 	@NotBlank(message = "메일을 입력 해주세요.")
     @Email(message = "메일의 양식을 지켜주세요.")
 	private String email;
@@ -56,12 +53,6 @@ public class MemberDTO {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
 	}
 	public String getEmail() {
 		return email;

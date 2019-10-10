@@ -4,8 +4,15 @@
 <mapper namespace="memberService" >
 
 	<insert id="insertMember" parameterType="MemberDTO">
-		INSERT INTO MEMBER(MEMBER_NUMBER, MEMBER_ID, MEMBER_PW, MEMBER_NAME, PHONE, GENDER, EMAIL)
-		VALUES ((SELECT NVL(MAX(MEMBER_NUMBER), 0) + 1 FROM MEMBER),#{id},#{pw},#{name},#{phone},#{gender},#{email})
+		INSERT INTO MEMBER(ID, PW, NAME, EMAIL, PHONE)
+		SELECT #{id},#{pw},#{name},#{email},#{phone} FROM DUAL
+		WHERE NOT EXISTS(SELECT * FROM MEMBER WHERE ID=#{id})
 	</insert>
+	
+	<select id="selectMember" parameterType="LoginDTO" resultType="LoginDTO">
+		SELECT ID, NAME
+		FROM MEMBER
+		WHERE ID=#{id} AND PW=#{pw}
+	</select>
 
 </mapper>

@@ -6,9 +6,7 @@
 	<typeAliases>
 	<typeAlias type="com.andamiro.pos.model.MemberDTO" alias="MemberDTO"></typeAlias>
 	<typeAlias type="com.andamiro.pos.service.IMemberService" alias="memberService"></typeAlias>
-	<!--
-		<typeAlias type="com.andamiro.pos.model.LoginDTO" alias="LoginDTO"></typeAlias>
-		-->
+	<typeAlias type="com.andamiro.pos.model.LoginDTO" alias="LoginDTO"></typeAlias>
 	</typeAliases>
 	
 	<mappers>

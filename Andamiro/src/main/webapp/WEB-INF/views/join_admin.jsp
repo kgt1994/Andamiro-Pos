@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,55 +40,65 @@
 				<div class="card card-signin my-5">
 					<div class="card-body">
 						<h5 class="card-title text-center">회원가입</h5>
-						<form>
-							<!-- form class="form-label-group"-->
+						
+						<!-- form class="form-label-group"-->
+						<form:form modelAttribute="memberDTO" name="memberDTO"
+							class="form-horizontal" role="form" action="join.do"
+							method="post">
 							<div class="form-group">
-								<span class="glyphicon glyphicon-user" aria-hidden="true">
-									<input type="text" class="form-control" id="recipient-name"
-									placeholder="이름를 입력해 주세요." required autofocus>
-								</span>
-							</div>
-							<div class="form-group">
-								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-								<input type="text" class="form-control" id="recipient-name"
-									placeholder="아이디를 입력해 주세요." required autofocus>
-							</div>
-							<div class="form-group">
-								<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-								<input type="text" class="form-control" id="recipient-name"
-									placeholder="비밀번호를 입력해 주세요." required autofocus>
-							</div>
-							<div class="form-group">
-								<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-								<input type="text" class="form-control" id="recipient-name"
-									placeholder="비밀번호를 재입력 해주세요." required autofocus>
-							</div>
-							<div class="form-group">
-								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-								<input type="text" class="form-control" id="recipient-name"
-									placeholder="host123@example.com" required autofocus>
-							</div>
-							<div class="form-group">
+								<label for="recipient-name" class="control-label"></label>
 								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-								<input type="text" class="form-control" id="recipient-name"
-									placeholder="'-'없이 입력" required autofocus>
+								<form:input path="id" type="text" class="form-control" name="id"
+									placeholder="아이디를 입력해 주세요." />
+								<form:errors path="id" cssClass="error" />
 							</div>
-							<div>
-								<input class="btn btn-lg btn-dark btn-block text-uppercase"
-									type="submit" value="가입하기" onclick="join_click();">
+							<div class="form-group">
+								<label for="message-text" class="control-label"></label>
+								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+								<form:input path="pw" type="password" class="form-control"
+									name="pw" placeholder="비밀번호를 입력해 주세요." />
+								<form:errors path="pw" cssClass="error" />
 							</div>
-						</form>
+							<div class="form-group">
+								<label for="message-text" class="control-label"></label>
+								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+								<form:input path="checkPw" type="password" class="form-control"
+									name="checkPw" placeholder="비밀번호를 재입력 해주세요." />
+								<form:errors path="checkPw" cssClass="error" />
+							</div>
+							<div class="form-group">
+								<label for="recipient-name" class="control-label"></label>
+								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+								<form:input path="name" type="text" class="form-control"
+									name="name" placeholder="이름를 입력해 주세요." />
+								<form:errors path="name" cssClass="error" />
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="control-label"></label>
+								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+								<form:input path="email" type="text" class="form-control"
+									name="email" placeholder="이메일를 입력해 주세요" />
+								<form:errors path="email" cssClass="error" />
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="control-label"></label>
+								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+								<form:input path="phone" type="text" class="form-control"
+									name="phone" placeholder="휴대폰 번호를 입력해주세요" />
+								<form:errors path="phone" cssClass="error" />
+							</div>
+							<div class="modal-footer">
+								<input type="reset" class="btn btn-danger" data-dismiss="modal"
+									value="Close" /> 
+								<input type="submit" class="btn btn-lg btn-dark btn-block text-uppercase"
+									value="가입하기" />
+							</div>
+						</form:form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		function join_click() {
-			alert("회원가입이 완료되었습니다!");
-
-		}
-	</script>
 	<script src="./resources/js/jquery-3.3.1.min.js"></script>
 	<script src="./resources/js/jquery-ui.js"></script>
 	<script src="./resources/js/popper.min.js"></script>
