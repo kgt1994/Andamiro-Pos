@@ -186,6 +186,7 @@
 				</div>
 			</footer>
 		</div>
+
 		<script src="./resources/js/jquery-3.3.1.min.js"></script>
 		<script src="./resources/js/jquery-ui.js"></script>
 		<script src="./resources/js/popper.min.js"></script>

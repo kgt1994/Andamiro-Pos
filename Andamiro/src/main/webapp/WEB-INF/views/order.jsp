@@ -116,10 +116,12 @@
 		<section>
 			<table class="table">
 				<thead>
-					<th style="width: 144px">메뉴 이름</th>
-					<th style="width: 144px">단가</th>
-					<th style="width: 144px">수량</th>
-					<th style="width: 165px">가격</th>
+					<tr>
+						<th style="width: 144px">메뉴 이름</th>
+						<th style="width: 144px">단가</th>
+						<th style="width: 144px">수량</th>
+						<th style="width: 165px">가격</th>
+					<tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -178,51 +180,39 @@
 					</tr>
 				</tbody>
 				<tfoot>
-					<th style="width: 144px">
-						<button type="button" class="btn btn-warning">전체취소</button>
-					</th>
-					<th style="width: 144px">
-						<button type="button" class="btn btn-warning">선택취소</button>
-					</th>
-					<th style="width: 144px">
-						<button type="button" class="btn btn-warning">+</button>
-					</th>
-					<th style="width: 165px">
-						<button type="button" class="btn btn-warning">-</button>
-					</th>
+					<tr>
+						<th style="width: 144px">
+							<button type="button" class="btn btn-warning">전체취소</button>
+						</th>
+						<th style="width: 144px">
+							<button type="button" class="btn btn-warning">선택취소</button>
+						</th>
+						<th style="width: 144px">
+							<button type="button" class="btn btn-warning">+</button>
+						</th>
+						<th style="width: 165px">
+							<button type="button" class="btn btn-warning">-</button>
+						</th>
+					</tr>
 				</tfoot>
 			</table>
+
+
 			<aside>
 				<table class="table table-bordered">
 					<tbody>
-						<tr>
-							<td><button type="button" class="btn btn-warning"
-									data-dismiss="modal">아메리카노</button></td>
-							<td><button type="button" class="btn btn-warning"
-									data-dismiss="modal">카페 라떼</button></td>
-							<td><button type="button" class="btn btn-warning"
-									data-dismiss="modal">밀크티</button></td>
-						</tr>
-						<tr>
-							<td><button type="button" class="btn btn-warning"
-									data-dismiss="modal">바닐라라떼</button></td>
-							<td><button type="button" class="btn btn-warning"
-									data-dismiss="modal">퐁크러쉬</button></td>
-							<td><button type="button" class="btn btn-warning"
-									data-dismiss="modal">딸기라떼</button></td>
-						</tr>
-						<tr>
-							<td><button type="button" class="btn btn-warning"
-									data-dismiss="modal">오곡주스</button></td>
-							<td><button type="button" class="btn btn-warning"
-									data-dismiss="modal">딸기요거트스무디</button></td>
-							<td><button type="button" class="btn btn-warning"
-									data-dismiss="modal">유니콘프라페</button></td>
+						<tr class="price">
+							<td><button class="btn btn-warning" value="4000">아메리카노</button></td>
+							<td><button class="btn btn-warning" value="4500">카페
+									라떼</button></td>
+							<td><button class="btn btn-warning" value="5000">밀크티</button></td>
 						</tr>
 					</tbody>
 				</table>
 			</aside>
 		</section>
+
+
 		<div class="modal fade" id="money" tabindex="-1" role="dialog"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -240,58 +230,52 @@
 							<div class="form-group form-group-sm">
 								<label for="formGroupInputSmall">결제 금액</label>
 								<div class="col-sm-10">
-									<input class="form-control" type="text"
-										id="formGroupInputSmall" placeholder="4000">
+									<input type="text" class="form-control" id="priceNumber">
 								</div>
 							</div>
 							<div class="form-group form-group-sm">
 								<label for="formGroupInputSmall">받은 금액</label>
+								<div class="col-sm-10" id="pay">
+									<input class="form-control" type="text" id="Input_Price">
+								</div>
 								<div class="col-sm-10">
-									<input class="form-control" type="text"
-										id="formGroupInputSmall" placeholder="5000">
+									<button type="button" class="btn btn-success">개인 소득공재용</button>
+									<button type="button" class="btn btn-success">사업자
+										소득공재용</button>
+
+									<input type="text" class="form-control" id="phoneNumber"
+										placeholder="'-'없이 입력">
 								</div>
 							</div>
 						</form>
 						<table class="table">
 							<tbody>
 								<tr>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">1</button></td>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">2</button></td>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">3</button></td>
+									<td><button class="number" id="1">1</button></td>
+									<td><button type="button" class="number" id="2">2</button></td>
+									<td><button type="button" class="number" id="3">3</button></td>
 								</tr>
 								<tr>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">4</button></td>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">5</button></td>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">6</button></td>
+									<td><button type="button" class="number" id="4">4</button></td>
+									<td><button type="button" class="number" id="5">5</button></td>
+									<td><button type="button" class="number" id="6">6</button></td>
 								</tr>
 								<tr>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">7</button></td>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">8</button></td>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">9</button></td>
+									<td><button type="button" class="number" id="7">7</button></td>
+									<td><button type="button" class="number" id="8">8</button></td>
+									<td><button type="button" class="number" id="9">9</button></td>
 								</tr>
 								<tr>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">0</button></td>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal"><-</button></td>
-									<td><button type="button" class="btn btn-danger"
-											data-dismiss="modal">ch</button></td>
+									<td><button type="button" class="btn btn-warning">CH</button></td>
+									<td><button type="button" class="number" id="0">0</button></td>
+									<td><button type="button" class="btn btn-warning"><-</button></td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-success" data-dismiss="modal">결제하기</button>
+						<button type="button" class="btn btn-success">결제하기</button>
 					</div>
 				</div>
 			</div>
@@ -302,7 +286,43 @@
 			<button type="button" class="btn btn-warning btn-lg"
 				data-toggle="modal" data-target="#money" data-whatever="@mdo">현금</button>
 		</div>
+		<!-- <script>
+			//추가 버튼
+			$(document)
+					.on(
+							"click",
+							"button[name=addStaff]",
+							function() {
 
+								var addStaffText = '<tr name="trStaff">'
+										+ '   <td class="active col-md-1"><strong>정산담당자</strong></td>'
+										+ '   <td class="col-md-11">'
+										+ '       <input type="text" class="form-control" name="staff_name" placeholder="성명">'
+										+ '       <input type="text" class="form-control" name="staff_contact" placeholder="연락처1">'
+										+ '       <input type="text" class="form-control" name="staff_contact2" placeholder="연락처2">'
+										+ '       <input type="text" class="form-control" name="staff_email" placeholder="이메일">'
+										+ '       <select class="form-control statusYn" name="staff_use_yn">'
+										+ '           <option value="Y">사용</option>'
+										+ '           <option value="N">미사용</option>'
+										+ '       </select>'
+										+ '       <button class="btn btn-default" name="delStaff">삭제</button>'
+										+ '   </td>' + '</tr>';
+
+								var trHtml = $("tr[name=trStaff]:last"); //last를 사용하여 trStaff라는 명을 가진 마지막 태그 호출
+
+								trHtml.after(addStaffText); //마지막 trStaff명 뒤에 붙인다.
+
+							});
+
+			//삭제 버튼
+			$(document).on("click", "button[name=delStaff]", function() {
+
+				var trHtml = $(this).parent().parent();
+
+				trHtml.remove(); //tr 테그 삭제
+
+			});
+		</script> -->
 
 		<!-- Footer -->
 		<footer class="bg-light py-3 fixed-bottom">

@@ -1,195 +1,119 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-
-jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다)
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요
 <script src="./resources/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <style>
-#draggable {
-	width: 150px;
-	height: 150px;
-	padding: 0.5em;
+.droptarget {
+	width: 100px;
+	height: 100px;
+	margin: 15px;
+	padding: 10px;
+	border: 1px solid #aaaaaa;
 }
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	$(function() {
-		$("#draggable").draggable();
+		$("#droptarget").draggable();
 	});
 </script>
+
+<script>
+	/* Events fired on the drag target */
+	document
+			.addEventListener(
+					"dragstart",
+					function(event) {
+						// The dataTransfer.setData() method sets the data type and the value of the dragged data
+						event.dataTransfer.setData("Text", event.target.id);
+
+						// Output some text when starting to drag the p element
+						document.getElementById("demo").innerHTML = "Started to drag the p element.";
+
+						// Change the opacity of the draggable element
+						event.target.style.opacity = "0.4";
+					});
+
+	// While dragging the p element, change the color of the output text
+	document.addEventListener("drag", function(event) {
+		document.getElementById("demo").style.color = "red";
+	});
+
+	// Output some text when finished dragging the p element and reset the opacity
+	document
+			.addEventListener(
+					"dragend",
+					function(event) {
+						document.getElementById("demo").innerHTML = "Finished dragging the p element.";
+						event.target.style.opacity = "1";
+					});
+
+	/* Events fired on the drop target */
+
+	// When the draggable p element enters the droptarget, change the DIVS's border style
+	document.addEventListener("dragenter", function(event) {
+		if (event.target.className == "droptarget") {
+			event.target.style.border = "3px dotted red";
+		}
+	});
+
+	// By default, data/elements cannot be dropped in other elements. To allow a drop, we must prevent the default handling of the element
+	document.addEventListener("dragover", function(event) {
+		event.preventDefault();
+	});
+
+	// When the draggable p element leaves the droptarget, reset the DIVS's border style
+	document.addEventListener("dragleave", function(event) {
+		if (event.target.className == "droptarget") {
+			event.target.style.border = "";
+
+		}
+	});
+
+	/* On drop - Prevent the browser default handling of the data (default is open as link on drop)
+	 Reset the color of the output text and DIV's border color
+	 Get the dragged data with the dataTransfer.getData() method
+	 The dragged data is the id of the dragged element ("drag1")
+	 Append the dragged element into the drop element
+	 */
+	document.addEventListener("drop", function(event) {
+		event.preventDefault();
+		if (event.target.className == "droptarget") {
+			document.getElementById("demo").style.color = "";
+			event.target.style.border = "";
+			var data = event.dataTransfer.getData("Text");
+			event.target.appendChild(document.getElementById(data));
+		}
+	});
+</script>
+
 </head>
 <body>
-
-	<div id="draggable" class="ui-widget-content">
+	<div id="droptarget" class="ui-widget-content">
 		<p>Drag me around</p>
 	</div>
-</body>
-</html> -->
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Drag and Drop Interaction Ideas | Modal</title>
-<meta name="description"
-	content="Inspiration for drag and drop interactions for the modern UI" />
-<meta name="keywords"
-	content="drag and drop, interaction, inspiration, web design, ui" />
-<meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="../favicon.ico">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/normalize.css" />
-<link rel="stylesheet" type="text/css"
-	href="fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css" href="./resources/css/demo.css" />
-<link rel="stylesheet" type="text/css" href="./resources/css/modal.css" />
-<script src="./resources/js/modernizr.custom.js"></script>
-</head>
-<body class="skin-3">
-	<div class="container">
-		<div class="content">
-			<div id="grid" class="grid clearfix">
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-archive-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-image-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-word-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-excel-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-code-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-pdf-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-code-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-sound-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-video-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-archive-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-image-o"></i>
-				</div>
-				<div class="grid__item">
-					<i class="fa fa-fw fa-file-sound-o"></i>
-				</div>
-			</div>
+	
+	<div class="droptarget">
+		<div draggable="true" id="dragtarget">
+			<input type="button" value="버튼"> <input type="button"
+				value="버튼2">
 		</div>
-		<!-- /content -->
 	</div>
-	<!-- /container -->
-	<div id="drop-area" class="drop-area">
-		<div class="drop-area__item"></div>
-		<div class="drop-area__item"></div>
-	</div>
-	<div class="drop-overlay"></div>
-	<script src="./resources/js/draggabilly.pkgd.min.js"></script>
-	<script src="./resources/js/dragdrop.js"></script>
-	<script>
-		(function() {
-			var body = document.body, dropArea = document
-					.getElementById('drop-area'), droppableArr = [], dropAreaTimeout;
 
-			// initialize droppables
-			[].slice
-					.call(
-							document
-									.querySelectorAll('#drop-area .drop-area__item'))
-					.forEach(
-							function(el) {
-								droppableArr
-										.push(new Droppable(
-												el,
-												{
-													onDrop : function(instance,
-															draggableEl) {
-														// show checkmark inside the droppabe element
-														classie
-																.add(
-																		instance.el,
-																		'drop-feedback');
-														clearTimeout(instance.checkmarkTimeout);
-														instance.checkmarkTimeout = setTimeout(
-																function() {
-																	classie
-																			.remove(
-																					instance.el,
-																					'drop-feedback');
-																}, 800);
-														// ...
-													}
-												}));
-							});
+	<div class="droptarget" style="width: 900px; height: 800px">여기다
+		테이블 배치</div>
 
-			// initialize draggable(s)
-			[].slice
-					.call(document.querySelectorAll('#grid .grid__item'))
-					.forEach(
-							function(el) {
-								new Draggable(
-										el,
-										droppableArr,
-										{
-											draggabilly : {
-												containment : document.body
-											},
-											onStart : function() {
-												// add class 'drag-active' to body
-												classie
-														.add(body,
-																'drag-active');
-												// clear timeout: dropAreaTimeout (toggle drop area)
-												clearTimeout(dropAreaTimeout);
-												// show dropArea
-												classie.add(dropArea, 'show');
-											},
-											onEnd : function(wasDropped) {
-												var afterDropFn = function() {
-													// hide dropArea
-													classie.remove(dropArea,
-															'show');
-													// remove class 'drag-active' from body
-													classie.remove(body,
-															'drag-active');
-												};
-
-												if (!wasDropped) {
-													afterDropFn();
-												} else {
-													// after some time hide drop area and remove class 'drag-active' from body
-													clearTimeout(dropAreaTimeout);
-													dropAreaTimeout = setTimeout(
-															afterDropFn, 400);
-												}
-											}
-										});
-							});
-		})();
-	</script>
+	<p id="demo"></p>
 </body>
 </html>
