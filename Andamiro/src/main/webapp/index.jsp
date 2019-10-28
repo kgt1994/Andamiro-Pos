@@ -118,7 +118,7 @@
 				<div class="container">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-md-12 col-lg-7 text-center">
-							<h1>장점이 뭐가 있을까 윤수야</h1>
+							<h1>장점이 뭐가 있을까 윤수야 - 몰라 희수야</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 								Vel minima quasi quisquam, alias doloremque magni.</p>
 							<p>
