@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,13 +28,19 @@
 <link rel="stylesheet" href="./resources/css/aos.css">
 
 <link rel="stylesheet" href="./resources/css/style.css">
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        var responseMessage = "<c:out value="${msg}" />";
+        if(responseMessage != ""){
+            alert(responseMessage)
+        }
+    }) 
+</script>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
-
 	<div class="site-wrap" id="home-section">
-
 		<div class="site-mobile-menu site-navbar-target">
 			<div class="site-mobile-menu-header">
 				<div class="site-mobile-menu-close mt-3">
@@ -50,7 +57,7 @@
 			<div class="container">
 				<div class="row align-items-center position-relative">
 					<div class="site-logo">
-						<a href="index.do" class="text-black"><span
+						<a href="main.do" class="text-black"><span
 							class="text-primary">Andamiro</span></a>
 					</div>
 
@@ -58,6 +65,7 @@
 
 						<ul
 							class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+							<li><a href="main.do" class="nav-link">Home</a></li>
 							<!-- <li><a href="#investors-section" class="nav-link">여기 나중에 사장이 볼거</a></li> -->
 							<li><a href="join_admin.do" class="nav-link">Join</a></li>
 							<li><a href="#" class="nav-link" data-toggle="modal"
@@ -118,7 +126,7 @@
 				<div class="container">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-md-12 col-lg-7 text-center">
-							<h1>장점이 뭐가 있을까 윤수야 - 몰라 희수야</h1>
+							<h1>Andamiro 포스기 제작 중 입니다.</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 								Vel minima quasi quisquam, alias doloremque magni.</p>
 							<p>
@@ -136,7 +144,7 @@
 				<div class="container">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-md-12 col-lg-7 text-center">
-							<h1>장점 입좀 털어바 - 기다려봐</h1>
+							<h1>Andamiro 포스기 제작 중 입니다.</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 								Vel minima quasi quisquam, alias doloremque magni.</p>
 							<p>

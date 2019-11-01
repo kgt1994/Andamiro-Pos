@@ -55,7 +55,6 @@
 			<div class="site-mobile-menu-body"></div>
 		</div>
 
-
 		<header class="site-navbar js-sticky-header site-navbar-target"
 			role="banner">
 
@@ -113,22 +112,22 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body">
-						<form>
+
+					<form action="shoppw.do" method="post">
+						<div class="modal-body">
 							<div class="form-group">
-								<label for="message-text" class="control-label"></label> <input
-									type="text" class="form-control" id="recipient-name"
+								<label for="message-text" class="control-label"></label> 
+								<input type="password" class="form-control" name="shop_pw"
 									placeholder="비밀번호를 입력해 주세요." required autofocus>
 							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-
-						<form action="settings.do">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 							<input class="btn btn-success" type="submit" value="login">
-						</form>
-					</div>
+						</div>
+					</form>
+
+
 				</div>
 			</div>
 			<footer class="bg- py-3 fixed-bottom">

@@ -13,44 +13,50 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.andamiro.pos.model.LoginDTO;
 import com.andamiro.pos.model.MemberDTO;
 import com.andamiro.pos.service.IMemberService;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
+@SessionAttributes("user")
 public class HomeController {
 	@Autowired
 	IMemberService MemberService;
 	@Autowired
 	HttpSession session;
 
-	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
+	@RequestMapping(value = "main.do", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
 		return "../../index";
 	}
 
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public ModelAndView home(LoginDTO dto, HttpServletRequest request) {
 		dto = MemberService.selectMember(dto);
 		if (dto == null) {
-			ModelAndView mv = new ModelAndView("/index");
+			ModelAndView mv = new ModelAndView("../../index");
 			mv.addObject("msg", "아이디와 비밀번호를 확인 해 주세요.");
 			return mv;
 		} else {
-			ModelAndView mv = new ModelAndView("/home");
+			ModelAndView mv = new ModelAndView("home");
 			session = request.getSession(true);
-			session.setAttribute("member", dto);
+			session.setAttribute("user", dto);
 
 			return mv;
 		}
 	}
 
-	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
+	@RequestMapping(value = "logout.do", method = RequestMethod.POST)
+	public String logout() {
+		session.invalidate();
+
+		return "../../index";
+	}
+
+	@RequestMapping(value = "join.do", method = RequestMethod.POST)
 	public String join(@ModelAttribute("memberDTO") @Valid MemberDTO memberDTO, BindingResult bindingResult) {
 		System.out.println("가입시도");
 
@@ -82,27 +88,35 @@ public class HomeController {
 			return "join_admin";
 		}
 	}
-	
-	@RequestMapping(value = "/settings.do", method = RequestMethod.GET)
+
+	@RequestMapping(value = "settings.do", method = RequestMethod.GET)
 	public String settings(Locale locale, Model model) {
 		return "settings";
 	}
 
-	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
+	@RequestMapping(value = "order.do", method = RequestMethod.GET)
 	public String order(Locale locale, Model model) {
 		return "order";
 	}
 
-	@RequestMapping(value = "/sales_account.do", method = RequestMethod.GET)
+	@RequestMapping(value = "sales_account.do", method = RequestMethod.GET)
 	public String sales_account(Locale locale, Model model) {
 		return "sales_account";
 	}
-	@RequestMapping(value = "/table_settings.do", method = RequestMethod.GET)
+
+	@RequestMapping(value = "table_settings.do", method = RequestMethod.GET)
 	public String table_settings(Locale locale, Model model) {
 		return "table_settings";
 	}
-	@RequestMapping(value = "/join_admin.do", method = RequestMethod.GET)
+
+	@RequestMapping(value = "join_admin.do", method = RequestMethod.GET)
 	public String join_admin(@ModelAttribute("memberDTO") MemberDTO memberDTO, Model model) {
 		return "join_admin";
+	}
+
+	@RequestMapping(value = "shoppw.do", method = RequestMethod.POST)
+	public String shoppw(@ModelAttribute("memberDTO") MemberDTO memberDTO, Model model) {
+
+		return "settings";
 	}
 }

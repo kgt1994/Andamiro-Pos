@@ -83,7 +83,6 @@
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
 	<div class="site-wrap" id="home-section">
-
 		<div class="site-mobile-menu site-navbar-target">
 			<div class="site-mobile-menu-header">
 				<div class="site-mobile-menu-close mt-3">
@@ -98,7 +97,7 @@
 			<div class="container">
 				<div class="row align-items-center position-relative">
 					<div class="site-logo">
-						<a href="index.do" class="text-black"><span
+						<a href="main.do" class="text-black"><span
 							class="text-primary">Andamiro</span></a>
 					</div>
 
@@ -106,7 +105,7 @@
 
 						<ul
 							class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-							<li><a href="index.do" class="nav-link">Home</a></li>
+							<li><a href="main.do" class="nav-link">Home</a></li>
 							<!-- <li><a href="#investors-section" class="nav-link">여기 나중에 사장이 볼거</a></li> -->
 							<li><a href="join_admin.do" class="nav-link">Join</a></li>
 							<li><a href="#" class="nav-link" data-toggle="modal"
@@ -186,7 +185,6 @@
 				</div>
 			</footer>
 		</div>
-
 		<script src="./resources/js/jquery-3.3.1.min.js"></script>
 		<script src="./resources/js/jquery-ui.js"></script>
 		<script src="./resources/js/popper.min.js"></script>
