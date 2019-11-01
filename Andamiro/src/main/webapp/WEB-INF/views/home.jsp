@@ -1,7 +1,12 @@
+<%@page import="com.andamiro.pos.model.MemberDTO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%
+		String name;
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,28 +18,20 @@
 
 <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="./resources/js/bootstrap.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
-	rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
 <link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
-
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="./resources/css/magnific-popup.css">
 <link rel="stylesheet" href="./resources/css/jquery-ui.css">
 <link rel="stylesheet" href="./resources/css/owl.carousel.min.css">
 <link rel="stylesheet" href="./resources/css/owl.theme.default.min.css">
-
 <link rel="stylesheet" href="./resources/css/bootstrap-datepicker.css">
-
-<link rel="stylesheet"
-	href="./resources/fonts/flaticon/font/flaticon.css">
-
+<link rel="stylesheet" href="./resources/fonts/flaticon/font/flaticon.css">
 <link rel="stylesheet" href="./resources/css/aos.css">
-
 <link rel="stylesheet" href="./resources/css/style.css">
+
 <style>
 #ImageSettings {
 	max-width: 300px;
@@ -61,19 +58,16 @@
 			<div class="container">
 				<div class="row align-items-center position-relative">
 					<div class="site-logo">
-						<a href="index.do" class="text-black"><span
+						<a href="main.do" class="text-black"><span
 							class="text-primary">Andamiro</span></a>
 					</div>
 
 					<nav class="site-navigation text-center ml-auto" role="navigation">
-
-						<ul
-							class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-							<li><a href="index.do" class="nav-link">Home</a></li>
-							<!-- <li><a href="#investors-section" class="nav-link">여기 나중에 사장이 볼거</a></li> -->
-							<li><a href="join_admin.do" class="nav-link">Join</a></li>
-							<li><a href="#" class="nav-link" data-toggle="modal"
-								data-target="#exampleModal" data-whatever="@mdo">Login </a></li>
+						<ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+					
+						
+						<li>강근태님 안녕하세요!</li>
+						<li><a href="index.do" class="nav-link">my page</a></li>
 						</ul>
 					</nav>
 
@@ -105,7 +99,6 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-
 						<h4 class="modal-title" id="exampleModalLabel">Login</h4>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
@@ -130,6 +123,8 @@
 
 				</div>
 			</div>
+			
+			
 			<footer class="bg- py-3 fixed-bottom">
 				<div class="container">
 					<div class="small text-center text-muted">

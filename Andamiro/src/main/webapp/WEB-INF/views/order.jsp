@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%
+	String name;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,19 +92,14 @@
 			<div class="container">
 				<div class="row align-items-center position-relative">
 					<div class="site-logo">
-						<a href="index.do" class="text-black"><span
+						<a href="main.do" class="text-black"><span
 							class="text-primary">Andamiro</span></a>
 					</div>
 
 					<nav class="site-navigation text-center ml-auto" role="navigation">
-
 						<ul
 							class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-							<li><a href="index.do" class="nav-link">Home</a></li>
-							<!-- <li><a href="#investors-section" class="nav-link">여기 나중에 사장이 볼거</a></li> -->
-							<li><a href="join_admin.do" class="nav-link">Join</a></li>
-							<li><a href="#" class="nav-link" data-toggle="modal"
-								data-target="#exampleModal" data-whatever="@mdo">Login </a></li>
+							<li>님 안녕하세요!<a href="index.do" class="nav-link">my page</a></li>
 						</ul>
 					</nav>
 
@@ -113,6 +112,7 @@
 			</div>
 
 		</header>
+
 		<section>
 			<table class="table">
 				<thead>
@@ -128,54 +128,6 @@
 						<td>사과유자히비스커스</td>
 						<td>4000</td>
 						<td>1</td>
-						<td>3200</td>
-					</tr>
-					<tr>
-						<td>아메리카노</td>
-						<td>4000</td>
-						<td>2</td>
-						<td>3200</td>
-					</tr>
-					<tr>
-						<td>아메리카노</td>
-						<td>4000</td>
-						<td>3</td>
-						<td>3200</td>
-					</tr>
-					<tr>
-						<td>아메리카노</td>
-						<td>4000</td>
-						<td>4</td>
-						<td>3200</td>
-					</tr>
-					<tr>
-						<td>아메리카노</td>
-						<td>4000</td>
-						<td>5</td>
-						<td>3200</td>
-					</tr>
-					<tr>
-						<td>아메리카노</td>
-						<td>4000</td>
-						<td>6</td>
-						<td>3200</td>
-					</tr>
-					<tr>
-						<td>아메리카노</td>
-						<td>4000</td>
-						<td>7</td>
-						<td>3200</td>
-					</tr>
-					<tr>
-						<td>아메리카노</td>
-						<td>4000</td>
-						<td>8</td>
-						<td>3200</td>
-					</tr>
-					<tr>
-						<td>아메리카노</td>
-						<td>4000</td>
-						<td>9</td>
 						<td>3200</td>
 					</tr>
 				</tbody>
@@ -196,97 +148,117 @@
 					</tr>
 				</tfoot>
 			</table>
+			<table class="table table-bordered">
+				<tbody>
+					<tr class="price">
+						<td><button class="btn btn-warning" value="4000">아메리카노</button></td>
+						<td><button class="btn btn-warning" value="4500">카페
+								라떼</button></td>
+						<td><button class="btn btn-warning" value="5000">밀크티</button></td>
+					</tr>
+				</tbody>
+			</table>
 
+			<br>
+			<div class="modal fade" id="money" tabindex="-1" role="dialog"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="exampleModalLabel">현금 결제하기</h4>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal">
 
-			<aside>
-				<table class="table table-bordered">
-					<tbody>
-						<tr class="price">
-							<td><button class="btn btn-warning" value="4000">아메리카노</button></td>
-							<td><button class="btn btn-warning" value="4500">카페
-									라떼</button></td>
-							<td><button class="btn btn-warning" value="5000">밀크티</button></td>
-						</tr>
-					</tbody>
-				</table>
-			</aside>
-		</section>
-
-
-		<div class="modal fade" id="money" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title" id="exampleModalLabel">현금 결제하기</h4>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form class="form-horizontal">
-
-							<div class="form-group form-group-sm">
-								<label for="formGroupInputSmall">결제 금액</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="priceNumber">
+								<div class="form-group form-group-sm">
+									<label for="formGroupInputSmall">결제 금액</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="priceNumber">
+									</div>
 								</div>
-							</div>
-							<div class="form-group form-group-sm">
-								<label for="formGroupInputSmall">받은 금액</label>
-								<div class="col-sm-10" id="pay">
-									<input class="form-control" type="text" id="Input_Price">
-								</div>
-								<div class="col-sm-10">
-									<button type="button" class="btn btn-success">개인 소득공재용</button>
-									<button type="button" class="btn btn-success">사업자
-										소득공재용</button>
+								<div class="form-group form-group-sm">
+									<label for="formGroupInputSmall">받은 금액</label>
+									<div class="col-sm-10" id="pay">
+										<input class="form-control" type="text" id="Input_Price">
+									</div>
+									<div class="col-sm-10">
+										<button type="button" class="btn btn-success">개인
+											소득공재용</button>
+										<button type="button" class="btn btn-success">사업자
+											소득공재용</button>
 
-									<input type="text" class="form-control" id="phoneNumber"
-										placeholder="'-'없이 입력">
+										<input type="text" class="form-control" id="phoneNumber"
+											placeholder="'-'없이 입력">
+									</div>
 								</div>
-							</div>
-						</form>
-						<table class="table">
-							<tbody>
-								<tr>
-									<td><button class="number" id="1">1</button></td>
-									<td><button type="button" class="number" id="2">2</button></td>
-									<td><button type="button" class="number" id="3">3</button></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="number" id="4">4</button></td>
-									<td><button type="button" class="number" id="5">5</button></td>
-									<td><button type="button" class="number" id="6">6</button></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="number" id="7">7</button></td>
-									<td><button type="button" class="number" id="8">8</button></td>
-									<td><button type="button" class="number" id="9">9</button></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="btn btn-warning">CH</button></td>
-									<td><button type="button" class="number" id="0">0</button></td>
-									<td><button type="button" class="btn btn-warning"><-</button></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-success">결제하기</button>
+							</form>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td><button class="number" id="1">1</button></td>
+										<td><button type="button" class="number" id="2">2</button></td>
+										<td><button type="button" class="number" id="3">3</button></td>
+									</tr>
+									<tr>
+										<td><button type="button" class="number" id="4">4</button></td>
+										<td><button type="button" class="number" id="5">5</button></td>
+										<td><button type="button" class="number" id="6">6</button></td>
+									</tr>
+									<tr>
+										<td><button type="button" class="number" id="7">7</button></td>
+										<td><button type="button" class="number" id="8">8</button></td>
+										<td><button type="button" class="number" id="9">9</button></td>
+									</tr>
+									<tr>
+										<td><button type="button" class="btn btn-warning">CH</button></td>
+										<td><button type="button" class="number" id="0">0</button></td>
+										<td><button type="button" class="btn btn-warning"><-</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-success">결제하기</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="container">
-			<button type="button" class="btn btn-success btn-lg">카드</button>
-			<button type="button" class="btn btn-warning btn-lg"
-				data-toggle="modal" data-target="#money" data-whatever="@mdo">현금</button>
-		</div>
-		<!-- <script>
+			<br>
+			<div style="overflow-x: auto;">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><button class="number" id="1">할인</button></td>
+							<td><button type="button" class="number" id="2">2</button></td>
+							<td><button type="button" class="number" id="3">3</button></td>
+							<td><button type="button" class="number" id="4">4</button></td>
+							<td><button type="button" class="number" id="5">5</button></td>
+							<td><button type="button" class="number" id="6">6</button></td>
+							<td><button type="button" class="number" id="7">7</button></td>
+							<td><button type="button" class="number" id="8">8</button></td>
+							<td><button type="button" class="number" id="9">9</button></td>
+							<td><button type="button" class="btn btn-warning">CH</button></td>
+							<td><button type="button" class="number" id="0">0</button></td>
+							<td><button type="button" class="btn btn-warning"><-</button></td>
+							<td><button type="button" class="btn btn-success btn-lg">카드</button></td>
+							<td><button type="button" class="btn btn-warning btn-lg"
+									data-toggle="modal" data-target="#money" data-whatever="@mdo">현금</button></td>
+
+						</tr>
+						<tr>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<!-- <script>	
 			//추가 버튼
 			$(document)
 					.on(

@@ -103,7 +103,7 @@
 	<div id="droptarget" class="ui-widget-content">
 		<p>Drag me around</p>
 	</div>
-	
+
 	<div class="droptarget">
 		<div draggable="true" id="dragtarget">
 			<input type="button" value="¹öÆ°"> <input type="button"
