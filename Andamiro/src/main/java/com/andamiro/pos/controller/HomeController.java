@@ -1,5 +1,6 @@
 package com.andamiro.pos.controller;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -18,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.andamiro.pos.model.LoginDTO;
 import com.andamiro.pos.model.MemberDTO;
+import com.andamiro.pos.model.SessionDTO;
+import com.andamiro.pos.model.ShopDTO;
 import com.andamiro.pos.service.IMemberService;
 
 @Controller
@@ -42,8 +46,15 @@ public class HomeController {
 			return mv;
 		} else {
 			ModelAndView mv = new ModelAndView("home");
+			List<ShopDTO> shopList = MemberService.selectShop(dto);
+			SessionDTO sdto = new SessionDTO();
+			sdto.setId(dto.getId());
+			sdto.setName(dto.getName());
+			
 			session = request.getSession(true);
-			session.setAttribute("user", dto);
+			session.setAttribute("user", sdto);
+			mv.addObject("user", sdto);
+			mv.addObject("list",shopList);
 
 			return mv;
 		}
@@ -89,9 +100,16 @@ public class HomeController {
 		}
 	}
 
-	@RequestMapping(value = "settings.do", method = RequestMethod.GET)
-	public String settings(Locale locale, Model model) {
-		return "settings";
+	@RequestMapping(value = "settings/{idx}/{sn}", method = RequestMethod.GET)
+	public ModelAndView settings(@PathVariable("idx") String num, @PathVariable("sn") String name) {
+		ModelAndView mv = new ModelAndView("settings");
+		ShopDTO sdto = new ShopDTO();
+		sdto.setShop_number(Integer.parseInt(num));
+		sdto.setShop_name(name);
+		
+		mv.addObject("user", sdto);
+
+		return mv;
 	}
 
 	@RequestMapping(value = "order.do", method = RequestMethod.GET)

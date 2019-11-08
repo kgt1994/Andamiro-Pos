@@ -87,6 +87,10 @@
 								<img src="./resources/image/twosome.png" id="ImageSettings">
 							</div></td>
 					</tr>
+					<c:forEach items="${list}" var="shop">
+					<tr>
+						<td><a href='<c:url value='/settings/${shop.shop_number}/${shop.shop_name}'/>'>${shop.shop_name}</a>
+					</c:forEach>
 				</table>
 			</div>
 		</div>

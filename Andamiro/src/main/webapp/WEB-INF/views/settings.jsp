@@ -102,7 +102,7 @@
 
 					<nav class="site-navigation text-center ml-auto" role="navigation">
 						<ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-						<li>안녕하세요,twosomeplace 입니다.</li>
+						<li>안녕하세요,${user.shop_name} 입니다.</li>
 						<li><a href="index.do" class="nav-link">my page</a></li>
 							</ul>
 					</nav>
