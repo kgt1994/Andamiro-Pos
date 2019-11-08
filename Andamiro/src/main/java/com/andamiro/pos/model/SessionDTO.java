@@ -1,10 +1,11 @@
 package com.andamiro.pos.model;
 
+import java.util.List;
+
 public class SessionDTO {
 	private String id;
 	private String name;
-	private int shop_number;
-	private String shop_name;
+	List<ShopDTO> shopList;
 	
 	public String getId() {
 		return id;
@@ -18,18 +19,13 @@ public class SessionDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getShop_number() {
-		return shop_number;
+	public List<ShopDTO> getShopList() {
+		return shopList;
 	}
-	public void setShop_number(int shop_number) {
-		this.shop_number = shop_number;
+	public void setShopList(List<ShopDTO> shopList) {
+		this.shopList = shopList;
 	}
-	public String getShop_name() {
-		return shop_name;
-	}
-	public void setShop_name(String shop_name) {
-		this.shop_name = shop_name;
-	}
+	
 	
 	
 	

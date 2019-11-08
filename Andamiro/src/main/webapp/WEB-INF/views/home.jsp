@@ -3,7 +3,7 @@
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,9 +87,14 @@
 								<img src="./resources/image/twosome.png" id="ImageSettings">
 							</div></td>
 					</tr>
-					<c:forEach items="${list}" var="shop">
+					<c:forEach items="${list}" var="shop" varStatus="i">
 					<tr>
-						<td><a href='<c:url value='/settings/${shop.shop_number}/${shop.shop_name}'/>'>${shop.shop_name}</a>
+						<td>
+						<form action="settings.do?index=${i.index}" method="post">
+						<input type="hidden" value="${shop.shop_number}" name="shops[${i.index}].shop_number">
+						<input type="hidden" value="${shop.shop_name}" name="shops[${i.index}].shop_name">
+						<input type="submit" value="${shop.shop_name}">
+						</form>
 					</c:forEach>
 				</table>
 			</div>

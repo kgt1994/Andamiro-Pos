@@ -27,6 +27,17 @@
             alert(responseMessage)
         }
     }) 
+    
+    $(function(){
+        var session = "<c:out value="${user.getName()}" />";
+        if(session != ""){
+            $("#join").remove();
+            $("#login").remove();
+        }
+        else{
+        	$("#home").remove();
+        }
+    }) 
 </script>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
@@ -56,11 +67,11 @@
 
 						<ul
 							class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-							<li><a href="main.do" class="nav-link">Home</a></li>
+							<li><a href="home.do" class="nav-link" id="home">Home</a></li>
 							<!-- <li><a href="#investors-section" class="nav-link">여기 나중에 사장이 볼거</a></li> -->
-							<li><a href="join_admin.do" class="nav-link">Join</a></li>
+							<li><a href="join_admin.do" class="nav-link" id="join">Join</a></li>
 							<li><a href="#" class="nav-link" data-toggle="modal"
-								data-target="#exampleModal" data-whatever="@mdo">Login </a></li>
+								data-target="#exampleModal" data-whatever="@mdo" id="login">Login </a></li>
 						</ul>
 					</nav>
 

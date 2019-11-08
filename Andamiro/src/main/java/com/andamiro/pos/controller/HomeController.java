@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,6 +23,7 @@ import com.andamiro.pos.model.LoginDTO;
 import com.andamiro.pos.model.MemberDTO;
 import com.andamiro.pos.model.SessionDTO;
 import com.andamiro.pos.model.ShopDTO;
+import com.andamiro.pos.model.ShopRow;
 import com.andamiro.pos.service.IMemberService;
 
 @Controller
@@ -33,7 +35,7 @@ public class HomeController {
 	HttpSession session;
 
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public String index(Locale locale, Model model) {
+	public String index(@ModelAttribute("user") SessionDTO dto) {
 		return "../../index";
 	}
 
@@ -50,6 +52,7 @@ public class HomeController {
 			SessionDTO sdto = new SessionDTO();
 			sdto.setId(dto.getId());
 			sdto.setName(dto.getName());
+			sdto.setShopList(shopList);
 			
 			session = request.getSession(true);
 			session.setAttribute("user", sdto);
@@ -58,6 +61,13 @@ public class HomeController {
 
 			return mv;
 		}
+	}
+	
+	@RequestMapping(value = "home.do", method = RequestMethod.GET)
+	public ModelAndView goHome(@ModelAttribute("user") SessionDTO dto) {
+		ModelAndView mv = new ModelAndView("home");
+		mv.addObject("list", dto.getShopList());
+		return mv;
 	}
 
 	@RequestMapping(value = "logout.do", method = RequestMethod.POST)
@@ -100,14 +110,14 @@ public class HomeController {
 		}
 	}
 
-	@RequestMapping(value = "settings/{idx}/{sn}", method = RequestMethod.GET)
-	public ModelAndView settings(@PathVariable("idx") String num, @PathVariable("sn") String name) {
+	@RequestMapping(value = "settings.do{index}", method = RequestMethod.POST)
+	public ModelAndView settings(@ModelAttribute ShopRow sr, @RequestParam("index") String index) {
+		
 		ModelAndView mv = new ModelAndView("settings");
 		ShopDTO sdto = new ShopDTO();
-		sdto.setShop_number(Integer.parseInt(num));
-		sdto.setShop_name(name);
-		
-		mv.addObject("user", sdto);
+		sdto.setShop_number(sr.getShops().get(Integer.parseInt(index)).getShop_number());
+		sdto.setShop_name(sr.getShops().get(Integer.parseInt(index)).getShop_name());
+		mv.addObject("shop", sdto);
 
 		return mv;
 	}
