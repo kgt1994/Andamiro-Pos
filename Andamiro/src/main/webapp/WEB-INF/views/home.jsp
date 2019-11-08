@@ -3,10 +3,7 @@
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	<%
-		String name;
-	%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,7 +63,7 @@
 						<ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
 					
 						
-						<li>강근태님 안녕하세요!</li>
+						<li>${user.getName()}님 안녕하세요!</li>
 						<li><a href="index.do" class="nav-link">my page</a></li>
 						</ul>
 					</nav>
