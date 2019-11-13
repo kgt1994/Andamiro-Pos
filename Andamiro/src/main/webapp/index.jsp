@@ -36,6 +36,7 @@
         }
         else{
         	$("#home").remove();
+        	$("#logout").remove();
         }
     }) 
 </script>
@@ -72,6 +73,7 @@
 							<li><a href="join_admin.do" class="nav-link" id="join">Join</a></li>
 							<li><a href="#" class="nav-link" data-toggle="modal"
 								data-target="#exampleModal" data-whatever="@mdo" id="login">Login </a></li>
+							<li><a href="logout.do" class="nav-link" id="logout">Logout</a></li>
 						</ul>
 					</nav>
 
