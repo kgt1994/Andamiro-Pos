@@ -6,9 +6,11 @@
 <head>
 <title>andamiro_POS index</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
+	rel="stylesheet">
 <link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="./resources/css/magnific-popup.css">
@@ -16,10 +18,12 @@
 <link rel="stylesheet" href="./resources/css/owl.carousel.min.css">
 <link rel="stylesheet" href="./resources/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="./resources/css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="./resources/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet"
+	href="./resources/fonts/flaticon/font/flaticon.css">
 <link rel="stylesheet" href="./resources/css/aos.css">
 <link rel="stylesheet" href="./resources/css/style.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
     $(function(){
         var responseMessage = "<c:out value="${msg}" />";
@@ -29,7 +33,7 @@
     }) 
     
     $(function(){
-        var session = "<c:out value="${user.getName()}" />";
+        var session = "<c:out value=" ${user.getName()}" />";
         if(session != ""){
             $("#join").remove();
             $("#login").remove();
@@ -41,233 +45,95 @@
     }) 
 </script>
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target"
-	data-offset="300">
-	<div class="site-wrap" id="home-section">
-		<div class="site-mobile-menu site-navbar-target">
-			<div class="site-mobile-menu-header">
-				<div class="site-mobile-menu-close mt-3">
-					<span class="icon-close2 js-menu-toggle"></span>
-				</div>
+
+<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
+
+	<nav
+		class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light"
+		id="pb-navbar">
+		<div class="container">
+			<a href="main.do" class="navbar-brand">Andamiro</a>
+			<button class="navbar-toggler ml-auto" type="button"
+				data-toggle="collapse" data-target="#probootstrap-navbar"
+				aria-controls="probootstrap-navbar" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span><i class="ion-navicon"></i></span>
+			</button>
+			<div class="collapse navbar-collapse" id="probootstrap-navbar">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link active"
+						href="#section-home">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="#section-features">Features</a></li>
+					<li class="nav-item"><a class="nav-link" href="logout.do"
+						id="logout">Logout</a></li>
+					<li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a
+						class="nav-link" href="join_admin.do" target="_blank"><span
+							class="pb_rounded-4 px-4">Join</span></a></li>
+				</ul>
 			</div>
-			<div class="site-mobile-menu-body"></div>
 		</div>
+	</nav>
+	<!-- END nav -->
 
-
-		<header class="site-navbar js-sticky-header site-navbar-target"
-			role="banner">
-
-			<div class="container">
-				<div class="row align-items-center position-relative">
-					<div class="site-logo">
-						<a href="main.do" class="text-black"><span
-							class="text-primary">Andamiro</span></a>
-					</div>
-
-					<nav class="site-navigation text-center ml-auto" role="navigation">
-
-						<ul
-							class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-							<li><a href="home.do" class="nav-link" id="home">Home</a></li>
-							<!-- <li><a href="#investors-section" class="nav-link">여기 나중에 사장이 볼거</a></li> -->
-							<li><a href="join_admin.do" class="nav-link" id="join">Join</a></li>
-							<li><a href="#" class="nav-link" data-toggle="modal"
-								data-target="#exampleModal" data-whatever="@mdo" id="login">Login </a></li>
-							<li><a href="logout.do" class="nav-link" id="logout">Logout</a></li>
-						</ul>
-					</nav>
-
-					<div class="toggle-button d-inline-block d-lg-none">
-						<a href="#"
-							class="site-menu-toggle py-5 js-menu-toggle text-black"><span
-							class="icon-menu h3"></span></a>
+	<section
+		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light"
+		id="section-home">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-md-6">
+					<h2 class="heading mb-3">Andamiro_POS</h2>
+					<div class="sub-heading">
+						<a class="btn btn-success btn-lg pb_btn-pill smoothscroll"
+							href="#section-pricing"><span
+							class="pb_font-14 text-uppercase pb_letter-spacing-1">See
+								Pricing</span></a>
 					</div>
 				</div>
-			</div>
-
-		</header>
-
-		<!-- 로그인 모달  -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-
-						<h4 class="modal-title" id="exampleModalLabel">로그인</h4>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
+				<div class="col-md-1"></div>
+				<div class="col-md-5 relative align-self-center">
 					
-						<form action="login.do" method="post">
-							<div class="form-group">
-								<label for="recipient-name" class="control-label"></label> 
-								<input type="text" class="form-control" name="id"
-									placeholder="아이디를 입력해 주세요." required autofocus>
-							</div>
-							<div class="form-group">
-								<label for="message-text" class="control-label"></label> 
-								<input type="password" class="form-control" name="pw"
-									placeholder="비밀번호를 입력해 주세요." required autofocus>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-								<input class="btn btn-success" type="submit" value="login">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="owl-carousel slide-one-item">
-			<div class="site-section-cover overlay img-bg-section"
-				style="background-image: url('./resources/image/hero_1.jpg');">
-				<div class="container">
-					<div class="row align-items-center justify-content-center">
-						<div class="col-md-12 col-lg-7 text-center">
-							<h1>Andamiro 포스기 제작 중 입니다.</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Vel minima quasi quisquam, alias doloremque magni.</p>
-							<p>
-								<a href="#" class="btn btn-white-outline border-w-2 btn-md">Get
-									in touch</a>
-							</p>
+					<form action="login.do" method="post"
+						class="bg-white rounded pb_form_v1">
+						<h2 class="mb-4 mt-0 text-center">admin_Login</h2>
+						<div class="form-group">
+							<input type="text" class="form-control pb_height-50 reverse"
+								name="id" placeholder="아이디를 입력해 주세요." required autofocus>
 						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="site-section-cover overlay img-bg-section"
-				style="background-image: url('./resources/image/hero_2.jpg');">
-				<div class="container">
-					<div class="row align-items-center justify-content-center">
-						<div class="col-md-12 col-lg-7 text-center">
-							<h1>Andamiro 포스기 제작 중 입니다.</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Vel minima quasi quisquam, alias doloremque magni.</p>
-							<p>
-								<a href="#" class="btn btn-white-outline border-w-2 btn-md">Get
-									in touch</a>
-							</p>
+						<div class="form-group">
+							<input type="password" class="form-control pb_height-50 reverse"
+								name="pw" placeholder="비밀번호를 입력해 주세요." required autofocus>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
-
-		<div class="pb-5" style="position: relative; z-index: 8;">
-			<div class="container">
-				<div class="row" style="margin-top: -50px;">
-					<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<img src="./resources/image/img_1.jpg" alt="Image"
-							class="img-fluid mb-3">
-						<h3 class="text-primary h4 mb-2">Business Analytics</h3>
-						<p>Accusantium dignissimos voluptas rem consequatur ratione
-							illo sit quasi.</p>
-					</div>
-					<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<img src="./resources/image/img_2.jpg" alt="Image"
-							class="img-fluid mb-3">
-						<h3 class="text-primary h4 mb-2">Investment Solutions</h3>
-						<p>Praesentium magnam pariatur quae necessitatibus eligendi
-							voluptate ducimus.</p>
-					</div>
-					<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<img src="./resources/image/img_3.jpg" alt="Image"
-							class="img-fluid mb-3">
-						<h3 class="text-primary h4 mb-2">Individual Approach</h3>
-						<p>Accusantium dignissimos voluptas rem consequatur ratione
-							illo sit quasi.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="site-section bg-light" id="services-section">
-			<div class="container">
-				<div class="row mb-5">
-					<div class="col-12">
-						<div class="block-heading-1">
-							<h2>Our Services</h2>
+						<div class="form-group">
+							<input type="submit"
+								class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue"
+								value="Login">
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-lg-4 mb-4">
-						<span class="icon-signal d-block mb-3 display-3 text-secondary"></span>
-						<h3 class="text-primary h4 mb-2">Business Analytics</h3>
-						<p>Accusantium dignissimos voluptas rem consequatur ratione
-							illo sit quasi.</p>
-					</div>
-					<div class="col-md-6 col-lg-4 mb-4">
-						<span class="icon-anchor d-block mb-3 display-3 text-secondary"></span>
-						<h3 class="text-primary h4 mb-2">Investment Solutions</h3>
-						<p>Praesentium magnam pariatur quae necessitatibus eligendi
-							voluptate ducimus.</p>
-					</div>
-					<div class="col-md-6 col-lg-4 mb-4">
-						<span class="icon-magnet d-block mb-3 display-3 text-secondary"></span>
-						<h3 class="text-primary h4 mb-2">Individual Approach</h3>
-						<p>Accusantium dignissimos voluptas rem consequatur ratione
-							illo sit quasi.</p>
-					</div>
-
-					<div class="col-md-6 col-lg-4 mb-4">
-						<span class="icon-briefcase d-block mb-3 display-3 text-secondary"></span>
-						<h3 class="text-primary h4 mb-2">Business Analytics</h3>
-						<p>Accusantium dignissimos voluptas rem consequatur ratione
-							illo sit quasi.</p>
-					</div>
-					<div class="col-md-6 col-lg-4 mb-4">
-						<span class="icon-money d-block mb-3 display-3 text-secondary"></span>
-						<h3 class="text-primary h4 mb-2">Investment Solutions</h3>
-						<p>Praesentium magnam pariatur quae necessitatibus eligendi
-							voluptate ducimus.</p>
-					</div>
-					<div class="col-md-6 col-lg-4 mb-4">
-						<span class="icon-umbrella d-block mb-3 display-3 text-secondary"></span>
-						<h3 class="text-primary h4 mb-2">Individual Approach</h3>
-						<p>Accusantium dignissimos voluptas rem consequatur ratione
-							illo sit quasi.</p>
-					</div>
+					</form>
 
 				</div>
 			</div>
 		</div>
+	</section>
 
-		<footer class="bg- py-3 fixed-bottom">
-			<div class="container">
-				<div class="small text-center text-muted">
-					<p>
-						Copyright &copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						Andamiro1111
-					</p>
-				</div>
-			</div>
-		</footer>
-	</div>
+	<!-- Footer -->
+	<footer class="bg- py-3 fixed-bottom">
+		<div class="small text-center text-muted">Copyright &copy; 2019
+			- Andamiro</div>
+	</footer>
+	<!-- END Footer -->
 
-	<script src="./resources/js/jquery-3.3.1.min.js"></script>
-	<script src="./resources/js/jquery-ui.js"></script>
-	<script src="./resources/js/popper.min.js"></script>
-	<script src="./resources/js/bootstrap.min.js"></script>
-	<script src="./resources/js/owl.carousel.min.js"></script>
-	<script src="./resources/js/jquery.magnific-popup.min.js"></script>
-	<script src="./resources/js/jquery.sticky.js"></script>
-	<script src="./resources/js/jquery.waypoints.min.js"></script>
-	<script src="./resources/js/jquery.animateNumber.min.js"></script>
-	<script src="./resources/js/aos.js"></script>
-	<script src="./resources/js/main.js"></script>
 
+	<!-- 부트스트랩 스크립트 지우면 사망 -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/slick.min.js"></script>
+	<script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="assets/js/jquery.waypoints.min.js"></script>
+	<script src="assets/js/jquery.easing.1.3.js"></script>
+	<script src="assets/js/main.js"></script>
+	<!-- 스크립트 모음 -->
 </body>
 </html>

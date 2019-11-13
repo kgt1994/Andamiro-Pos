@@ -4,25 +4,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
 	rel="stylesheet">
-
 <link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
-
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="./resources/css/magnific-popup.css">
 <link rel="stylesheet" href="./resources/css/jquery-ui.css">
 <link rel="stylesheet" href="./resources/css/owl.carousel.min.css">
 <link rel="stylesheet" href="./resources/css/owl.theme.default.min.css">
-
 <link rel="stylesheet" href="./resources/css/bootstrap-datepicker.css">
-
 <link rel="stylesheet"
 	href="./resources/fonts/flaticon/font/flaticon.css">
-
 <link rel="stylesheet" href="./resources/css/aos.css">
-
 <link rel="stylesheet" href="./resources/css/style.css">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <style>
 #orderSettings {
 	width: 300px;
@@ -165,30 +164,23 @@
 					</table>
 				</div>
 			</div>
-			<footer class="bg- py-3 fixed-bottom">
-				<div class="container">
-					<div class="small text-center text-muted">
-						<p>
-							Copyright &copy;
-							<script>
-								document.write(new Date().getFullYear());
-							</script>
-							Andamiro
-						</p>
-					</div>
-				</div>
-			</footer>
+			
 		</div>
-		<script src="./resources/js/jquery-3.3.1.min.js"></script>
-		<script src="./resources/js/jquery-ui.js"></script>
-		<script src="./resources/js/popper.min.js"></script>
-		<script src="./resources/js/bootstrap.min.js"></script>
-		<script src="./resources/js/owl.carousel.min.js"></script>
-		<script src="./resources/js/jquery.magnific-popup.min.js"></script>
-		<script src="./resources/js/jquery.sticky.js"></script>
-		<script src="./resources/js/jquery.waypoints.min.js"></script>
-		<script src="./resources/js/jquery.animateNumber.min.js"></script>
-		<script src="./resources/js/aos.js"></script>
-		<script src="./resources/js/main.js"></script>
+	<!-- Footer -->
+	<footer class="bg- py-3 fixed-bottom">
+		<div class="small text-center text-muted">Copyright &copy; 2019
+			- Andamiro</div>
+	</footer>
+	<!-- END Footer -->
+	<!-- 부트스트랩 스크립트 지우면 사망 -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/slick.min.js"></script>
+	<script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="assets/js/jquery.waypoints.min.js"></script>
+	<script src="assets/js/jquery.easing.1.3.js"></script>
+	<script src="assets/js/main.js"></script>
+	<!-- 스크립트 모음 -->
 </body>
 </html>
