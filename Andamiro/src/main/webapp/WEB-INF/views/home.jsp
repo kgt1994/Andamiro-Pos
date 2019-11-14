@@ -50,6 +50,13 @@
 			alert("비밀번호를 다시 확인해 주세요!");
 		}
 	}
+	function logout(){
+		if(confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}else{
+			return;
+		}
+	}
 </script>
 </head>
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
@@ -72,8 +79,7 @@
 							href="#section-home">Home</a></li>
 						<li>${user.getName()}님안녕하세요!</li>
 						<li><a href="index.do" class="nav-link">my page</a></li>
-						<li class="nav-item"><a class="nav-link" href="logout.do"
-							id="logout">Logout</a></li>
+						<li class="nav-item"><a href="#" onclick="logout();" class="nav-link" id="logout">Logout</a></li>
 						<li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a
 							class="nav-link" href="join_admin.do" target="_blank"><span
 								class="pb_rounded-4 px-4">Join</span></a></li>

@@ -24,6 +24,15 @@
 <link rel="stylesheet" href="./resources/css/style.css">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+function logout(){
+	if(confirm("로그아웃 하시겠습니까?")){
+		location.href="logout.do";
+	}else{
+		return;
+	}
+}
+</script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target"
@@ -42,6 +51,7 @@
 						class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
 						<li>${user.getName() }님안녕하세요!<a href="index.do"
 							class="nav-link">my page</a></li>
+							<li><a href="#" onclick="logout();" class="nav-link" id="logout">Logout</a></li>
 					</ul>
 				</nav>
 			</div>

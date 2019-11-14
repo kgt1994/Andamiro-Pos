@@ -33,7 +33,7 @@
     }) 
     
     $(function(){
-        var session = "<c:out value=" ${user.getName()}" />";
+        var session = "<c:out value="${user.getName()}" />";
         if(session != ""){
             $("#join").remove();
             $("#login").remove();
@@ -43,6 +43,14 @@
         	$("#logout").remove();
         }
     }) 
+    
+    function logout(){
+		if(confirm("로그아웃 하시겠습니까?")){
+			location.href="logout.do";
+		}else{
+			return;
+		}
+	}
 </script>
 </head>
 
@@ -65,13 +73,13 @@
 						href="#section-home">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="#section-features">Features</a></li>
-					<li class="nav-item"><a class="nav-link" href="logout.do"
-						id="logout">Logout</a></li>
+					<li class="nav-item"><a href="#" onclick="logout();" class="nav-link" id="logout">Logout</a></li>
 					<li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a
 						class="nav-link" href="join_admin.do" target="_blank"><span
 							class="pb_rounded-4 px-4">Join</span></a></li>
 				</ul>
 			</div>
+			<div class="site-mobile-menu-body"></div>
 		</div>
 	</nav>
 	<!-- END nav -->
@@ -115,7 +123,6 @@
 				</div>
 			</div>
 		</div>
-	</section>
 
 	<!-- Footer -->
 	<footer class="bg- py-3 fixed-bottom">

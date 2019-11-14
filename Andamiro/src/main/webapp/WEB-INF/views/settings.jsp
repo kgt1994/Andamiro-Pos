@@ -78,6 +78,15 @@
 	height: 100px;
 }
 </style>
+<script type="text/javascript">
+function logout(){
+	if(confirm("로그아웃 하시겠습니까?")){
+		location.href="logout.do";
+	}else{
+		return;
+	}
+}
+</script>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	<div class="site-wrap" id="home-section">
@@ -103,6 +112,7 @@
 						<ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
 						<li>안녕하세요,${shop.shop_name} 입니다.</li>
 						<li><a href="index.do" class="nav-link">my page</a></li>
+						<li><a href="#" onclick="logout();" class="nav-link" id="logout">Logout</a></li>
 							</ul>
 					</nav>
 

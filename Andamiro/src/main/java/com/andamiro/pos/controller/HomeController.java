@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.andamiro.pos.model.LoginDTO;
@@ -34,8 +35,9 @@ public class HomeController {
 	HttpSession session;
 
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public String index(@ModelAttribute("user") SessionDTO dto) {
-		return "../../index";
+	public ModelAndView index(@ModelAttribute("user") SessionDTO dto) {
+		ModelAndView mv = new ModelAndView("redirect:/");
+		return mv;
 	}
 
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
@@ -69,11 +71,11 @@ public class HomeController {
 		return mv;
 	}
 
-	@RequestMapping(value = "logout.do", method = RequestMethod.POST)
-	public String logout() {
-		session.invalidate();
-
-		return "../../index";
+	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
+	public ModelAndView logout(SessionStatus sessionStatus) {
+		sessionStatus.setComplete();
+		ModelAndView mv = new ModelAndView("redirect:/");
+		return mv;
 	}
 
 	@RequestMapping(value = "join.do", method = RequestMethod.POST)
@@ -105,7 +107,7 @@ public class HomeController {
 				return "join_admin";
 			}
 
-			return "join_admin";
+			return "../../index";
 		}
 	}
 

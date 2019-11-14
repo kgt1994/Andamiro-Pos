@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
 	rel="stylesheet">
@@ -25,6 +25,11 @@
 <link rel="stylesheet" href="./resources/css/aos.css">
 
 <link rel="stylesheet" href="./resources/css/style.css">
+<script type="text/javascript">
+function cancel(){
+	location.href="index.do";
+}
+</script>
 </head>
 <body>
 
@@ -32,14 +37,14 @@
 		<br> <br> <br>
 		<div class="card-title text-center">
 			<h1>
-				<span class="text-primary">Andamiro¿¡ ¿À½Å°ÍÀ» È¯¿µÇÕ´Ï´Ù!</span>
+				<span class="text-primary">Andamiroì— ì˜¤ì‹ ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤!</span>
 			</h1>
 		</div>
 		<div class="row">
 			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 				<div class="card card-signin my-5">
 					<div class="card-body">
-						<h5 class="card-title text-center">È¸¿ø°¡ÀÔ</h5>
+						<h5 class="card-title text-center">íšŒì›ê°€ì…</h5>
 						
 						<!-- form class="form-label-group"-->
 						<form:form modelAttribute="memberDTO" name="memberDTO"
@@ -49,49 +54,49 @@
 								<label for="recipient-name" class="control-label"></label>
 								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
 								<form:input path="id" type="text" class="form-control" name="id"
-									placeholder="¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä." />
+									placeholder="ì•„ì´ë””ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”." />
 								<form:errors path="id" cssClass="error" />
 							</div>
 							<div class="form-group">
 								<label for="message-text" class="control-label"></label>
 								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
 								<form:input path="pw" type="password" class="form-control"
-									name="pw" placeholder="ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä." />
+									name="pw" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”." />
 								<form:errors path="pw" cssClass="error" />
 							</div>
 							<div class="form-group">
 								<label for="message-text" class="control-label"></label>
 								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
 								<form:input path="checkPw" type="password" class="form-control"
-									name="checkPw" placeholder="ºñ¹Ğ¹øÈ£¸¦ ÀçÀÔ·Â ÇØÁÖ¼¼¿ä." />
+									name="checkPw" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì¬ì…ë ¥ í•´ì£¼ì„¸ìš”." />
 								<form:errors path="checkPw" cssClass="error" />
 							</div>
 							<div class="form-group">
 								<label for="recipient-name" class="control-label"></label>
 								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
 								<form:input path="name" type="text" class="form-control"
-									name="name" placeholder="ÀÌ¸§¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä." />
+									name="name" placeholder="ì´ë¦„ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”." />
 								<form:errors path="name" cssClass="error" />
 							</div>
 							<div class="form-group">
 								<label for="message-text" class="control-label"></label>
 								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
 								<form:input path="email" type="text" class="form-control"
-									name="email" placeholder="ÀÌ¸ŞÀÏ¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä" />
+									name="email" placeholder="ì´ë©”ì¼ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”" />
 								<form:errors path="email" cssClass="error" />
 							</div>
 							<div class="form-group">
 								<label for="message-text" class="control-label"></label>
 								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
 								<form:input path="phone" type="text" class="form-control"
-									name="phone" placeholder="ÈŞ´ëÆù ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä" />
+									name="phone" placeholder="íœ´ëŒ€í° ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”" />
 								<form:errors path="phone" cssClass="error" />
 							</div>
 							<div class="modal-footer">
-								<input type="reset" class="btn btn-danger" data-dismiss="modal"
-									value="Close" /> 
+								<input type="button" class="btn btn-danger" data-dismiss="modal"
+									value="ì·¨ì†Œ" onclick="cancel();" /> 
 								<input type="submit" class="btn btn-lg btn-dark btn-block text-uppercase"
-									value="°¡ÀÔÇÏ±â" />
+									value="ê°€ì…í•˜ê¸°" />
 							</div>
 						</form:form>
 					</div>
