@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
 	rel="stylesheet">
 <link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
@@ -23,159 +23,105 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <style>
-#orderSettings {
-	width: 300px;
-	height: 310px;
-	background-color: darkorange;
-}
-
-#moneySettings {
-	background-color: chocolate;
-	width: 300px;
-	height: 100px;
-}
-
-#endSettings {
-	width: 300px;
-	height: 100px;
-	background-color: cornflowerblue;
-}
-
-#receiptSettings {
-	width: auto;
-	height: auto;
-	max-width: 500px;
-	max-height: 100px;
-}
-
-#menuSettings {
-	background-color: darksalmon;
-	width: 300px;
-	height: 100px;
-}
-
-#tableSettings {
-	background-color: burlywood;
-	width: 300px;
-	height: 100px;
-}
-
-#money {
-	background-color: olivedrab;
-	width: 300px;
-	height: 100px;
-}
-
-#sales_account {
-	background-color: royalblue;
-	width: 300px;
-	height: 100px;
-}
-
-#restart {
-	background-color: violet;
-	width: 300px;
-	height: 100px;
+.box-size {
+	padding-bottom: px;
+	padding-top: 60px;
+	padding-right: 10px;
+	padding-left: 10px;
+	text-align: center;
+	align-items: center;
+	font-size: 20px;
+	color: white;
 }
 </style>
+
 <script type="text/javascript">
-function logout(){
-	if(confirm("로그아웃 하시겠습니까?")){
-		location.href="logout.do";
-	}else{
-		return;
+	function logout() {
+		if (confirm("로그아웃 하시겠습니까?")) {
+			location.href = "logout.do";
+		} else {
+			return;
+		}
 	}
-}
 </script>
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	<div class="site-wrap" id="home-section">
-		<div class="site-mobile-menu site-navbar-target">
-			<div class="site-mobile-menu-header">
-				<div class="site-mobile-menu-close mt-3">
-					<span class="icon-close2 js-menu-toggle"></span>
-				</div>
-			</div>
-			<div class="site-mobile-menu-body"></div>
-		</div>
-		<header class="site-navbar js-sticky-header site-navbar-target"
-			role="banner">
 
+<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
+	<header class="site-navbar js-sticky-header site-navbar-target"
+		role="banner">
+		<nav
+			class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light"
+			id="pb-navbar">
 			<div class="container">
-				<div class="row align-items-center position-relative">
-					<div class="site-logo">
-						<a href="main.do" class="text-black"><span
-							class="text-primary">Andamiro</span></a>
-					</div>
-
-					<nav class="site-navigation text-center ml-auto" role="navigation">
-						<ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-						<li>안녕하세요,${shop.shop_name} 입니다.</li>
+				<a href="main.do" class="navbar-brand">Andamiro</a>
+				<button class="navbar-toggler ml-auto" type="button"
+					data-toggle="collapse" data-target="#probootstrap-navbar"
+					aria-controls="probootstrap-navbar" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span><i class="ion-navicon"></i></span>
+				</button>
+				<div class="collapse navbar-collapse" id="probootstrap-navbar">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a class="nav-link active"
+							href="#section-home">Home</a></li>
+						<li>${user.getName()}님안녕하세요!</li>
 						<li><a href="index.do" class="nav-link">my page</a></li>
-						<li><a href="#" onclick="logout();" class="nav-link" id="logout">Logout</a></li>
-							</ul>
-					</nav>
+						<li class="nav-item"><a href="#" onclick="logout();"
+							class="nav-link" id="logout">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
 
-					<div class="toggle-button d-inline-block d-lg-none">
-						<a href="#"
-							class="site-menu-toggle py-5 js-menu-toggle text-black"><span
-							class="icon-menu h3"></span></a>
+	<section
+		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light"
+		id="section-home">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="sidebar-item">
+					<div class="box-size"
+						style="background-color: #1abc9c; width: 200px; height: 200px;">
+						<button type="button" class="btn btn-defalut"
+							style="background-color: #1abc9c;"
+							onclick="location.href='order.do'">주문관리</button>
+					</div>
+				</div>
+				<div class="sidebar-item">
+					<div class="box-size"
+						style="background-color: #2ecc71; width: 200px; height: 200px;">
+						<button type="button" class="btn btn-defalut"
+							style="background-color: #2ecc71;" onclick="location.href='open_cash.do'">영업준비금</button>
+					</div>
+
+				</div>
+				<div class="sidebar-item">
+					<div class="box-size"
+						style="background-color: #9b59b6; width: 200px; height: 200px;">
+						<button type="button" class="btn btn-defalut"
+							style="background-color: #9b59b6;" onclick="location.href='#'">마감관리</button>
+					</div>
+				</div>
+
+				<div class="sidebar-item">
+					<div class="box-size"
+						style="background-color: #f1c40f; width: 200px; height: 200px;">
+						<button type="button" class="btn btn-defalut"
+							style="background-color: #f1c40f;" onclick="location.href='#'">테이블
+							관리</button>
+					</div>
+				</div>
+				<div class="sidebar-item">
+					<div class="box-size"
+						style="background-color: #c0392b; width: 200px; height: 200px;">
+						<button type="button" class="btn btn-defalut"
+							style="background-color: #c0392b;" onclick="location.href='#'">메뉴관리</button>
 					</div>
 				</div>
 			</div>
-
-		</header>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-					<table style="margin-left: auto; margin-right: auto;">
-						<tbody>
-							<tr>
-								<td rowspan="3"><a>
-										<form action="order.do">
-											<input type="submit" value="주문관리 " id="orderSettings">
-										</form>
-								</a></td>
-
-								<td><a>
-										<form action="#.jsp">
-											<input type="submit" value="영업준비금 " id="moneySettings">
-										</form>
-								</a></td>
-							</tr>
-							<tr>
-								<td><a>
-										<form action="#.jsp">
-											<input type="submit" value="마감관리 " id="endSettings">
-										</form>
-								</a></td>
-							</tr>
-							<td><a>
-									<form action="table_settings.do">
-										<input type="submit" value="테이블 관리 " id="tableSettings">
-									</form>
-							</a></td>
-							<tr>
-
-								<td><a>
-										<form action="sales_account.do">
-											<input type="submit" value="매출 확인 " id="sales_account">
-										</form>
-								</a></td>
-								<td><a>
-										<form action="#.jsp">
-											<input type="submit" value="메뉴관리 " id="menuSettings">
-										</form>
-								</a></td>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			
 		</div>
+	</section>
+
 	<!-- Footer -->
 	<footer class="bg- py-3 fixed-bottom">
 		<div class="small text-center text-muted">Copyright &copy; 2019

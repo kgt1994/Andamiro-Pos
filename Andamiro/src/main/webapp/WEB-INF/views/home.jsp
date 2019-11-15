@@ -12,9 +12,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>업장선택페이지</title>
-
 <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
 	rel="stylesheet">
 <link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
