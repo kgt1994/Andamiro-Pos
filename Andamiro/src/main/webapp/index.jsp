@@ -79,8 +79,6 @@
 			</button>
 			<div class="collapse navbar-collapse" id="probootstrap-navbar">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link active"
-						href="home.do" id="home">Home</a></li>
 					<li class="nav-item"><a href="#" onclick="logout();"
 						class="nav-link" id="logout">Logout</a></li>
 					<li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a
@@ -102,13 +100,12 @@
 					<h2 class="heading mb-3">Andamiro_POS</h2>
 					<div class="sub-heading">
 						<a class="btn btn-success btn-lg pb_btn-pill smoothscroll"
-							href="#section-pricing"><span
-							class="pb_font-14 text-uppercase pb_letter-spacing-1">See
-								Pricing</span></a>
+							href="home.do" id="home"><span
+							class="pb_font-14 text-uppercase pb_letter-spacing-1">Home</span></a>
 					</div>
 				</div>
 				<div class="col-md-1"></div>
-				<div class="col-md-5 relative align-self-center">
+				<div class="col-md-5 relative align-self-center" id="login">
 
 					<form action="login.do" method="post"
 						class="bg-white rounded pb_form_v1">

@@ -35,10 +35,19 @@
 <link rel="stylesheet" href="./resources/css/landing-2.css">
 
 <script type="text/javascript">
+
 function cancel(){
 	location.href="main.do";
 }
+
 </script>
+
+<style>
+.error{
+	color: red;
+}
+</style>
+
 </head>
 <body>
 
