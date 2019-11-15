@@ -148,4 +148,8 @@ public class HomeController {
 
 		return "settings";
 	}
+	@RequestMapping(value = "open_cash.do", method = RequestMethod.GET)
+	public String open_cash(Locale locale, Model model) {
+		return "open_cash";
+	}
 }
