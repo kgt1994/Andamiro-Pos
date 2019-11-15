@@ -35,7 +35,7 @@ public class HomeController {
 	HttpSession session;
 
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public ModelAndView index(@ModelAttribute("user") SessionDTO dto) {
+	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("redirect:/");
 		return mv;
 	}

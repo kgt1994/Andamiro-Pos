@@ -36,7 +36,7 @@
 
 <script type="text/javascript">
 function cancel(){
-	location.href="index.do";
+	location.href="main.do";
 }
 </script>
 </head>

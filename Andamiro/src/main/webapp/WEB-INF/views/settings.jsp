@@ -73,10 +73,10 @@
 				</button>
 				<div class="collapse navbar-collapse" id="probootstrap-navbar">
 					<ul class="navbar-nav ml-auto">
+						<li>${user.getName()}님 안녕하세요!</li>
 						<li class="nav-item"><a class="nav-link active"
-							href="#section-home">Home</a></li>
-						<li>${user.getName()}님안녕하세요!</li>
-						<li><a href="index.do" class="nav-link">my page</a></li>
+							href="home.do">Home</a></li>
+						<li><a href="#" class="nav-link">my page</a></li>
 						<li class="nav-item"><a href="#" onclick="logout();"
 							class="nav-link" id="logout">Logout</a></li>
 					</ul>

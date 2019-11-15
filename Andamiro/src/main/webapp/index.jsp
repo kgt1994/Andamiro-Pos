@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
 
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 	$(function() {
 		var responseMessage = "<c:out value="${msg}" />";
@@ -44,7 +44,7 @@
 	})
 
 	$(function() {
-		var session = "<c:out value="${user.getName}" />";
+		var session = "<c:out value="${user.getName()}" />";
 		if (session != "") {
 			$("#join").remove();
 			$("#login").remove();
@@ -80,13 +80,11 @@
 			<div class="collapse navbar-collapse" id="probootstrap-navbar">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link active"
-						href="#section-home">Home</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="#section-features">Features</a></li>
+						href="home.do" id="home">Home</a></li>
 					<li class="nav-item"><a href="#" onclick="logout();"
 						class="nav-link" id="logout">Logout</a></li>
 					<li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a
-						class="nav-link" href="join_admin.do" target="_blank"><span
+						class="nav-link" href="join_admin.do" target="_blank" id="join"><span
 							class="pb_rounded-4 px-4">Join</span></a></li>
 				</ul>
 			</div>

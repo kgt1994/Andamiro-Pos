@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 	$(function() {
 		$("#droptarget").draggable();
