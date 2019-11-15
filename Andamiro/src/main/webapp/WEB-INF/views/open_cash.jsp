@@ -1,26 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-</head>
-<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description"
+	content="Free Bootstrap 4 Template by uicookies.com">
+<meta name="keywords"
+	content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400"
 	rel="stylesheet">
-<link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="./resources/css/magnific-popup.css">
-<link rel="stylesheet" href="./resources/css/jquery-ui.css">
-<link rel="stylesheet" href="./resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="./resources/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="./resources/css/bootstrap-datepicker.css">
+
+<link rel="stylesheet" href="./resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet"
-	href="./resources/fonts/flaticon/font/flaticon.css">
-<link rel="stylesheet" href="./resources/css/aos.css">
+	href="./resources/fonts/ionicons/css/ionicons.min.css">
+<link rel="stylesheet"
+	href="./resources/fonts/law-icons/font/flaticon.css">
+
+<link rel="stylesheet"
+	href="./resources/fonts/fontawesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="./resources/css/slick.css">
+<link rel="stylesheet" href="./resources/css/slick-theme.css">
+
+<link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="./resources/css/landing-2.css">
+</head>
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 	<header class="site-navbar js-sticky-header site-navbar-target"
 		role="banner">
@@ -39,7 +52,7 @@
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link active"
 							href="#section-home">Home</a></li>
-						<li>${user.getName()}´Ô¾È³çÇÏ¼¼¿ä!</li>
+						<li>${user.getName()}ë‹˜ì•ˆë…•í•˜ì„¸ìš”!</li>
 						<li><a href="index.do" class="nav-link">my page</a></li>
 						<li class="nav-item"><a href="#" onclick="logout();"
 							class="nav-link" id="logout">Logout</a></li>
@@ -60,28 +73,28 @@
 						width="100%" cellspacing="0" style="text-align: center;">
 						<tbody>
 							<tr role="row" class="odd">
-								<td><lable>ÃÑ ±İ¾×</lable></td>
+								<td><lable>ì´ ê¸ˆì•¡</lable></td>
 								<td><input type="text" class=".col-xs-6 .col-sm-4"
 									placeholder="Search"></td>
 							</tr>
 							<tr role="row" class="odd">
-								<td><label class="col-xs-6 .col-sm-3">ÇÒÀÎ ±İ¾× :</label></td>
+								<td><label class="col-xs-6 .col-sm-3">í• ì¸ ê¸ˆì•¡ :</label></td>
 								<td><input type="text" class=".col-xs-6 .col-sm-4"
 									placeholder="Search"></td>
 							</tr>
 							<tr role="row" class="odd">
-								<td><label class="col-xs-6 .col-sm-3">¹ŞÀ» ±İ¾× :</label></td>
+								<td><label class="col-xs-6 .col-sm-3">ë°›ì„ ê¸ˆì•¡ :</label></td>
 								<td><input type="text" class=".col-xs-6 .col-sm-4"
 									placeholder="Search"></td>
 							</tr>
 							<tr role="row" class="odd">
-								<td><label class="col-xs-6 .col-sm-3">¹ŞÀº ±İ¾× :</label></td>
+								<td><label class="col-xs-6 .col-sm-3">ë°›ì€ ê¸ˆì•¡ :</label></td>
 								<td><input type="text" class=".col-xs-6 .col-sm-4"
 									placeholder="Search"></td>
 							</tr>
 
 							<tr role="row" class="odd">
-								<td><label class="col-xs-6 .col-sm-3">´õÄ¡ÆäÀÌ ÀÎ¿ø:</label></td>
+								<td><label class="col-xs-6 .col-sm-3">ë”ì¹˜í˜ì´ ì¸ì›:</label></td>
 								<td><input type="text" class=".col-xs-6 .col-sm-4"
 									placeholder="Search"></td>
 							</tr>
@@ -91,7 +104,19 @@
 			</div>
 		</div>
 	</section>
+	<!-- ë¶€íŠ¸ìŠ¤íŠ¸ë© ìŠ¤í¬ë¦½íŠ¸ ì§€ìš°ë©´ ì‚¬ë§ -->
+	<script src="./resources/js/jquery.min.js"></script>
 
+	<script src="./resources/js/popper.min.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/js/slick.min.js"></script>
+	<script src="./resources/js/jquery.mb.YTPlayer.min.js"></script>
+
+	<script src="./resources/js/jquery.waypoints.min.js"></script>
+	<script src="./resources/js/jquery.easing.1.3.js"></script>
+
+	<script src="./resources/js/main.js"></script>
+	<!-- ìŠ¤í¬ë¦½íŠ¸ ëª¨ìŒ -->
 
 </body>
 </html>

@@ -1,28 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
 <title>Insert title here</title>
-<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="./resources/js/bootstrap.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description"
+	content="Free Bootstrap 4 Template by uicookies.com">
+<meta name="keywords"
+	content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="./resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<style>
-.droptarget {
-	width: 100px;
-	height: 100px;
-	margin: 15px;
-	padding: 10px;
-	border: 1px solid #aaaaaa;
-}
-</style>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	href="./resources/fonts/ionicons/css/ionicons.min.css">
+<link rel="stylesheet"
+	href="./resources/fonts/law-icons/font/flaticon.css">
+
+<link rel="stylesheet"
+	href="./resources/fonts/fontawesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="./resources/css/slick.css">
+<link rel="stylesheet" href="./resources/css/slick-theme.css">
+
+<link rel="stylesheet" href="./resources/css/helpers.css">
+<link rel="stylesheet" href="./resources/css/style.css">
+<link rel="stylesheet" href="./resources/css/landing-2.css">
 <script>
 	$(function() {
 		$("#droptarget").draggable();
@@ -106,14 +115,30 @@
 
 	<div class="droptarget">
 		<div draggable="true" id="dragtarget">
-			<input type="button" value="��ư"> <input type="button"
-				value="��ư2">
+			<input type="button" value="버튼"> <input type="button"
+				value="버튼2">
 		</div>
 	</div>
 
-	<div class="droptarget" style="width: 900px; height: 800px">�����
-		���̺� ��ġ</div>
+	<div class="droptarget" style="width: 900px; height: 800px">여기다
+		테이블 배치</div>
 
 	<p id="demo"></p>
+
+
+
+	<!-- 부트스트랩 스크립트 지우면 사망 -->
+	<script src="./resources/js/jquery.min.js"></script>
+
+	<script src="./resources/js/popper.min.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/js/slick.min.js"></script>
+	<script src="./resources/js/jquery.mb.YTPlayer.min.js"></script>
+
+	<script src="./resources/js/jquery.waypoints.min.js"></script>
+	<script src="./resources/js/jquery.easing.1.3.js"></script>
+
+	<script src="./resources/js/main.js"></script>
+	<!-- 스크립트 모음 -->
 </body>
 </html>

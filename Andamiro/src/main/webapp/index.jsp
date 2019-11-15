@@ -8,36 +8,31 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description"
+	content="Free Bootstrap 4 Template by uicookies.com">
+<meta name="keywords"
+	content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
 
-<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
+<link
+	href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400"
 	rel="stylesheet">
-<link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="./resources/css/magnific-popup.css">
-<link rel="stylesheet" href="./resources/css/jquery-ui.css">
-<link rel="stylesheet" href="./resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="./resources/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="./resources/css/bootstrap-datepicker.css">
+
+<link rel="stylesheet" href="./resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet"
-	href="./resources/fonts/flaticon/font/flaticon.css">
-<link rel="stylesheet" href="./resources/css/aos.css">
-<link rel="stylesheet" href="./resources/css/style.css">
+	href="./resources/fonts/ionicons/css/ionicons.min.css">
+<link rel="stylesheet"
+	href="./resources/fonts/law-icons/font/flaticon.css">
 
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-	crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-	crossorigin="anonymous"></script>
+	href="./resources/fonts/fontawesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="./resources/css/slick.css">
+<link rel="stylesheet" href="./resources/css/slick-theme.css">
+
+<link rel="stylesheet" href="./resources/css/helpers.css">
+<link rel="stylesheet" href="./resources/css/style.css">
+<link rel="stylesheet" href="./resources/css/landing-2.css">
 
 
 <script>
@@ -150,17 +145,17 @@
 
 
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/slick.min.js"></script>
-	<script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
-	<script src="assets/js/jquery.waypoints.min.js"></script>
-	<script src="assets/js/jquery.easing.1.3.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="./resources/js/jquery.min.js"></script>
 
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="./resources/js/popper.min.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/js/slick.min.js"></script>
+	<script src="./resources/js/jquery.mb.YTPlayer.min.js"></script>
+
+	<script src="./resources/js/jquery.waypoints.min.js"></script>
+	<script src="./resources/js/jquery.easing.1.3.js"></script>
+
+	<script src="./resources/js/main.js"></script>
 	<!-- 스크립트 모음 -->
 </body>
 </html>

@@ -5,23 +5,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
-	rel="stylesheet">
-<link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="./resources/css/magnific-popup.css">
-<link rel="stylesheet" href="./resources/css/jquery-ui.css">
-<link rel="stylesheet" href="./resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="./resources/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="./resources/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-	href="./resources/fonts/flaticon/font/flaticon.css">
-<link rel="stylesheet" href="./resources/css/aos.css">
-<link rel="stylesheet" href="./resources/css/style.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description"
+	content="Free Bootstrap 4 Template by uicookies.com">
+<meta name="keywords"
+	content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
 
+<link
+	href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="./resources/css/bootstrap/bootstrap.css">
+<link rel="stylesheet"
+	href="./resources/fonts/ionicons/css/ionicons.min.css">
+<link rel="stylesheet"
+	href="./resources/fonts/law-icons/font/flaticon.css">
+
+<link rel="stylesheet"
+	href="./resources/fonts/fontawesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="./resources/css/slick.css">
+<link rel="stylesheet" href="./resources/css/slick-theme.css">
+
+<link rel="stylesheet" href="./resources/css/helpers.css">
+<link rel="stylesheet" href="./resources/css/style.css">
+<link rel="stylesheet" href="./resources/css/landing-2.css">
 <style>
 .box-size {
 	padding-bottom: px;
@@ -91,7 +102,8 @@
 					<div class="box-size"
 						style="background-color: #2ecc71; width: 200px; height: 200px;">
 						<button type="button" class="btn btn-defalut"
-							style="background-color: #2ecc71;" onclick="location.href='open_cash.do'">영업준비금</button>
+							style="background-color: #2ecc71;"
+							onclick="location.href='open_cash.do'">영업준비금</button>
 					</div>
 
 				</div>
@@ -128,15 +140,19 @@
 			- Andamiro</div>
 	</footer>
 	<!-- END Footer -->
+
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/slick.min.js"></script>
-	<script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
-	<script src="assets/js/jquery.waypoints.min.js"></script>
-	<script src="assets/js/jquery.easing.1.3.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="./resources/js/jquery.min.js"></script>
+
+	<script src="./resources/js/popper.min.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/js/slick.min.js"></script>
+	<script src="./resources/js/jquery.mb.YTPlayer.min.js"></script>
+
+	<script src="./resources/js/jquery.waypoints.min.js"></script>
+	<script src="./resources/js/jquery.easing.1.3.js"></script>
+
+	<script src="./resources/js/main.js"></script>
 	<!-- 스크립트 모음 -->
 </body>
 </html>

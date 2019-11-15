@@ -4,34 +4,42 @@
 <html lang="en">
 
 <head>
-
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description"
+	content="Free Bootstrap 4 Template by uicookies.com">
+<meta name="keywords"
+	content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
 
-<title>SB Admin - Dashboard</title>
-
-<!-- Custom fonts for this template-->
-<link href="./resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
-	type="text/css">
-
-<!-- Page level plugin CSS-->
-<link href="./resources/vendor/datatables/dataTables.bootstrap4.css"
+<link
+	href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400"
 	rel="stylesheet">
 
-<!-- Custom styles for this template-->
-<link href="./resources/css/sb-admin.css" rel="stylesheet">
+<link rel="stylesheet" href="./resources/css/bootstrap/bootstrap.css">
+<link rel="stylesheet"
+	href="./resources/fonts/ionicons/css/ionicons.min.css">
+<link rel="stylesheet"
+	href="./resources/fonts/law-icons/font/flaticon.css">
 
+<link rel="stylesheet"
+	href="./resources/fonts/fontawesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="./resources/css/slick.css">
+<link rel="stylesheet" href="./resources/css/slick-theme.css">
+
+<link rel="stylesheet" href="./resources/css/helpers.css">
+<link rel="stylesheet" href="./resources/css/style.css">
+<link rel="stylesheet" href="./resources/css/landing-2.css">
 </head>
 
 <body id="page-top">
 
 	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-		<a class="navbar-brand mr-1" href="sales_account.do">Start Bootstrap</a>
+		<a class="navbar-brand mr-1" href="sales_account.do">Start
+			Bootstrap</a>
 
 		<button class="btn btn-link btn-sm text-white order-1 order-sm-0"
 			id="sidebarToggle" href="#">
@@ -102,7 +110,8 @@
 		<!-- Sidebar -->
 		<ul class="sidebar navbar-nav">
 			<li class="nav-item active"><a class="nav-link"
-				href="sales_account.do"> <i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
+				href="sales_account.do"> <i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Dashboard</span>
 			</a></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="pagesDropdown"
@@ -753,26 +762,19 @@
 			</div>
 		</div>
 	</div>
+	<!-- 부트스트랩 스크립트 지우면 사망 -->
+	<script src="./resources/js/jquery.min.js"></script>
 
-	<!-- Bootstrap core JavaScript-->
-	<script src="./resources/vendor/jquery/jquery.min.js"></script>
-	<script src="./resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="./resources/js/popper.min.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/js/slick.min.js"></script>
+	<script src="./resources/js/jquery.mb.YTPlayer.min.js"></script>
 
-	<!-- Core plugin JavaScript-->
-	<script src="./resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="./resources/js/jquery.waypoints.min.js"></script>
+	<script src="./resources/js/jquery.easing.1.3.js"></script>
 
-	<!-- Page level plugin JavaScript-->
-	<script src="./resources/vendor/chart.js/Chart.min.js"></script>
-	<script src="./resources/vendor/datatables/jquery.dataTables.js"></script>
-	<script src="./resources/vendor/datatables/dataTables.bootstrap4.js"></script>
-
-	<!-- Custom scripts for all pages-->
-	<script src="./resources/js/sb-admin.min.js"></script>
-
-	<!-- Demo scripts for this page-->
-	<script src="./resources/js/demo/datatables-demo.js"></script>
-	<script src="./resources/js/demo/chart-area-demo.js"></script>
-
+	<script src="./resources/js/main.js"></script>
+	<!-- 스크립트 모음 -->
 </body>
 
 </html>

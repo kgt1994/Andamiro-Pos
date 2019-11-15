@@ -11,23 +11,31 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>업장선택페이지</title>
-<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
+<meta name="description"
+	content="Free Bootstrap 4 Template by uicookies.com">
+<meta name="keywords"
+	content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400"
 	rel="stylesheet">
-<link rel="stylesheet" href="./resources/fonts/icomoon/style.css">
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="./resources/css/magnific-popup.css">
-<link rel="stylesheet" href="./resources/css/jquery-ui.css">
-<link rel="stylesheet" href="./resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="./resources/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="./resources/css/bootstrap-datepicker.css">
+
+<link rel="stylesheet" href="./resources/css/bootstrap/bootstrap.css">
 <link rel="stylesheet"
-	href="./resources/fonts/flaticon/font/flaticon.css">
-<link rel="stylesheet" href="./resources/css/aos.css">
+	href="./resources/fonts/ionicons/css/ionicons.min.css">
+<link rel="stylesheet"
+	href="./resources/fonts/law-icons/font/flaticon.css">
+
+<link rel="stylesheet"
+	href="./resources/fonts/fontawesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="./resources/css/slick.css">
+<link rel="stylesheet" href="./resources/css/slick-theme.css">
+
+<link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="./resources/css/landing-2.css">
 
 <style>
 #ImageSettings {
@@ -48,10 +56,10 @@
 			alert("비밀번호를 다시 확인해 주세요!");
 		}
 	}
-	function logout(){
-		if(confirm("로그아웃 하시겠습니까?")){
-			location.href="logout.do";
-		}else{
+	function logout() {
+		if (confirm("로그아웃 하시겠습니까?")) {
+			location.href = "logout.do";
+		} else {
 			return;
 		}
 	}
@@ -77,7 +85,8 @@
 							href="#section-home">Home</a></li>
 						<li>${user.getName()}님안녕하세요!</li>
 						<li><a href="index.do" class="nav-link">my page</a></li>
-						<li class="nav-item"><a href="#" onclick="logout();" class="nav-link" id="logout">Logout</a></li>
+						<li class="nav-item"><a href="#" onclick="logout();"
+							class="nav-link" id="logout">Logout</a></li>
 						<li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a
 							class="nav-link" href="join_admin.do" target="_blank"><span
 								class="pb_rounded-4 px-4">Join</span></a></li>
@@ -151,14 +160,17 @@
 	<!-- END Footer -->
 
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/slick.min.js"></script>
-	<script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
-	<script src="assets/js/jquery.waypoints.min.js"></script>
-	<script src="assets/js/jquery.easing.1.3.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="./resources/js/jquery.min.js"></script>
+
+	<script src="./resources/js/popper.min.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/js/slick.min.js"></script>
+	<script src="./resources/js/jquery.mb.YTPlayer.min.js"></script>
+
+	<script src="./resources/js/jquery.waypoints.min.js"></script>
+	<script src="./resources/js/jquery.easing.1.3.js"></script>
+
+	<script src="./resources/js/main.js"></script>
 	<!-- 스크립트 모음 -->
 </body>
 </html>
