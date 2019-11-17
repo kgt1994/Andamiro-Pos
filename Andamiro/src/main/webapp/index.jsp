@@ -35,6 +35,7 @@
 <link rel="stylesheet" href="./resources/css/landing-2.css">
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <script>
 	$(function() {
 		var responseMessage = "<c:out value="${msg}" />";
@@ -92,8 +93,7 @@
 	<!-- END nav -->
 
 	<section
-		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light"
-		id="section-home">
+		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-md-6">

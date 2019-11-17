@@ -73,7 +73,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="probootstrap-navbar">
 					<ul class="navbar-nav ml-auto">
-						<li>${user.getName()}님 안녕하세요!</li>
+						<li><div class = "nav-link active" style = "color:white;">${user.getName()}님 안녕하세요!</div></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="home.do">Home</a></li>
 						<li><a href="#" class="nav-link">my page</a></li>
@@ -86,8 +86,7 @@
 	</header>
 
 	<section
-		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light"
-		id="section-home">
+		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="sidebar-item">

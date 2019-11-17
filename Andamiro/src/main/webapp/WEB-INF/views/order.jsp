@@ -36,243 +36,342 @@
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
 <script type="text/javascript">
-function logout(){
-	if(confirm("로그아웃 하시겠습니까?")){
-		location.href="logout.do";
-	}else{
-		return;
+	function logout() {
+		if (confirm("로그아웃 하시겠습니까?")) {
+			location.href = "logout.do";
+		} else {
+			return;
+		}
 	}
-}
 </script>
+
+<style>
+.cash {
+	width: 300px;
+	height: 300px;
+	border: 2px solid slategray;
+	border-radius: 20px;
+	background-color: rgb(115, 99, 71);
+}
+
+.cash>form>div.btn {
+	border-radius: 20px;
+	margin: 1px 1px 10px 1px;;
+	float: left;
+	border: 2px solid slategray;
+	width: 75px;
+	height: 40px;
+}
+
+div.btn>input {
+	font-size: 1.5em;
+	border-radius: 20px;
+	width: 75px;
+	height: 40px;
+	background-color: LightGray;
+}
+
+div.print>input.print_result {
+	border-radius: 20px;
+	margin-bottom: 20px;
+	border: 4px solid slategray;
+	width: 200px;
+	height: 50px;
+	background-color: LightGray;
+	text-align: center;
+	font-size: 10px;
+}
+</style>
+
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target"
-	data-offset="300">
-	<header class="site-navbar js-sticky-header site-navbar-target"
-		role="banner">
+<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 
+	<nav
+		class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light"
+		id="pb-navbar">
 		<div class="container">
-			<div class="row align-items-center position-relative">
-				<div class="site-logo">
-					<a href="main.do" class="text-black"><span class="text-primary">Andamiro</span></a>
-				</div>
-
-				<nav class="site-navigation text-center ml-auto" role="navigation">
-					<ul
-						class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-						<li>${user.getName() }님안녕하세요!<a href="index.do"
-							class="nav-link">my page</a></li>
-							<li><a href="#" onclick="logout();" class="nav-link" id="logout">Logout</a></li>
-					</ul>
-				</nav>
+			<a href="main.do" class="navbar-brand">Andamiro</a>
+			<button class="navbar-toggler ml-auto" type="button"
+				data-toggle="collapse" data-target="#probootstrap-navbar"
+				aria-controls="probootstrap-navbar" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span><i class="ion-navicon"></i></span>
+			</button>
+			<div class="collapse navbar-collapse" id="probootstrap-navbar">
+				<ul class="navbar-nav ml-auto">
+					<li><div class="nav-link active" style="color: white;">${user.getName()}님
+							안녕하세요!</div></li>
+					<li class="nav-item"><a class="nav-link active" href="home.do">Home</a></li>
+					<li><a href="#" class="nav-link">my page</a></li>
+					<li class="nav-item"><a href="#" onclick="logout();"
+						class="nav-link" id="logout">Logout</a></li>
+				</ul>
 			</div>
 		</div>
-	</header>
-	<br>
-	<div class="container"
-		style="float: left; left; width: 50%; text-align: center;">
-		<section style="float: left; width: 100%; text-align: center;">
-			<div style="width: 100%">
-				<table class="table table-bordered dataTable" id="dataTable"
-					width="50%" cellspacing="0" role="grid"
-					aria-describedby="dataTable_info;">
-					<colgroup>
-						<col style="width: 10%"></col>
-						<col style="width: 25%"></col>
-						<col style="width: 15%"></col>
-						<col style="width: 10%"></col>
-						<col style="width: *%"></col>
-					</colgroup>
-					<tr id="menu_list">
-						<th>No.</th>
-						<th>메뉴</th>
-						<th>가격</th>
-						<th>수량</th>
-						<th>비고</th>
-						<th><button type="button">한줄 취소</button></th>
-						<th><button type="button">수량추가</button></th>
-					</tr>
-				</table>
-			</div>
+	</nav>
 
-			<div
-				style="overflow: auto; height: 300px; text-align: center; width: 100%">
-				<table class="table table dataTable" id="dataTable" role="grid">
-					<colgroup>
-						<col style="width: 20%"></col>
-						<col style="width: 30%"></col>
-						<col style="width: 10%"></col>
-						<col style="width: 20%"></col>
-						<col style="width: 10%"></col>
-					</colgroup>
-				</table>
+	<!-- 이거 안에 무적권  -->
+	<div
+		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
 
-			</div>
+		<br>
+		<hr>
 
-			<div>
-				<table class="table table-bordered dataTable" id="dataTable"
-					width="100%" cellspacing="0" role="grid"
-					aria-describedby="dataTable_info;">
-					<colgroup>
-						<col style="width: 25%"></col>
-						<col style="width: 25%"></col>
-						<col style="width: 25%"></col>
-						<col style="width: 25%"></col>
-					</colgroup>
-					<tr>
-						<th><input type="button" value="전체 취소"
-							class="btn btn-warning" style="width: 100%; height: 100%;"></th>
+		<!-- 전체 컨테이너 -->
+		<div class="container"
+			style="float: left; width: 50%; text-align: center;">
 
-						<th><input type="button" value="+" class="btn btn-warning"
-							style="width: 100%; height: 100%;"></th>
-						<th><input type="button" value="-" class="btn btn-warning"
-							style="width: 100%; height: 100%;"></th>
-					</tr>
-				</table>
-			</div>
+			<!-- 비율 1:1 왼쪽 -->
+			<section style="text-align: center;">
 
-			<div style="width: 100%; float: center; ">
-				<article style="width: 50%; float: left;">
-					<div style="width: 100%;" class="form-group">
-						<table class="table table-bordered dataTable" id="dataTable"
-							width="100%" cellspacing="0" style = "text-align : center;">
-							<tbody>
-								<tr role="row" class="odd">
-									<td><lable>총 금액</lable></td>
-									<td><input type="text" class=".col-xs-6 .col-sm-4"
-										placeholder="Search"></td>
-								</tr>
-								<tr role="row" class="odd">
-									<td><label class="col-xs-6 .col-sm-3">할인 금액 :</label></td>
-									<td><input type="text" class=".col-xs-6 .col-sm-4"
-										placeholder="Search"></td>
-								</tr>
-								<tr role="row" class="odd">
-									<td><label class="col-xs-6 .col-sm-3">받을 금액 :</label></td>
-									<td><input type="text" class=".col-xs-6 .col-sm-4"
-										placeholder="Search"></td>
-								</tr>
-								<tr role="row" class="odd">
-									<td><label class="col-xs-6 .col-sm-3">받은 금액 :</label></td>
-									<td><input type="text" class=".col-xs-6 .col-sm-4"
-										placeholder="Search"></td>
-								</tr>
+				<!-- table header부분 -->
+				<div style="width: 100%">
+					<table class="table table-bordered dataTable" id="dataTable"
+						width="50%" cellspacing="0" role="grid"
+						aria-describedby="dataTable_info;">
+						<colgroup>
+							<col style="width: 10%"></col>
+							<col style="width: *%"></col>
+							<col style="width: 15%"></col>
+							<col style="width: 10%"></col>
+							<col style="width: 20%"></col>
+						</colgroup>
+						<tr id="menu_list">
+							<th>No.</th>
+							<th>메뉴</th>
+							<th>가격</th>
+							<th>수량</th>
+							<th>비고</th>
+						</tr>
+					</table>
+				</div>
+				<!-- 	header END -->
 
-								<tr role="row" class="odd">
-									<td><label class="col-xs-6 .col-sm-3">더치페이 인원:</label></td>
-									<td><input type="text" class=".col-xs-6 .col-sm-4"
-										placeholder="Search"></td>
-								</tr>
-							</tbody>
-						</table>
+				<!-- table body부분  스크롤바 생김-->
+				<div
+					style="overflow: auto; height: 250px; text-align: center; width: 100%">
+					<table class="table table dataTable" id="dataTable" role="grid">
+						<colgroup>
+							<col style="width: 20%"></col>
+							<col style="width: 30%"></col>
+							<col style="width: 10%"></col>
+							<col style="width: 20%"></col>
+							<col style="width: 10%"></col>
+						</colgroup>
+					</table>
+
+				</div>
+				<!-- 	body END -->
+
+				<!-- table footer부분 -->
+				<div>
+					<table class="table table-bordered dataTable" id="dataTable"
+						width="100%" cellspacing="0" role="grid"
+						aria-describedby="dataTable_info;">
+						<colgroup>
+							<col style="width: 25%"></col>
+							<col style="width: 25%"></col>
+							<col style="width: 25%"></col>
+							<col style="width: 25%"></col>
+						</colgroup>
+						<tr>
+							<th><input type="button" value="전체 취소"
+								class="btn btn-warning" style="width: 100%; height: 100%;"></th>
+
+							<th><input type="button" value="+" class="btn btn-warning"
+								style="width: 100%; height: 100%;"></th>
+							<th><input type="button" value="-" class="btn btn-warning"
+								style="width: 100%; height: 100%;"></th>
+						</tr>
+					</table>
+				</div>
+				<!--    footer END -->
+
+				<!-- section 하단 -->
+				<div style="width: 100%;">
+					<div style="float: left; width: 50%;">
+						<div style="width: 100%;" class="form-group">
+							<table class="table table-bordered dataTable" id="dataTable"
+								width="100%" cellspacing="0" style="text-align: center;">
+								<tbody>
+									<tr role="row" class="odd">
+										<td><lable>총 금액</lable></td>
+										<td><input type="text" class=".col-xs-6 .col-sm-4"
+											placeholder="Search"></td>
+									</tr>
+									<tr role="row" class="odd">
+										<td><label class="col-xs-6 .col-sm-3">할인 금액</label></td>
+										<td><input type="text" class=".col-xs-6 .col-sm-4"
+											placeholder="Search"></td>
+									</tr>
+									<tr role="row" class="odd">
+										<td><label class="col-xs-6 .col-sm-3">받을 금액</label></td>
+										<td><input type="text" class=".col-xs-6 .col-sm-4"
+											placeholder="Search"></td>
+									</tr>
+									<tr role="row" class="odd">
+										<td><label class="col-xs-6 .col-sm-3">받은 금액</label></td>
+										<td><input type="text" class=".col-xs-6 .col-sm-4"
+											placeholder="Search"></td>
+									</tr>
+
+									<tr role="row" class="odd">
+										<td><label class="col-xs-6 .col-sm-3">더치페이 인원</label></td>
+										<td><input type="text" class=".col-xs-6 .col-sm-4"
+											placeholder="Search"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
+
+					<div style="float: right; width: 50%; aline-item: center;">
+						<div id="cash">
+							<table border="1">
+								<thead>
+									<form name="calculator">
+										<div class="print">
+											<input class="print_result" type="textfield" name="ans"
+												value="">
+
+											<div class="c btn">
+												<input type="button" value="C">
+											</div>
+										</div>
+
+										<!-- 								<div class="division btn">
+									<input type="button" value="/"
+										onClick="document.calculator.ans.value+='/'">
+
+								</div> -->
+
+										<div class="seven btn">
+											<input type="button" value="7"
+												onClick="document.calculator.ans.value+='7'">
+										</div>
+										<div class="eight btn">
+											<input type="button" value="8"
+												onClick="document.calculator.ans.value+='8'">
+										</div>
+										<div class="nine btn">
+											<input type="button" value="9"
+												onClick="document.calculator.ans.value+='9'">
+										</div>
+
+										<div class="four btn">
+											<input type="button" value="4"
+												onClick="document.calculator.ans.value+='4'">
+										</div>
+										<div class="five btn">
+											<input type="button" value="5"
+												onClick="document.calculator.ans.value+='5'">
+										</div>
+										<div class="six btn">
+											<input type="button" value="6"
+												onClick="document.calculator.ans.value+='6'">
+										</div>
+
+										<div class="one btn">
+											<input type="button" value="1"
+												onClick="document.calculator.ans.value+='1'">
+										</div>
+										<div class="two btn">
+											<input type="button" value="2"
+												onClick="document.calculator.ans.value+='2'">
+										</div>
+										<div class="three btn">
+											<input type="button" value="3"
+												onClick="document.calculator.ans.value+='3'">
+										</div>
+
+										<div class="zero btn">
+											<input type="button" value="0"
+												onClick="document.calculator.ans.value+='0'">
+										</div>
+										<div class="ce btn">
+											<input type="button" value="CE">
+										</div>
+										<div class="result btn">
+											<input type="button" value="="
+												onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+										</div>
+									</form>
+								</thead>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="container"
+			style="float: right; width: 50%; text-align: center;">
+			<section style="float: left; width: 100%; text-align: center;">
+				<article style="clear: both;">
+					<table class="table table-bordered dataTable" id="dataTable"
+						style="width: 100%; height: 80%;" cellspacing="0" role="grid"
+						aria-describedby="dataTable_info;">
+						<colgroup>
+							<col style="width: 20%"></col>
+							<col style="width: 20%"></col>
+							<col style="width: 20%"></col>
+							<col style="width: 20%"></col>
+							<col style="width: 20%"></col>
+						</colgroup>
+						<tbody>
+							<tr style="border-collapse: collapse;">
+								<th><button type="button" class="btn btn-default"
+										id="btn_select1">아메리카노</button></th>
+								<th class="sorting_1"><input type="button" value="2"
+									class="btn btn-warning"></th>
+								<th class="sorting_1"><input type="button" value="3"
+									class="btn btn-warning"></th>
+
+								<th class="sorting_1"><input type="button" value="4"
+									class="btn btn-warning"></th>
+								<th class="sorting_1"><input type="button" value="5"
+									class="btn btn-warning"></th>
+							</tr>
+						</tbody>
+					</table>
 				</article>
 
-				<div style="width: 50%; float: right;">
-					<article style="float: center;">
-						<div>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">1</button>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">2</button>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">3</button>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">0</button>
-						</div>
-						<div>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">4</button>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">5</button>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">6</button>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">%할인</button>
-						</div>
-						<div>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">7</button>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">8</button>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">9</button>
-							<button type="button" class="number" id="2"
-								style="width: 60px; height: 60px;">원할인</button>
-						</div>
-					</article>
+				<div style="float: left; margin-right: 10px; text-align: center;">
+					<button type="button" class="btn btn-success"
+						style="width: 150px; height: 210px;">주문</button>
 				</div>
-			</div>
-		</section>
-	</div>
-	<div class="container"
-		style="float: right; width: 50%; text-align: center;">
-		<section style="float: left; width: 100%; text-align: center;">
-			<article style="clear: both;">
-				<table class="table table-bordered dataTable" id="dataTable"
-					style="width: 100%; height: 80%;" cellspacing="0" role="grid"
-					aria-describedby="dataTable_info;">
-					<colgroup>
-						<col style="width: 20%"></col>
-						<col style="width: 20%"></col>
-						<col style="width: 20%"></col>
-						<col style="width: 20%"></col>
-						<col style="width: 20%"></col>
-					</colgroup>
-					<tbody>
-						<tr style="border-collapse: collapse;">
-							<th><button type="button" class="btn btn-default"
-									id="btn_select1">아메리카노</button></th>
-							<th class="sorting_1"><input type="button" value="2"
-								class="btn btn-warning"></th>
-							<th class="sorting_1"><input type="button" value="3"
-								class="btn btn-warning"></th>
 
-							<th class="sorting_1"><input type="button" value="4"
-								class="btn btn-warning"></th>
-							<th class="sorting_1"><input type="button" value="5"
-								class="btn btn-warning"></th>
-						</tr>
-					</tbody>
-				</table>
-			</article>
+				<div style="float: left; margin-right: 10px; text-align: center;">
+					<button type="button" class="btn btn-success"
+						style="width: 150px; height: 100px; margin-bottom: 10px;">영수증
+						관리</button>
+					<br>
 
+					<button type="button" class="btn btn-success"
+						style="width: 100px; height: 100px;">중간 계산서</button>
+				</div>
 
-			<script>
-				var num;
+				<div style="float: left; margin-right: 10px; text-align: center;">
+					<button type="button" class="btn btn-warning" data-toggle="modal"
+						data-target="#card_payment" data-whatever="@mdo"
+						style="width: 200px; height: 210px;">카드</button>
+				</div>
+				<div style="float: left; margin-right: 10px; text-align: center;">
 
-				var menu_list = "<tr>"
-				menu_list += "<th>num += num </th>"
-			</script>
-			<div style="float: left; margin-right: 10px; text-align: center;">
-				<button type="button" class="btn btn-success"
-					style="width: 150px; height: 210px;">주문</button>
-			</div>
+					<button type="button" class="btn btn-warning" data-toggle="modal"
+						data-target="#cash_payment" data-whatever="@mdo"
+						style="width: 200px; height: 210px;">현금</button>
+				</div>
+			</section>
+		</div>
 
-			<div style="float: left; margin-right: 10px; text-align: center;">
-				<button type="button" class="btn btn-success"
-					style="width: 100px; height: 100px; margin-bottom: 10px;">영수증
-					관리</button>
-				<br>
-
-				<button type="button" class="btn btn-success"
-					style="width: 100px; height: 100px;">중간 계산서</button>
-			</div>
-
-			<div style="float: left; margin-right: 10px; text-align: center;">
-				<button type="button" class="btn btn-warning" data-toggle="modal"
-					data-target="#card_payment" data-whatever="@mdo"
-					style="width: 200px; height: 210px;">카드</button>
-			</div>
-			<div style="float: left; margin-right: 10px; text-align: center;">
-
-				<button type="button" class="btn btn-warning" data-toggle="modal"
-					data-target="#cash_payment" data-whatever="@mdo"
-					style="width: 200px; height: 210px;">현금</button>
-			</div>
-		</section>
 	</div>
 
+
+
+
+	<!-- 모달창 -->
 	<div class="modal fade" id="card_payment" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -363,14 +462,13 @@ function logout(){
 			</div>
 		</div>
 	</div>
+	<!-- Footer -->
+	<!-- <footer class="bg- py-3 fixed-bottom">
+		<div class="small text-center text-muted">Copyright &copy; 2019
+			- Andamiro</div>
+	</footer> -->
+	<!-- END Footer -->
 
-	<div class="container">
-		<!-- Footer -->
-		<footer class="bg- py-3 fixed-bottom">
-			<div class="small text-center text-muted">Copyright &copy; 2019
-				- Andamiro</div>
-		</footer>
-	</div>
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
 	<script src="./resources/js/jquery.min.js"></script>
 
