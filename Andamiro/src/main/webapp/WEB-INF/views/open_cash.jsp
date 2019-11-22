@@ -90,45 +90,46 @@ ul.mylist li, ol.mylist li {
 					<div>
 						<div class="relative align-self-center" id="login">
 							<div class="bg-white rounded pb_form_v1">
-								<form style="float: left; width: 50%;">
+								<form style="float: left; width: 100%;">
 									<fieldset>
 										<legend>영업준비금</legend>
-										<table>
+										<table style="border: 1px solid darkgray; float: left;">
 											<tbody>
 												<tr>
-													<td>50000</td>
+													<td>50000&nbsp;&nbsp;&nbsp;</td>
 													<td><input type="text" name="id" class="form-control"
-														style="width: 20%;"></td>
+														style="width: 25%;"></td>
+
 												</tr>
 												<tr>
 													<td>10000</td>
 													<td><input type="text" name="id" class="form-control"
-														style="width: 20%;"></td>
+														style="width: 25%;"></td>
 												</tr>
 												<tr>
 													<td>5000</td>
 													<td><input type="text" name="id" class="form-control"
-														style="width: 20%;"></td>
+														style="width: 25%;"></td>
 												</tr>
 												<tr>
 													<td>1000</td>
 													<td><input type="text" name="id" class="form-control"
-														style="width: 20%;"></td>
+														style="width: 25%;"></td>
 												</tr>
 												<tr>
 													<td>500</td>
 													<td><input type="text" name="id" class="form-control"
-														style="width: 20%;"></td>
+														style="width: 25%;"></td>
 												</tr>
 												<tr>
 													<td>100</td>
 													<td><input type="text" name="id" class="form-control"
-														style="width: 20%;"></td>
+														style="width: 25%;"></td>
 												</tr>
 												<tr>
 													<td>50</td>
 													<td><input type="text" name="id" class="form-control"
-														style="width: 20%;"></td>
+														style="width: 25%;"></td>
 												</tr>
 												<tr>
 													<td>10</td>
@@ -137,39 +138,86 @@ ul.mylist li, ol.mylist li {
 												</tr>
 											</tbody>
 										</table>
+
+										<table style="border: 1px solid darkgray; float: left;">
+											<tbody>
+												<tr>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 70%;" required autofocus></td>
+												</tr>
+												<tr>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 70%;" required autofocus></td>
+												</tr>
+												<tr>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 70%;" required autofocus></td>
+												</tr>
+												<tr>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 70%;" required autofocus></td>
+												</tr>
+												<tr>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 70%;" required autofocus></td>
+												</tr>
+												<td><input type="text" name="id" class="form-control"
+													style="width: 70%;" required autofocus></td>
+												<tr>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 70%;" required autofocus></td>
+												</tr>
+												<tr>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 70%;" required autofocus></td>
+												</tr>
+											</tbody>
+										</table>
+
+										<table style="border: 1px solid darkgray; float: left;">
+											<tbody>
+												<tr>
+													<td>합계 : <input type="text" name="id"
+														class="form-control" style="width: 70%;" required
+														autofocus></td>
+
+												</tr>
+
+												<tr>
+													<td><button class="btn btn-primary" type="button"
+															value="1" style="border: 1px groove darkgray">1</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">2</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">3</button></td>
+												</tr>
+												<tr>
+													<td><button type="button" class="btn btn-primary"
+															value="1" style="border: 1px groove darkgray">4</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">5</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">6</button></td>
+												</tr>
+												<tr>
+													<td><button type="button" class="btn btn-primary"
+															value="1" style="border: 1px groove darkgray">7</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">8</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">9</button></td>
+												</tr>
+												<tr>
+													<td><button type="button" class="btn btn-primary"
+															value="0" style="border: 1px groove darkgray">0</button></td>
+												</tr>
+
+											</tbody>
+										</table>
 									</fieldset>
 								</form>
 								<br> <br>
-								<form style="float: right;">
-									<fieldset>
-										<div style="float: right; text-align: center;">
-											<input type="text" name="id" class="form-control"
-												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
-												required autofocus> <input type="text" name="id"
-												class="form-control"
-												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
-												required autofocus> <input type="text" name="id"
-												class="form-control"
-												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
-												required autofocus> <input type="text" name="id"
-												class="form-control"
-												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
-												required autofocus> <input type="text" name="id"
-												class="form-control"
-												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
-												required autofocus> <input type="text" name="id"
-												class="form-control"
-												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
-												required autofocus> <input type="text" name="id"
-												class="form-control"
-												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
-												required autofocus> <input type="text" name="id"
-												class="form-control"
-												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
-												required autofocus>
-										</div>
-									</fieldset>
-								</form>
+
 								<div class="form-group">
 									<input type="submit"
 										class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue"
