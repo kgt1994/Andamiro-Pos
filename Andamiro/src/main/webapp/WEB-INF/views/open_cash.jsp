@@ -5,7 +5,6 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description"
@@ -33,77 +32,157 @@
 <link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
+<script type="text/javascript">
+	function logout() {
+		if (confirm("로그아웃 하시겠습니까?")) {
+			location.href = "logout.do";
+		} else {
+			return;
+		}
+	}
+</script>
+
+<style>
+ul.mylist li, ol.mylist li {
+	padding: 5px 0px 5px 5px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #efefef;
+}
+</style>
 </head>
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
-	<header class="site-navbar js-sticky-header site-navbar-target"
-		role="banner">
-		<nav
-			class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light"
-			id="pb-navbar">
-			<div class="container">
-				<a href="main.do" class="navbar-brand">Andamiro</a>
-				<button class="navbar-toggler ml-auto" type="button"
-					data-toggle="collapse" data-target="#probootstrap-navbar"
-					aria-controls="probootstrap-navbar" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span><i class="ion-navicon"></i></span>
-				</button>
-				<div class="collapse navbar-collapse" id="probootstrap-navbar">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link active"
-							href="#section-home">Home</a></li>
-						<li>${user.getName()}님안녕하세요!</li>
-						<li><a href="index.do" class="nav-link">my page</a></li>
-						<li class="nav-item"><a href="#" onclick="logout();"
-							class="nav-link" id="logout">Logout</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-
-	<section
-		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light"
-		id="section-home">
-		<div class="container"
-			style="float: left; left; width: 100%; text-align: center;">
-			<div class="row align-items-center justify-content-center">
-				<article style="float: left; width: 50%; text-align: center;">
-					<table class="table table-bordered dataTable" id="dataTable"
-						width="100%" cellspacing="0" style="text-align: center;">
-						<tbody>
-							<tr role="row" class="odd">
-								<td><lable>총 금액</lable></td>
-								<td><input type="text" class=".col-xs-6 .col-sm-4"
-									placeholder="Search"></td>
-							</tr>
-							<tr role="row" class="odd">
-								<td><label class="col-xs-6 .col-sm-3">할인 금액 :</label></td>
-								<td><input type="text" class=".col-xs-6 .col-sm-4"
-									placeholder="Search"></td>
-							</tr>
-							<tr role="row" class="odd">
-								<td><label class="col-xs-6 .col-sm-3">받을 금액 :</label></td>
-								<td><input type="text" class=".col-xs-6 .col-sm-4"
-									placeholder="Search"></td>
-							</tr>
-							<tr role="row" class="odd">
-								<td><label class="col-xs-6 .col-sm-3">받은 금액 :</label></td>
-								<td><input type="text" class=".col-xs-6 .col-sm-4"
-									placeholder="Search"></td>
-							</tr>
-
-							<tr role="row" class="odd">
-								<td><label class="col-xs-6 .col-sm-3">더치페이 인원:</label></td>
-								<td><input type="text" class=".col-xs-6 .col-sm-4"
-									placeholder="Search"></td>
-							</tr>
-						</tbody>
-					</table>
-				</article>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light"
+		id="pb-navbar">
+		<div class="container">
+			<a href="main.do" class="navbar-brand">Andamiro</a>
+			<button class="navbar-toggler ml-auto" type="button"
+				data-toggle="collapse" data-target="#probootstrap-navbar"
+				aria-controls="probootstrap-navbar" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span><i class="ion-navicon"></i></span>
+			</button>
+			<div class="collapse navbar-collapse" id="probootstrap-navbar">
+				<ul class="navbar-nav ml-auto">
+					<li><div class="nav-link active" style="color: white;">${user.getName()}님
+							안녕하세요!</div></li>
+					<li class="nav-item"><a class="nav-link active" href="home.do">Home</a></li>
+					<li><a href="#" class="nav-link">my page</a></li>
+					<li class="nav-item"><a href="#" onclick="logout();"
+						class="nav-link" id="logout">Logout</a></li>
+				</ul>
 			</div>
 		</div>
-	</section>
+	</nav>
+
+	<div
+		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
+		<br>
+		<hr>
+
+		<div
+			class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
+			<br>
+			<hr>
+
+			<div class="container">
+				<div style="float: center;">
+					<div>
+						<div class="relative align-self-center" id="login">
+							<div class="bg-white rounded pb_form_v1">
+								<form style="float: left; width: 50%;">
+									<fieldset>
+										<legend>영업준비금</legend>
+										<table>
+											<tbody>
+												<tr>
+													<td>50000</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 20%;"></td>
+												</tr>
+												<tr>
+													<td>10000</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 20%;"></td>
+												</tr>
+												<tr>
+													<td>5000</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 20%;"></td>
+												</tr>
+												<tr>
+													<td>1000</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 20%;"></td>
+												</tr>
+												<tr>
+													<td>500</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 20%;"></td>
+												</tr>
+												<tr>
+													<td>100</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 20%;"></td>
+												</tr>
+												<tr>
+													<td>50</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 20%;"></td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 20%;"></td>
+												</tr>
+											</tbody>
+										</table>
+									</fieldset>
+								</form>
+								<br> <br>
+								<form style="float: right;">
+									<fieldset>
+										<div style="float: right; text-align: center;">
+											<input type="text" name="id" class="form-control"
+												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
+												required autofocus> <input type="text" name="id"
+												class="form-control"
+												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
+												required autofocus> <input type="text" name="id"
+												class="form-control"
+												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
+												required autofocus> <input type="text" name="id"
+												class="form-control"
+												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
+												required autofocus> <input type="text" name="id"
+												class="form-control"
+												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
+												required autofocus> <input type="text" name="id"
+												class="form-control"
+												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
+												required autofocus> <input type="text" name="id"
+												class="form-control"
+												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
+												required autofocus> <input type="text" name="id"
+												class="form-control"
+												style="padding: 5px 0px 5px 5px; margin-bottom: 10px;"
+												required autofocus>
+										</div>
+									</fieldset>
+								</form>
+								<div class="form-group">
+									<input type="submit"
+										class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue"
+										value="Login">
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
 	<script src="./resources/js/jquery.min.js"></script>
 

@@ -164,142 +164,120 @@ div.print>input.print_result {
 				</div>
 				<!-- 	body END -->
 
-				<!-- table footer부분 -->
+<br>
 				<div>
-					<table class="table table-bordered dataTable" id="dataTable"
-						width="100%" cellspacing="0" role="grid"
-						aria-describedby="dataTable_info;">
-						<colgroup>
-							<col style="width: 25%"></col>
-							<col style="width: 25%"></col>
-							<col style="width: 25%"></col>
-							<col style="width: 25%"></col>
-						</colgroup>
-						<tr>
-							<th><input type="button" value="전체 취소"
-								class="btn btn-warning" style="width: 100%; height: 100%;"></th>
-
-							<th><input type="button" value="+" class="btn btn-warning"
-								style="width: 100%; height: 100%;"></th>
-							<th><input type="button" value="-" class="btn btn-warning"
-								style="width: 100%; height: 100%;"></th>
-						</tr>
-					</table>
+					<input type="button" value="전체취소"
+						class="btn btn-primary btn-block pb_btn-pill  btn-shadow-blue"
+						style="width: 25%; float: left;"> <input type="button"
+						value="+"
+						class="btn btn-primary btn-block pb_btn-pill  btn-shadow-blue"
+						style="width: 25%; float: left;"> <input type="button"
+						value="-"
+						class="btn btn-primary btn-block pb_btn-pill  btn-shadow-blue"
+						style="width: 25%; float: left;"> <input type="button"
+						value="한줄취소"
+						class="btn btn-primary btn-block pb_btn-pill  btn-shadow-blue"
+						style="width: 25%; float: left;">
 				</div>
-				<!--    footer END -->
+				<br>
 
 				<!-- section 하단 -->
-				<div style="width: 100%;">
-					<div style="float: left; width: 50%;">
-						<div style="width: 100%;" class="form-group">
-							<table class="table table-bordered dataTable" id="dataTable"
-								width="100%" cellspacing="0" style="text-align: center;">
-								<tbody>
-									<tr role="row" class="odd">
-										<td><lable>총 금액</lable></td>
-										<td><input type="text" class=".col-xs-6 .col-sm-4"
-											placeholder="Search"></td>
-									</tr>
-									<tr role="row" class="odd">
-										<td><label class="col-xs-6 .col-sm-3">할인 금액</label></td>
-										<td><input type="text" class=".col-xs-6 .col-sm-4"
-											placeholder="Search"></td>
-									</tr>
-									<tr role="row" class="odd">
-										<td><label class="col-xs-6 .col-sm-3">받을 금액</label></td>
-										<td><input type="text" class=".col-xs-6 .col-sm-4"
-											placeholder="Search"></td>
-									</tr>
-									<tr role="row" class="odd">
-										<td><label class="col-xs-6 .col-sm-3">받은 금액</label></td>
-										<td><input type="text" class=".col-xs-6 .col-sm-4"
-											placeholder="Search"></td>
-									</tr>
-
-									<tr role="row" class="odd">
-										<td><label class="col-xs-6 .col-sm-3">더치페이 인원</label></td>
-										<td><input type="text" class=".col-xs-6 .col-sm-4"
-											placeholder="Search"></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+				<div style="float: left; width: 50%; align: center;">
+					<br>
+					<div style="float: left; text-align: center;">
+						<div class="nav-link" style="color: white;">총금액</div>
+						<br>
+						<div class="nav-link" style="color: white;">할인 금액</div>
+						<br>
+						<div class="nav-link" style="color: white;">받을 금액</div>
+						<br>
+						<div class="nav-link" style="color: white;">받은 금액</div>
+						<br>	
 					</div>
 
-					<div style="float: right; width: 50%; aline-item: center;">
-						<div id="cash">
+					<div style="float: right; width: 50%; text-align: center;">
+						<input type="text" name="id" class="form-control" required
+							autofocus> <br> <input type="text" name="id"
+							class="form-control" required autofocus> <br> <input
+							type="text" name="id" class="form-control" required autofocus>
+						<br> <input type="text" name="id" class="form-control"
+							required autofocus><br>
+					</div>
+				</div>
+
+				<div style="float: right; width: 50%; aline-item: center;">
+					<div id="cash">
+						<form name="calculator">
 							<table border="1">
 								<thead>
-									<form name="calculator">
-										<div class="print">
-											<input class="print_result" type="textfield" name="ans"
-												value="">
+									<div class="print">
+										<input class="print_result" type="textfield" name="ans"
+											value="">
 
-											<div class="c btn">
-												<input type="button" value="C">
-											</div>
+										<div class="c btn">
+											<input type="button" value="C">
 										</div>
+									</div>
 
-										<!-- 								<div class="division btn">
+									<!-- 								<div class="division btn">
 									<input type="button" value="/"
 										onClick="document.calculator.ans.value+='/'">
 
 								</div> -->
 
-										<div class="seven btn">
-											<input type="button" value="7"
-												onClick="document.calculator.ans.value+='7'">
-										</div>
-										<div class="eight btn">
-											<input type="button" value="8"
-												onClick="document.calculator.ans.value+='8'">
-										</div>
-										<div class="nine btn">
-											<input type="button" value="9"
-												onClick="document.calculator.ans.value+='9'">
-										</div>
+									<div class="seven btn">
+										<input type="button" value="7"
+											onClick="document.calculator.ans.value+='7'">
+									</div>
+									<div class="eight btn">
+										<input type="button" value="8"
+											onClick="document.calculator.ans.value+='8'">
+									</div>
+									<div class="nine btn">
+										<input type="button" value="9"
+											onClick="document.calculator.ans.value+='9'">
+									</div>
 
-										<div class="four btn">
-											<input type="button" value="4"
-												onClick="document.calculator.ans.value+='4'">
-										</div>
-										<div class="five btn">
-											<input type="button" value="5"
-												onClick="document.calculator.ans.value+='5'">
-										</div>
-										<div class="six btn">
-											<input type="button" value="6"
-												onClick="document.calculator.ans.value+='6'">
-										</div>
+									<div class="four btn">
+										<input type="button" value="4"
+											onClick="document.calculator.ans.value+='4'">
+									</div>
+									<div class="five btn">
+										<input type="button" value="5"
+											onClick="document.calculator.ans.value+='5'">
+									</div>
+									<div class="six btn">
+										<input type="button" value="6"
+											onClick="document.calculator.ans.value+='6'">
+									</div>
 
-										<div class="one btn">
-											<input type="button" value="1"
-												onClick="document.calculator.ans.value+='1'">
-										</div>
-										<div class="two btn">
-											<input type="button" value="2"
-												onClick="document.calculator.ans.value+='2'">
-										</div>
-										<div class="three btn">
-											<input type="button" value="3"
-												onClick="document.calculator.ans.value+='3'">
-										</div>
+									<div class="one btn">
+										<input type="button" value="1"
+											onClick="document.calculator.ans.value+='1'">
+									</div>
+									<div class="two btn">
+										<input type="button" value="2"
+											onClick="document.calculator.ans.value+='2'">
+									</div>
+									<div class="three btn">
+										<input type="button" value="3"
+											onClick="document.calculator.ans.value+='3'">
+									</div>
 
-										<div class="zero btn">
-											<input type="button" value="0"
-												onClick="document.calculator.ans.value+='0'">
-										</div>
-										<div class="ce btn">
-											<input type="button" value="CE">
-										</div>
-										<div class="result btn">
+									<div class="zero btn">
+										<input type="button" value="0"
+											onClick="document.calculator.ans.value+='0'">
+									</div>
+									<div class="ce btn">
+										<input type="button" value="CE">
+									</div>
+									<!-- <div class="result btn">
 											<input type="button" value="="
 												onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
-										</div>
-									</form>
+										</div> -->
 								</thead>
 							</table>
-						</div>
+						</form>
 					</div>
 				</div>
 			</section>
@@ -410,13 +388,13 @@ div.print>input.print_result {
 				<div class="modal-body">
 					<form class="form-horizontal">
 						<div class="form-group form-group-sm">
-							<label for="formGroupInputSmall">결제 금액</label>
+							<label>결제 금액</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="priceNumber">
 							</div>
 						</div>
 						<div class="form-group form-group-sm">
-							<label for="formGroupInputSmall">받은 금액</label>
+							<label>받은 금액</label>
 							<div class="col-sm-10" id="pay">
 								<input class="form-control" type="text" id="Input_Price">
 							</div>
@@ -432,7 +410,7 @@ div.print>input.print_result {
 					<table class="table">
 						<tbody>
 							<tr>
-								<td><button type="button" class="number" id="1">1</button></td>
+								<td><button type="button" class="number">1</button></td>
 								<td><button type="button" class="number" id="2">2</button></td>
 								<td><button type="button" class="number" id="3">3</button></td>
 								<td>
@@ -463,10 +441,10 @@ div.print>input.print_result {
 		</div>
 	</div>
 	<!-- Footer -->
-	<!-- <footer class="bg- py-3 fixed-bottom">
+	<footer>
 		<div class="small text-center text-muted">Copyright &copy; 2019
 			- Andamiro</div>
-	</footer> -->
+	</footer>
 	<!-- END Footer -->
 
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
