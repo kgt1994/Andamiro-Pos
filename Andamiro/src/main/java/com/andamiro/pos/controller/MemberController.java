@@ -70,7 +70,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "join.do", method = RequestMethod.POST)
-	public ModelAndView join(@ModelAttribute("memberDTO") @Valid MemberDTO memberDTO, BindingResult bindingResult) {
+	public ModelAndView join(@ModelAttribute("memberDTO") @Valid MemberDTO memberDTO, 
+			BindingResult bindingResult) {
 		System.out.println("가입시도");
 
 		if (bindingResult.hasErrors()) {
@@ -104,7 +105,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "join_admin.do", method = RequestMethod.GET)
-	public String join_admin(@ModelAttribute("memberDTO") MemberDTO memberDTO, Model model) {
+	public String join_admin(@ModelAttribute("memberDTO") MemberDTO memberDTO) {
 		return "join_admin";
 	}
 	
@@ -116,8 +117,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "update.do", method = RequestMethod.POST)
-	public ModelAndView update(@ModelAttribute("memberDTO") @Valid UpdateDTO memberDTO, BindingResult bindingResult, 
-			@ModelAttribute("user") SessionDTO dto, Model model) {
+	public ModelAndView update(@ModelAttribute("memberDTO") @Valid UpdateDTO memberDTO, 
+			BindingResult bindingResult, @ModelAttribute("user") SessionDTO dto) {
 		ModelAndView mv = new ModelAndView();
 		LoginDTO ldto = new LoginDTO();
 		ldto.setId(memberDTO.getId());
@@ -151,7 +152,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "leave.do", method = RequestMethod.POST)
-	public ModelAndView myPage(@ModelAttribute("memberDTO") @Valid UpdateDTO memberDTO, BindingResult bindingResult) {
+	public ModelAndView myPage(@ModelAttribute("memberDTO") @Valid UpdateDTO memberDTO, 
+			BindingResult bindingResult) {
 		ModelAndView mv = new ModelAndView();
 		LoginDTO ldto = new LoginDTO();
 		ldto.setId(memberDTO.getId());

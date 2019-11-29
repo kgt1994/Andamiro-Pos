@@ -39,7 +39,8 @@ public class ShopController {
 	}
 
 	@RequestMapping(value = "settings.do{index}", method = RequestMethod.POST)
-	public ModelAndView settings(@ModelAttribute ShopRow sr, @RequestParam("index") String index) {
+	public ModelAndView settings(@ModelAttribute("user") SessionDTO dto, 
+			@ModelAttribute ShopRow sr, @RequestParam("index") String index) {
 		
 		ModelAndView mv = new ModelAndView("settings");
 		ShopDTO sdto = new ShopDTO();
@@ -51,32 +52,33 @@ public class ShopController {
 	}
 
 	@RequestMapping(value = "order.do", method = RequestMethod.GET)
-	public String order(Locale locale, Model model) {
+	public String order(@ModelAttribute("user") SessionDTO dto, Model model) {
 		return "order";
 	}
 
 	@RequestMapping(value = "sales_account.do", method = RequestMethod.GET)
-	public String sales_account(Locale locale, Model model) {
+	public String sales_account(@ModelAttribute("user") SessionDTO dto, Model model) {
 		return "sales_account";
 	}
 
 	@RequestMapping(value = "table_settings.do", method = RequestMethod.GET)
-	public String table_settings(Locale locale, Model model) {
+	public String table_settings(@ModelAttribute("user") SessionDTO dto, Model model) {
 		return "table_settings";
 	}
 
 	@RequestMapping(value = "shoppw.do", method = RequestMethod.POST)
-	public String shoppw(@ModelAttribute("memberDTO") MemberDTO memberDTO, Model model) {
+	public String shoppw(@ModelAttribute("memberDTO") MemberDTO memberDTO, 
+			@ModelAttribute("user") SessionDTO dto) {
 
 		return "settings";
 	}
 	@RequestMapping(value = "open_cash.do", method = RequestMethod.GET)
-	public String open_cash(Locale locale, Model model) {
+	public String open_cash(@ModelAttribute("user") SessionDTO dto, Model model) {
 		return "open_cash";
 	}
 	
 	@RequestMapping(value = "end_cash.do", method = RequestMethod.GET)
-	public String end_cash(Locale locale, Model model) {
+	public String end_cash(@ModelAttribute("user") SessionDTO dto, Model model) {
 		return "end_cash";
 	}
 	
