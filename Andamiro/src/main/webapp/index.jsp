@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>andamiro_POS index</title>
+<title>Andamiro</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,9 +40,9 @@
 	$(function() {
 		var responseMessage = "<c:out value="${msg}" />";
 		if (responseMessage != "") {
-			alert(responseMessage)
+			alert(responseMessage);
 		}
-	})
+	});
 
 	$(function() {
 		var session = "<c:out value="${user.getName()}" />";
@@ -52,6 +52,7 @@
 		} else {
 			$("#home").remove();
 			$("#logout").remove();
+			$("#myPage").remove();
 		}
 	});
 
@@ -62,6 +63,13 @@
 			return;
 		}
 	}
+	
+	$(function() {
+		$(".form-control").keyup(function() {
+			var txt = $(this).val().replace(/ /gi, '');
+			$(this).val(txt);
+		});
+	});
 </script>
 </head>
 
@@ -109,7 +117,7 @@
 
 					<form action="login.do" method="post"
 						class="bg-white rounded pb_form_v1">
-						<h2 class="mb-4 mt-0 text-center">admin_Login</h2>
+						<h2 class="mb-4 mt-0 text-center">Login</h2>
 						<div class="form-group">
 							<input type="text" class="form-control pb_height-50 reverse"
 								name="id" placeholder="아이디를 입력해 주세요." required autofocus>
