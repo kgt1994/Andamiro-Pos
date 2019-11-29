@@ -48,100 +48,7 @@ ul.mylist li, ol.mylist li {
 	margin-bottom: 10px;
 	border-bottom: 1px solid #efefef;
 }
-
-input.btn {
-	background-color: lighgray;
-	width: 50px;
-	height: 40px;
-	margin: 5px;
-	font-size: 15pt;
-	width: 50px;
-}
-
-.clr, .equal {
-	width: 112px;
-	height: 40px;
-	margin: 5px;
-	font-size: 15pt;
-}
-
-#disp {
-	width: 295px;
-	height: 40px;
-	margin: 5px;
-	font-size: 22pt;
-	text-align: right;
-}
 </style>
-<script>
-	var flag = true;
-	var totalFlag = true;
-	var flag2 = 0;
-	var flag3 = 0;
-
-	function err() {
-		var f = document.calform;
-		f.disp.value = "수식오류";
-		flag = true;
-	}
-
-	function but(su) {
-
-		if (totalFlag == false && isNaN(su) == false) {
-			c();
-		} else {
-			totalFlag = true;
-		}
-
-		var f = document.calform;
-
-		if (flag) {
-			if (su == 0) {
-				return;
-			}
-			f.disp.value = "";
-			flag = false;
-		}
-
-		if (isNaN(su)) {
-			flag2++;
-		} else {
-			flag2 = 0;
-		}
-
-		if (flag2 > 1) {
-			return;
-		}
-		f.disp.value += su;
-	}
-
-	function c() {
-		var f = document.calform;
-		flag = true;
-		totalFlag = true;
-		f.disp.value = "";
-	}
-
-	function total() {
-
-		var f = document.calform;
-
-		try {
-			var a = eval(f.disp.value);
-			if (isNaN(a)) {
-				throw err();
-				return;
-			}
-		} catch (e) {
-			err();
-			return;
-		}
-		totalFlag = false;
-		var b = (parseInt(a * 1000000000000) / 1000000000000)
-		f.disp.value = b;
-
-	}
-</script>
 </head>
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 	<nav
@@ -183,55 +90,55 @@ input.btn {
 					<div>
 						<div class="relative align-self-center" id="login">
 							<div class="bg-white rounded pb_form_v1">
-								<fieldset>
-									<legend>영업준비금</legend>
-									<table style="border: 1px solid darkgray; float: left;">
-										<tbody>
-											<tr>
-												<td>50000&nbsp;&nbsp;&nbsp;</td>
-												<td><input type="text" name="id" class="form-control"
-													style="width: 25%;"></td>
+								<form style="float: left; width: 100%;">
+									<fieldset>
+										<legend>마감 정산</legend>
+										<table style="border: 1px solid darkgray; float: left;">
+											<tbody>
+												<tr>
+													<td>50000&nbsp;&nbsp;&nbsp;</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 25%;"></td>
 
-											</tr>
-											<tr>
-												<td>10000</td>
-												<td><input type="text" name="id" class="form-control"
-													style="width: 25%;"></td>
-											</tr>
-											<tr>
-												<td>5000</td>
-												<td><input type="text" name="id" class="form-control"
-													style="width: 25%;"></td>
-											</tr>
-											<tr>
-												<td>1000</td>
-												<td><input type="text" name="id" class="form-control"
-													style="width: 25%;"></td>
-											</tr>
-											<tr>
-												<td>500</td>
-												<td><input type="text" name="id" class="form-control"
-													style="width: 25%;"></td>
-											</tr>
-											<tr>
-												<td>100</td>
-												<td><input type="text" name="id" class="form-control"
-													style="width: 25%;"></td>
-											</tr>
-											<tr>
-												<td>50</td>
-												<td><input type="text" name="id" class="form-control"
-													style="width: 25%;"></td>
-											</tr>
-											<tr>
-												<td>10</td>
-												<td><input type="text" name="id" class="form-control"
-													style="width: 20%;"></td>
-											</tr>
-										</tbody>
-									</table>
+												</tr>
+												<tr>
+													<td>10000</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 25%;"></td>
+												</tr>
+												<tr>
+													<td>5000</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 25%;"></td>
+												</tr>
+												<tr>
+													<td>1000</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 25%;"></td>
+												</tr>
+												<tr>
+													<td>500</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 25%;"></td>
+												</tr>
+												<tr>
+													<td>100</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 25%;"></td>
+												</tr>
+												<tr>
+													<td>50</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 25%;"></td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td><input type="text" name="id" class="form-control"
+														style="width: 20%;"></td>
+												</tr>
+											</tbody>
+										</table>
 
-									<div>
 										<table style="border: 1px solid darkgray; float: left;">
 											<tbody>
 												<tr>
@@ -266,61 +173,51 @@ input.btn {
 												</tr>
 											</tbody>
 										</table>
-									</div>
-									<form name="calform">
-										<table border="1" text-align="center" cellspacing="0"
-											style="border: 1px solid darkgray; background-color:gray;">
-											<tr>
-												<td colspan="5"><input type="text" name="disp"
-													id="disp" value="0"></td>
-											</tr>
-											<tr>
-												<td><input type="button" value="7" class="btn"
-													onclick="but(7)"></td>
-												<td><input type="button" value="8" class="btn"
-													onclick="but(8)"></td>
-												<td><input type="button" value="9" class="btn"
-													onclick="but(9)"></td>
-												<td colspan="2"><input type="button" value="C"
-													class="clr" onclick="c()"></td>
-											</tr>
-											<tr>
-												<td><input type="button" value="4" class="btn"
-													onclick="but(4)"></td>
-												<td><input type="button" value="5" class="btn"
-													onclick="but(5)"></td>
-												<td><input type="button" value="6" class="btn"
-													onclick="but(6)"></td>
-												<td><input type="button" value="/" class="btn"
-													onclick="but('/')"></td>
-												<td><input type="button" value="%" class="btn"
-													onclick="but('%')"></td>
-											</tr>
-											<tr>
-												<td><input type="button" value="1" class="btn"
-													onclick="but(1)"></td>
-												<td><input type="button" value="2" class="btn"
-													onclick="but(2)"></td>
-												<td><input type="button" value="3" class="btn"
-													onclick="but(3)"></td>
-												<td><input type="button" value="*" class="btn"
-													onclick="but('*')"></td>
-												<td><input type="button" value="+" class="btn"
-													onclick="but('+')"></td>
-											</tr>
-											<tr>
-												<td><input type="button" value="0" class="btn"
-													onclick="but(0)"></td>
-												<td><input type="button" value="." class="btn"
-													onclick="but('.')"></td>
-												<td colspan="2"><input type="button" value="="
-													class="equal" onclick="total()"></td>
-												<td><input type="button" value="-" class="btn"
-													onclick="but('-')"></td>
-											</tr>
+
+										<table style="border: 1px solid darkgray; float: left;">
+											<tbody>
+												<tr>
+													<td>합계 : <input type="text" name="id"
+														class="form-control" style="width: 70%;" required
+														autofocus></td>
+														<td>마감 정산자 : <input type="text" name="id"
+														class="form-control" style="width: 70%;" required
+														autofocus></td>
+												</tr>
+
+												<tr>
+													<td><button class="btn btn-primary" type="button"
+															value="1" style="border: 1px groove darkgray">1</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">2</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">3</button></td>
+												</tr>
+												<tr>
+													<td><button type="button" class="btn btn-primary"
+															value="1" style="border: 1px groove darkgray">4</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">5</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">6</button></td>
+												</tr>
+												<tr>
+													<td><button type="button" class="btn btn-primary"
+															value="1" style="border: 1px groove darkgray">7</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">8</button>
+														<button type="button" class="btn btn-primary" value="1"
+															style="border: 1px groove darkgray">9</button></td>
+												</tr>
+												<tr>
+													<td><button type="button" class="btn btn-primary"
+															value="0" style="border: 1px groove darkgray">0</button></td>
+												</tr>
+
+											</tbody>
 										</table>
-									</form>
-								</fieldset>
+									</fieldset>
+								</form>
 								<br> <br>
 
 								<div class="form-group">
