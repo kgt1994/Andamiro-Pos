@@ -9,7 +9,7 @@
 		WHERE NOT EXISTS(SELECT * FROM MEMBER WHERE ID=#{id})
 	</insert>
 	
-	<select id="selectMember" parameterType="LoginDTO" resultType="LoginDTO">
+	<select id="selectLogin" parameterType="LoginDTO" resultType="LoginDTO">
 		SELECT ID, NAME
 		FROM MEMBER
 		WHERE ID=#{id} AND PW=#{pw}
@@ -20,5 +20,34 @@
 		FROM SHOP
 		WHERE ID=#{id}
 	</select>
-
+	
+	<select id="selectId" parameterType="String" resultType="Integer">
+		SELECT COUNT(ID)
+		FROM MEMBER
+		WHERE ID=#{id}
+	</select>
+	
+	<select id="selectMember" parameterType="String" resultType="MemberDTO">
+		SELECT ID, NAME, EMAIL, PHONE
+		FROM MEMBER
+		WHERE ID=#{id}
+	</select>
+	
+	<select id="selectPw" parameterType="LoginDTO" resultType="Integer">
+		SELECT COUNT(ID)
+		FROM MEMBER
+		WHERE ID=#{id} AND PW=#{pw}
+	</select>
+	
+	<update id="updateMember" parameterType="UpdateDTO">
+		UPDATE MEMBER
+		SET PW=#{pw}, NAME=#{name}, EMAIL=#{email}, PHONE=#{phone}
+		WHERE ID=#{id}
+	</update>
+	
+	<delete id="deleteMember" parameterType="LoginDTO">
+		DELETE FROM MEMBER
+		WHERE ID=#{id}
+	</delete>
+	
 </mapper>

@@ -9,6 +9,7 @@ import com.andamiro.pos.dao.IMemberDAO;
 import com.andamiro.pos.model.LoginDTO;
 import com.andamiro.pos.model.MemberDTO;
 import com.andamiro.pos.model.ShopDTO;
+import com.andamiro.pos.model.UpdateDTO;
 
 @Service("IMemberService")
 public class MemberServiceImpl implements IMemberService{
@@ -22,14 +23,44 @@ public class MemberServiceImpl implements IMemberService{
 	}
 
 	@Override
-	public LoginDTO selectMember(LoginDTO dto) {
+	public LoginDTO selectLogin(LoginDTO dto) {
 		// TODO Auto-generated method stub
-		return dao.selectMember(dto);
+		return dao.selectLogin(dto);
 	}
 
 	@Override
 	public List<ShopDTO> selectShop(LoginDTO dto) {
 		// TODO Auto-generated method stub
 		return dao.selectShop(dto);
+	}
+
+	@Override
+	public int idCheck(String id) {
+		// TODO Auto-generated method stub
+		return dao.selectId(id);
+	}
+	
+	@Override
+	public MemberDTO selectMember(String id) {
+		// TODO Auto-generated method stub
+		return dao.selectMember(id);
+	}
+
+	@Override
+	public int pwCheck(LoginDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.selectPw(dto);
+	}
+
+	@Override
+	public void updateMember(UpdateDTO dto) {
+		// TODO Auto-generated method stub
+		dao.updateMember(dto);
+	}
+
+	@Override
+	public void deleteMember(LoginDTO dto) {
+		// TODO Auto-generated method stub
+		dao.deleteMember(dto);
 	}
 }
