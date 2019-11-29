@@ -15,12 +15,6 @@
 		WHERE ID=#{id} AND PW=#{pw}
 	</select>
 	
-	<select id="selectShop" parameterType="LoginDTO" resultType="ShopDTO">
-		SELECT SHOP_NUMBER, SHOP_NAME, SHOP_PW
-		FROM SHOP
-		WHERE ID=#{id}
-	</select>
-	
 	<select id="selectId" parameterType="String" resultType="Integer">
 		SELECT COUNT(ID)
 		FROM MEMBER

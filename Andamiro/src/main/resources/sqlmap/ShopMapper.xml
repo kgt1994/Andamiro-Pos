@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="ShopService" >
+	<select id="selectShop" parameterType="SessionDTO" resultType="ShopDTO">
+		SELECT SHOP_NUMBER, SHOP_NAME, SHOP_PW
+		FROM SHOP
+		WHERE MEMBER_ID=#{id}
+	</select>
+</mapper>

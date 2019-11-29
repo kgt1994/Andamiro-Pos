@@ -1,14 +1,11 @@
 package com.andamiro.pos.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.andamiro.pos.dao.IMemberDAO;
 import com.andamiro.pos.model.LoginDTO;
 import com.andamiro.pos.model.MemberDTO;
-import com.andamiro.pos.model.ShopDTO;
 import com.andamiro.pos.model.UpdateDTO;
 
 @Service("IMemberService")
@@ -26,12 +23,6 @@ public class MemberServiceImpl implements IMemberService{
 	public LoginDTO selectLogin(LoginDTO dto) {
 		// TODO Auto-generated method stub
 		return dao.selectLogin(dto);
-	}
-
-	@Override
-	public List<ShopDTO> selectShop(LoginDTO dto) {
-		// TODO Auto-generated method stub
-		return dao.selectShop(dto);
 	}
 
 	@Override

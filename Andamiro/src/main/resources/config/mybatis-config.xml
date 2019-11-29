@@ -9,9 +9,11 @@
 	<typeAlias type="com.andamiro.pos.model.LoginDTO" alias="LoginDTO"></typeAlias>
 	<typeAlias type="com.andamiro.pos.model.ShopDTO" alias="ShopDTO"></typeAlias>
 	<typeAlias type="com.andamiro.pos.model.UpdateDTO" alias="UpdateDTO"></typeAlias>
+	<typeAlias type="com.andamiro.pos.model.SessionDTO" alias="SessionDTO"></typeAlias>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="sqlmap/MemberMapper.xml" />
+		<mapper resource="sqlmap/ShopMapper.xml" />
 	</mappers>
 </configuration>
