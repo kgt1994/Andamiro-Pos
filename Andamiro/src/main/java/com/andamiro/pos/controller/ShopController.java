@@ -1,7 +1,6 @@
 package com.andamiro.pos.controller;
 
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
@@ -46,6 +45,9 @@ public class ShopController {
 		ShopDTO sdto = new ShopDTO();
 		sdto.setShop_number(sr.getShops().get(Integer.parseInt(index)).getShop_number());
 		sdto.setShop_name(sr.getShops().get(Integer.parseInt(index)).getShop_name());
+		
+		dto.setSelectedShop(sdto.getShop_number());
+		
 		mv.addObject("shop", sdto);
 
 		return mv;
