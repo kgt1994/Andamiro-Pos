@@ -269,7 +269,7 @@ input.btn {
 									</div>
 									<form name="calform">
 										<table border="1" text-align="center" cellspacing="0"
-											style="border: 1px solid darkgray; background-color:gray;">
+											style="border: 1px solid darkgray; background-color: gray;">
 											<tr>
 												<td colspan="5"><input type="text" name="disp"
 													id="disp" value="0"></td>
@@ -320,14 +320,10 @@ input.btn {
 											</tr>
 										</table>
 									</form>
+									<a class="btn btn-success btn-lg pb_btn-pill smoothscroll"
+										id="home"><span
+										class="pb_font-14 text-uppercase pb_letter-spacing-1">완료</span></a>
 								</fieldset>
-								<br> <br>
-
-								<div class="form-group">
-									<input type="submit"
-										class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue"
-										value="Login">
-								</div>
 							</div>
 						</div>
 
