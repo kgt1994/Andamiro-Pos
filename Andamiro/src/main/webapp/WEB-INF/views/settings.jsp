@@ -112,6 +112,14 @@
 							style="background-color: #9b59b6;" onclick="location.href='end_cash.do'">마감관리</button>
 					</div>
 				</div>
+				
+				<div class="sidebar-item">
+					<div class="box-size"
+						style="background-color: #9b59b6; width: 200px; height: 200px;">
+						<button type="button" class="btn btn-defalut"
+							style="background-color: #9b59b6;" onclick="location.href='sales_account.do'">매출관리</button>
+					</div>
+				</div>
 
 				<div class="sidebar-item">
 					<div class="box-size"
