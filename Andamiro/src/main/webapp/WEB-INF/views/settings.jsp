@@ -125,7 +125,7 @@
 					<div class="box-size"
 						style="background-color: #f1c40f; width: 200px; height: 200px;">
 						<button type="button" class="btn btn-defalut"
-							style="background-color: #f1c40f;" onclick="location.href='#'">테이블
+							style="background-color: #f1c40f;" onclick="location.href='table_settings.do'">테이블
 							관리</button>
 					</div>
 				</div>
@@ -133,7 +133,7 @@
 					<div class="box-size"
 						style="background-color: #c0392b; width: 200px; height: 200px;">
 						<button type="button" class="btn btn-defalut"
-							style="background-color: #c0392b;" onclick="location.href='#'">메뉴관리</button>
+							style="background-color: #c0392b;" onclick="location.href='menu_settings.do'">메뉴관리</button>
 					</div>
 				</div>
 			</div>

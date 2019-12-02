@@ -145,12 +145,16 @@ div.print>input.print_result {
 							<th>수량</th>
 							<th>비고</th>
 						</tr>
+						
+						<tbody id = "menu_show">
+						
+						</tbody>
 					</table>
 				</div>
 				<!-- 	header END -->
 
 				<!-- table body부분  스크롤바 생김-->
-				<div
+				<!-- <div
 					style="overflow: auto; height: 250px; text-align: center; width: 100%">
 					<table class="table table dataTable" id="dataTable" role="grid">
 						<colgroup>
@@ -160,12 +164,16 @@ div.print>input.print_result {
 							<col style="width: 20%"></col>
 							<col style="width: 10%"></col>
 						</colgroup>
+
+						<tr id="menu_show">
+						
+						</tr>
 					</table>
 
-				</div>
+				</div> -->
 				<!-- 	body END -->
 
-<br>
+				<br>
 				<div>
 					<input type="button" value="전체취소"
 						class="btn btn-primary btn-block pb_btn-pill  btn-shadow-blue"
@@ -193,7 +201,7 @@ div.print>input.print_result {
 						<div class="nav-link" style="color: white;">받을 금액</div>
 						<br>
 						<div class="nav-link" style="color: white;">받은 금액</div>
-						<br>	
+						<br>
 					</div>
 
 					<div style="float: right; width: 50%; text-align: center;">
@@ -301,7 +309,7 @@ div.print>input.print_result {
 						<tbody>
 							<tr style="border-collapse: collapse;">
 								<th><button type="button" class="btn btn-default"
-										id="btn_select1">아메리카노</button></th>
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
 								<th class="sorting_1"><input type="button" value="2"
 									class="btn btn-warning"></th>
 								<th class="sorting_1"><input type="button" value="3"
@@ -314,6 +322,30 @@ div.print>input.print_result {
 							</tr>
 						</tbody>
 					</table>
+
+					<script>
+						function rowAdd() {
+							var objRow;
+
+							objRow = document.all("menu_show").insertRow();
+
+							var objCell_num = objRow.insertCell();
+							objCell_num.innerHTML = "<input type = 'text' id = 'row_num' name = 'row_num' />";
+
+							var objCell_menu = objRow.insertCell();
+							objCell_menu.innerHTML = "<input type = 'text' id = 'row_menu' name = 'row_menu' />";
+
+							var objCell_price = objRow.insertCell();
+							objCell_price.innerHTML = "<input type = 'text' id = 'row_price' name = 'row_price' />";
+
+							var objCell_count = objRow.insertCell();
+							objCell_count.innerHTML = "<input type = 'text' id = 'row_count' name = 'row_count' />";
+
+							var objCell_memo = objRow.insertCell();
+							objCell_memo.innerHTML = "<input type = 'text' id = 'row_memo' name = 'row_memo' />";
+
+						}
+					</script>
 				</article>
 
 				<div style="float: left; margin-right: 10px; text-align: center;">
