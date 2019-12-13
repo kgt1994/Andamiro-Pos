@@ -172,105 +172,36 @@ input.btn {
 		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
 		<br>
 		<hr>
-
-		<div
-			class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
-			<br>
-			<hr>
-
-			<div class="container">
-				<div style="float: center;">
-					<div>
-						<div class="relative align-self-center" id="login">
-							<div class="bg-white rounded pb_form_v1">
-								<fieldset>
-									<legend>메뉴 관리</legend>
-									<script type="text/javascript">
-										function createRow() {
-											var objTable = document
-													.getElementById('table1');
-											var objRow = objTable.insertRow(0);
-
-											var cell = objRow.insertCell();
-											cell.innerHTML = '여긴 셀내용이 추가되요';
-											cell.height = '50';
-											cell.align = 'center';
-											cell.style.color = '#F30';
-										}
-									</script>
-
-									<body>
-										<table id="table1" width="400" border="1">
+		<div class="container">
+			<div style="float: center;">
+				<div>
+					<div class="relative align-self-center" id="login">
+						<div class="bg-white rounded pb_form_v1">
+							<fieldset>
+								<legend>메뉴 관리</legend>
+								<div>
+									<table class="table table-bordered dataTable">
+										<thead>
 											<tr>
-												<td>첫행(기본)</td>
+												<th>메뉴</th>
+												<th>가격</th>
 											</tr>
-										</table>
-										<input type="button" value="행생성" onclick="createRow()" />
-
-
-										<div style="width: 100%">
-											<table class="table table-bordered dataTable" id="dataTable"
-												width="50%" cellspacing="0" role="grid"
-												aria-describedby="dataTable_info;">
-												<colgroup>
-													<col style="width: 10%"></col>
-													<col style="width: *%"></col>
-													<col style="width: 15%"></col>
-													<col style="width: 10%"></col>
-													<col style="width: 20%"></col>
-												</colgroup>
-												<tr id="menu_list">
-													<th>No.</th>
-													<th>메뉴</th>
-													<th>가격</th>
-													<th>수량</th>
-													<th>비고</th>
-												</tr>
-
-												<tbody id="menu_show">
-
-												</tbody>
-											</table>
-
-											<script>
-												function rowAdd() {
-													var objRow;
-
-													objRow = document.all(
-															"menu_show")
-															.insertRow();
-
-													var objCell_num = objRow
-															.insertCell();
-													objCell_num.innerHTML = "<td>1</td>";
-
-													var objCell_menu = objRow
-															.insertCell();
-													objCell_menu.innerHTML = "<td>아메리카노</td>";
-
-													var objCell_price = objRow
-															.insertCell();
-													objCell_price.innerHTML = "<td>4000</td>";
-
-													var objCell_count = objRow
-															.insertCell();
-													objCell_count.innerHTML = "<td>1</td>";
-
-													var objCell_memo = objRow
-															.insertCell();
-													objCell_memo.innerHTML = "<td>3200원</td>";
-
-												}
-											</script>
-											<button type="button" class="btn btn-primary" id="addbtn"
-												name="addbtn" onclick="rowAdd()">아메리카노</button>
-										</div>
-								</fieldset>
-							</div>
+										</thead>
+										<tbody>
+											<tr>
+												<td><input type="text" class="form-control"></td>
+												<td><input type="text" class="form-control"></td>
+											</tr>
+										</tbody>
+									</table>
+									<button type="button" class="btn btn-primary"
+										name="addbtn">추가</button>
+								</div>
+							</fieldset>
 						</div>
-
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>

@@ -72,6 +72,10 @@ input.btn {
 	font-size: 22pt;
 	text-align: right;
 }
+
+.exam {
+	width: 50% !important;
+}
 </style>
 <script>
 	var flag = true;
@@ -185,7 +189,7 @@ input.btn {
 							<div class="bg-white rounded pb_form_v1">
 								<fieldset>
 									<legend>영업준비금</legend>
-									<table style="border: 1px solid darkgray; float: left;">
+									<!-- <table style="border: 1px solid darkgray; float: left;">
 										<tbody>
 											<tr>
 												<td>50000&nbsp;&nbsp;&nbsp;</td>
@@ -226,43 +230,67 @@ input.btn {
 											<tr>
 												<td>10</td>
 												<td><input type="text" name="id" class="form-control"
-													style="width: 20%;"></td>
+													style="width: 25%;"></td>
 											</tr>
 										</tbody>
-									</table>
+									</table> -->
 
 									<div>
 										<table style="border: 1px solid darkgray; float: left;">
 											<tbody>
 												<tr>
-													<td><input type="text" name="id" class="form-control"
-														style="width: 70%;" required autofocus></td>
+													<td><input type="text"
+														class="form-control num_only num_comma num_sum"
+														id="fn_type1_price" name="fn_type1_price" value=""
+														placeholder=""></td>
+
 												</tr>
 												<tr>
-													<td><input type="text" name="id" class="form-control"
-														style="width: 70%;" required autofocus></td>
+													<td><input type="text"
+														class="form-control num_only num_comma num_sum"
+														id="fn_type2_price" name="fn_type2_price" value=""
+														placeholder=""></td>
 												</tr>
 												<tr>
-													<td><input type="text" name="id" class="form-control"
-														style="width: 70%;" required autofocus></td>
+													<td><input type="text"
+														class="form-control num_only num_comma num_sum"
+														id="fn_one_price" name="fn_one_price" value=""
+														placeholder=""></td>
 												</tr>
 												<tr>
-													<td><input type="text" name="id" class="form-control"
-														style="width: 70%;" required autofocus></td>
+													<td><input type="text"
+														class="form-control num_only num_comma num_sum"
+														id="fn_flw_price" name="fn_flw_price" value=""
+														placeholder=""></td>
 												</tr>
 												<tr>
-													<td><input type="text" name="id" class="form-control"
-														style="width: 70%;" required autofocus></td>
-												</tr>
-												<td><input type="text" name="id" class="form-control"
-													style="width: 70%;" required autofocus></td>
-												<tr>
-													<td><input type="text" name="id" class="form-control"
-														style="width: 70%;" required autofocus></td>
+													<td><input type="text"
+														class="form-control num_only num_comma num_sum"
+														id="fn_flag_price" name="fn_flag_price" value=""
+														placeholder=""></td>
 												</tr>
 												<tr>
-													<td><input type="text" name="id" class="form-control"
-														style="width: 70%;" required autofocus></td>
+													<td><input type="text"
+														class="form-control num_only num_comma num_sum"
+														id="fn_etc_price" name="fn_etc_price" value=""
+														placeholder=""></td>
+												</tr>
+												<tr>
+													<td><input type="text"
+														class="form-control num_only num_comma num_sum"
+														id="fn_change_price" name="fn_change_price" value=""
+														placeholder=""></td>
+												</tr>
+												<tr>
+													<td><input type="text"
+														class="form-control num_only num_comma num_sum"
+														id="fn_change2_price" name="fn_change2_price" value=""
+														placeholder=""></td>
+												</tr>
+												<tr>
+													<td>합계 : <input type="text"
+														class="form-control text-right font-weight-bold num_only num_comma num_sum"
+														id="fn_total" name="fn_total" value="" placeholder=""></td>
 												</tr>
 											</tbody>
 										</table>
@@ -332,7 +360,40 @@ input.btn {
 			</div>
 		</div>
 	</div>
+
+	<script>
+		$(function() {
+
+			$('input.num_only').on(
+					'keyup',
+					function() {
+						var cnt = $(".exam input.num_sum").length;
+						console.log(cnt);
+
+						for (var i = 1; i < cnt; i++) {
+							var sum = parseInt($(this).val() || 0);
+							sum++
+							console.log(sum);
+						}
+
+						var sum1 = parseInt($("#fn_type1_price").val() || 0); // input 값을 가져오며 계산하지만 값이 없을경우 0이 대입된다  뒷부분에 ( || 0 ) 없을경우 합계에 오류가 생겨 NaN 값이 떨어진다
+						var sum2 = parseInt($("#fn_type2_price").val() || 0);
+						var sum3 = parseInt($("#fn_one_price").val() || 0);
+						var sum4 = parseInt($("#fn_flw_price").val() || 0);
+						var sum5 = parseInt($("#fn_flag_price").val() || 0);
+						var sum6 = parseInt($("#fn_etc_price").val() || 0);
+						var sum7 = parseInt($("#fn_change_price").val() || 0);
+						var sum8 = parseInt($("#fn_change2_price").val() || 0);
+
+						var sum = sum1 + sum2 + sum3 + sum4 + sum5 + sum6
+								+ sum7 + sum8;
+						console.log(sum);
+						$("#fn_total").val(sum);
+					});
+		});
+	</script>
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
+
 	<script src="./resources/js/jquery.min.js"></script>
 
 	<script src="./resources/js/popper.min.js"></script>

@@ -45,45 +45,75 @@
 		}
 	}
 </script>
+<script>
+	var flag = true;
+	var totalFlag = true;
+	var flag2 = 0;
+	var flag3 = 0;
 
-<style>
-.cash {
-	width: 300px;
-	height: 300px;
-	border: 2px solid slategray;
-	border-radius: 20px;
-	background-color: rgb(115, 99, 71);
-}
+	function err() {
+		var f = document.calform;
+		f.disp.value = "수식오류";
+		flag = true;
+	}
 
-.cash>form>div.btn {
-	border-radius: 20px;
-	margin: 1px 1px 10px 1px;;
-	float: left;
-	border: 2px solid slategray;
-	width: 75px;
-	height: 40px;
-}
+	function but(su) {
 
-div.btn>input {
-	font-size: 1.5em;
-	border-radius: 20px;
-	width: 75px;
-	height: 40px;
-	background-color: LightGray;
-}
+		if (totalFlag == false && isNaN(su) == false) {
+			c();
+		} else {
+			totalFlag = true;
+		}
 
-div.print>input.print_result {
-	border-radius: 20px;
-	margin-bottom: 20px;
-	border: 4px solid slategray;
-	width: 200px;
-	height: 50px;
-	background-color: LightGray;
-	text-align: center;
-	font-size: 10px;
-}
-</style>
+		var f = document.calform;
 
+		if (flag) {
+			if (su == 0) {
+				return;
+			}
+			f.disp.value = "";
+			flag = false;
+		}
+
+		if (isNaN(su)) {
+			flag2++;
+		} else {
+			flag2 = 0;
+		}
+
+		if (flag2 > 1) {
+			return;
+		}
+		f.disp.value += su;
+	}
+
+	function c() {
+		var f = document.calform;
+		flag = true;
+		totalFlag = true;
+		f.disp.value = "";
+	}
+
+	function total() {
+
+		var f = document.calform;
+
+		try {
+			var a = eval(f.disp.value);
+			if (isNaN(a)) {
+				throw err();
+				return;
+			}
+		} catch (e) {
+			err();
+			return;
+		}
+		totalFlag = false;
+		var b = (parseInt(a * 1000000000000) / 1000000000000)
+		f.disp.value = b;
+
+	}
+</script>
 </head>
 
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
@@ -216,80 +246,58 @@ div.print>input.print_result {
 					</div>
 				</div>
 
-				<div style="float: right; width: 50%; aline-item: center;">
-					<div id="cash">
-						<form name="calculator">
-							<table border="1">
-								<thead>
-									<div class="print">
-										<input class="print_result" type="textfield" name="ans"
-											value="">
-
-										<div class="c btn">
-											<input type="button" value="C">
-										</div>
-									</div>
-
-									<!-- 								<div class="division btn">
-									<input type="button" value="/"
-										onClick="document.calculator.ans.value+='/'">
-
-								</div> -->
-
-									<div class="seven btn">
-										<input type="button" value="7"
-											onClick="document.calculator.ans.value+='7'">
-									</div>
-									<div class="eight btn">
-										<input type="button" value="8"
-											onClick="document.calculator.ans.value+='8'">
-									</div>
-									<div class="nine btn">
-										<input type="button" value="9"
-											onClick="document.calculator.ans.value+='9'">
-									</div>
-
-									<div class="four btn">
-										<input type="button" value="4"
-											onClick="document.calculator.ans.value+='4'">
-									</div>
-									<div class="five btn">
-										<input type="button" value="5"
-											onClick="document.calculator.ans.value+='5'">
-									</div>
-									<div class="six btn">
-										<input type="button" value="6"
-											onClick="document.calculator.ans.value+='6'">
-									</div>
-
-									<div class="one btn">
-										<input type="button" value="1"
-											onClick="document.calculator.ans.value+='1'">
-									</div>
-									<div class="two btn">
-										<input type="button" value="2"
-											onClick="document.calculator.ans.value+='2'">
-									</div>
-									<div class="three btn">
-										<input type="button" value="3"
-											onClick="document.calculator.ans.value+='3'">
-									</div>
-
-									<div class="zero btn">
-										<input type="button" value="0"
-											onClick="document.calculator.ans.value+='0'">
-									</div>
-									<div class="ce btn">
-										<input type="button" value="CE">
-									</div>
-									<!-- <div class="result btn">
-											<input type="button" value="="
-												onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
-										</div> -->
-								</thead>
-							</table>
-						</form>
-					</div>
+				<div style="float: right; width: 50%;">
+					<table class = "table table-bordered"text-align="center" cellspacing="0"
+						style="border: 1px solid darkgray; background-color: gray;">
+						<tr>
+							<td colspan="5"><input type="text" name="disp" id="disp"
+								value="0"></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="7" class="btn"
+								onclick="but(7)"></td>
+							<td><input type="button" value="8" class="btn"
+								onclick="but(8)"></td>
+							<td><input type="button" value="9" class="btn"
+								onclick="but(9)"></td>
+							<td colspan="2"><input type="button" value="C" class="clr"
+								onclick="c()"></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="4" class="btn"
+								onclick="but(4)"></td>
+							<td><input type="button" value="5" class="btn"
+								onclick="but(5)"></td>
+							<td><input type="button" value="6" class="btn"
+								onclick="but(6)"></td>
+							<td><input type="button" value="/" class="btn"
+								onclick="but('/')"></td>
+							<td><input type="button" value="%" class="btn"
+								onclick="but('%')"></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="1" class="btn"
+								onclick="but(1)"></td>
+							<td><input type="button" value="2" class="btn"
+								onclick="but(2)"></td>
+							<td><input type="button" value="3" class="btn"
+								onclick="but(3)"></td>
+							<td><input type="button" value="*" class="btn"
+								onclick="but('*')"></td>
+							<td><input type="button" value="+" class="btn"
+								onclick="but('+')"></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="0" class="btn"
+								onclick="but(0)"></td>
+							<td><input type="button" value="." class="btn"
+								onclick="but('.')"></td>
+							<td colspan="2"><input type="button" value="=" class="equal"
+								onclick="total()"></td>
+							<td><input type="button" value="-" class="btn"
+								onclick="but('-')"></td>
+						</tr>
+					</table>
 				</div>
 			</section>
 		</div>
@@ -299,8 +307,7 @@ div.print>input.print_result {
 			<section style="float: left; width: 100%; text-align: center;">
 				<article style="clear: both;">
 					<table class="table table-bordered dataTable" id="dataTable"
-						style="width: 100%; height: 80%;" cellspacing="0" role="grid"
-						aria-describedby="dataTable_info;">
+						style="width: 100%; height: 80%;" cellspacing="0" role="grid">
 						<colgroup>
 							<col style="width: 20%"></col>
 							<col style="width: 20%"></col>
@@ -389,7 +396,7 @@ div.print>input.print_result {
 					</script>
 				</article>
 
-				<div style = "width:100%;">
+				<div style="width: 100%;">
 					<div style="float: left; margin-right: 10px; text-align: center;">
 						<button type="button" class="btn btn-success"
 							style="width: 150px; height: 210px;">주문</button>
