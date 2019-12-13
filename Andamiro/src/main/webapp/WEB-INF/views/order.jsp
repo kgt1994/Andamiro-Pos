@@ -145,32 +145,34 @@ div.print>input.print_result {
 							<th>수량</th>
 							<th>비고</th>
 						</tr>
-						
-						<tbody id = "menu_show">
-						
-						</tbody>
+
+						<!-- 	<tbody id="menu_show">
+
+						</tbody> -->
 					</table>
 				</div>
 				<!-- 	header END -->
 
 				<!-- table body부분  스크롤바 생김-->
-				<!-- <div
+				<div
 					style="overflow: auto; height: 250px; text-align: center; width: 100%">
-					<table class="table table dataTable" id="dataTable" role="grid">
+					<table class="table table-bordered dataTable" id="dataTable"
+						role="grid" aria-describedby="dataTable_info;">
 						<colgroup>
-							<col style="width: 20%"></col>
-							<col style="width: 30%"></col>
+							<col style="width: 10%"></col>
+							<col style="width: *%"></col>
+							<col style="width: 15%"></col>
 							<col style="width: 10%"></col>
 							<col style="width: 20%"></col>
-							<col style="width: 10%"></col>
 						</colgroup>
 
-						<tr id="menu_show">
-						
-						</tr>
+						<tbody id="menu_show">
+
+						</tbody>
+
 					</table>
 
-				</div> -->
+				</div>
 				<!-- 	body END -->
 
 				<br>
@@ -310,16 +312,55 @@ div.print>input.print_result {
 							<tr style="border-collapse: collapse;">
 								<th><button type="button" class="btn btn-default"
 										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th class="sorting_1"><input type="button" value="2"
-									class="btn btn-warning"></th>
-								<th class="sorting_1"><input type="button" value="3"
-									class="btn btn-warning"></th>
-
-								<th class="sorting_1"><input type="button" value="4"
-									class="btn btn-warning"></th>
-								<th class="sorting_1"><input type="button" value="5"
-									class="btn btn-warning"></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
 							</tr>
+
+							<tr style="border-collapse: collapse;">
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+							</tr>
+
+							<tr style="border-collapse: collapse;">
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+							</tr>
+
+							<tr style="border-collapse: collapse;">
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+								<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
+							</tr>
+
 						</tbody>
 					</table>
 
@@ -330,49 +371,52 @@ div.print>input.print_result {
 							objRow = document.all("menu_show").insertRow();
 
 							var objCell_num = objRow.insertCell();
-							objCell_num.innerHTML = "<input type = 'text' id = 'row_num' name = 'row_num' />";
+							objCell_num.innerHTML = "<td>1</td>";
 
 							var objCell_menu = objRow.insertCell();
-							objCell_menu.innerHTML = "<input type = 'text' id = 'row_menu' name = 'row_menu' />";
+							objCell_menu.innerHTML = "<td>아메리카노</td>";
 
 							var objCell_price = objRow.insertCell();
-							objCell_price.innerHTML = "<input type = 'text' id = 'row_price' name = 'row_price' />";
+							objCell_price.innerHTML = "<td>4000</td>";
 
 							var objCell_count = objRow.insertCell();
-							objCell_count.innerHTML = "<input type = 'text' id = 'row_count' name = 'row_count' />";
+							objCell_count.innerHTML = "<td>1</td>";
 
 							var objCell_memo = objRow.insertCell();
-							objCell_memo.innerHTML = "<input type = 'text' id = 'row_memo' name = 'row_memo' />";
+							objCell_memo.innerHTML = "<td>3200원</td>";
 
 						}
 					</script>
 				</article>
 
-				<div style="float: left; margin-right: 10px; text-align: center;">
-					<button type="button" class="btn btn-success"
-						style="width: 150px; height: 210px;">주문</button>
-				</div>
+				<div style = "width:100%;">
+					<div style="float: left; margin-right: 10px; text-align: center;">
+						<button type="button" class="btn btn-success"
+							style="width: 150px; height: 210px;">주문</button>
+					</div>
 
-				<div style="float: left; margin-right: 10px; text-align: center;">
-					<button type="button" class="btn btn-success"
-						style="width: 150px; height: 100px; margin-bottom: 10px;">영수증
-						관리</button>
-					<br>
+					<div style="float: left; margin-right: 10px; text-align: center;">
+						<button type="button" class="btn btn-success"
+							style="width: 150px; height: 100px; margin-bottom: 10px;">영수증
+							관리</button>
+						<br>
 
-					<button type="button" class="btn btn-success"
-						style="width: 100px; height: 100px;">중간 계산서</button>
-				</div>
+						<button type="button" class="btn btn-success"
+							style="width: 150px; height: 100px; margin-bottom: 10px;">중간
+							계산서</button>
+					</div>
 
-				<div style="float: left; margin-right: 10px; text-align: center;">
-					<button type="button" class="btn btn-warning" data-toggle="modal"
-						data-target="#card_payment" data-whatever="@mdo"
-						style="width: 200px; height: 210px;">카드</button>
-				</div>
-				<div style="float: left; margin-right: 10px; text-align: center;">
+					<div style="float: left; margin-right: 10px; text-align: center;">
+						<button type="button" class="btn btn-warning" data-toggle="modal"
+							data-target="#card_payment" data-whatever="@mdo"
+							style="width: 150px; height: 210px;">카드</button>
+					</div>
+					<div style="float: left; margin-right: 10px; text-align: center;">
 
-					<button type="button" class="btn btn-warning" data-toggle="modal"
-						data-target="#cash_payment" data-whatever="@mdo"
-						style="width: 200px; height: 210px;">현금</button>
+						<button type="button" class="btn btn-warning" data-toggle="modal"
+							data-target="#cash_payment" data-whatever="@mdo"
+							style="width: 150px; height: 210px;">현금</button>
+					</div>
 				</div>
 			</section>
 		</div>

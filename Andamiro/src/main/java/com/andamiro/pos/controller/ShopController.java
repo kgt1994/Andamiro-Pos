@@ -83,5 +83,9 @@ public class ShopController {
 	public String end_cash(@ModelAttribute("user") SessionDTO dto, Model model) {
 		return "end_cash";
 	}
+	@RequestMapping(value = "menu_settings.do", method = RequestMethod.GET)
+	public String menu_settings(@ModelAttribute("user") SessionDTO dto, Model model) {
+		return "menu_settings";
+	}
 	
 }
