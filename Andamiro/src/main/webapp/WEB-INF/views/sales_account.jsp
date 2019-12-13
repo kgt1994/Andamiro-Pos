@@ -51,17 +51,24 @@
       function drawVisualization() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
-          ['Month', 'Bolivia','Average'],
-          ['2004/05',  165,      614.6],
-          ['2005/06',  135,      682],
-          ['2006/07',  157,      623],
-          ['2007/08',  139,      609.4],
-          ['2008/09',  136,      569.6]
+          ['Month', '매출'],
+          ['01',  165],
+          ['02',  135],
+          ['03',  157],
+          ['04',  139],
+          ['05',  136],
+          ['06',  165],
+          ['07',  135],
+          ['08',  157],
+          ['09',  139],
+          ['10',  136],
+          ['11',  139],
+          ['12',  136]
         ]);
 
         var options = {
-          title : 'Monthly Coffee Production by Country',
-          vAxis: {title: 'Cups'},
+          title : '매출 그래프',
+          vAxis: {title: 'sales'},
           hAxis: {title: 'Month'},
           seriesType: 'bars',
           series: {5: {type: 'line'}}        };
@@ -170,6 +177,12 @@ input.btn {
 
 	}
 </script>
+<script> 
+	function dis(){
+		//document.getElementById("test").style.display = "none";	
+		document.getElementById("chart_div").style.display = "block";
+	}
+</script> 
 </head>
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 	<nav
@@ -214,19 +227,19 @@ input.btn {
 								<form>
 									<fieldset>
 									<legend>검색 정보</legend>
-									날짜 : <select name="date">
-											<option value="year">연도 별</option>
-											<option value="month" selected>월 별</option>
-											<option value="day">일 별</option>
+									날짜 : <select name="seday">
+											<option value="date">일 별</option>
+											<option value="week" selected>주 별</option>
+											<option value="month">월 별</option>
 										</select>
+										
 									메뉴 : <select name="menu">
-											<option value="1" selected>이거</option>
-											<option value="2">데이터베이스에서</option>
-											<option value="3">가져와서</option>
-											<option value="4">띄우는거</option>
-											<option value="5">가능해요??</option>
+											<option value="1" selected>아메리카노</option>
+											<option value="2">카푸치노</option>
+											<option value="3">녹차라떼</option>
+											<option value="4">밀크티</option>
 										</select>
-									date : 	<input type="date">
+									day : 	<input id="day" type=date>
 									<input type="button" value="검색"><br><br>
 									</fieldset>
 							</form>
@@ -234,15 +247,15 @@ input.btn {
 								<thead>
 									<tr><th>날짜</th><th>메뉴</th><th>가격</th><th>수량</th><th>결제 수단</th><th>합계</th></tr>
 								</thead>
-								<tfoot>
-									<tr><th>-</th><th>-</th><th>-</th><th>-</th><th>-</th><th>-</th></tr>
-								</tfoot>
 								<tbody>
 									<tr><td>123123</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
 									<tr><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td></tr>
 									<tr><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
 									<tr><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
 								</tbody>
+								<tfoot>
+									<tr><th>-</th><th>-</th><th>-</th><th>-</th><th>-</th><th>-</th></tr>
+								</tfoot>
 							</table>
 								<br> <br>
 								
@@ -250,9 +263,10 @@ input.btn {
 								<div class="form-group">
 									<input type="submit"
 										class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue"
-										value="매출 확인"><br>
+										value="매출표 확인" onclick='dis()'><br>
 								</div>
-								<div id="chart_div" style="width: 500px; height: 300px;"></div>
+								<div id="chart_div" style="width: 600px; height: 300px; display:none;"></div>
+								
 							</div>
 						</div>
 
