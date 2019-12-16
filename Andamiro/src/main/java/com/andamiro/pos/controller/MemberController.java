@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -107,6 +106,12 @@ public class MemberController {
 	@RequestMapping(value = "mypage.do", method = RequestMethod.GET)
 	public ModelAndView myPage(@ModelAttribute("user") SessionDTO dto) {
 		ModelAndView mv = new ModelAndView("mypage");
+		return mv;
+	}
+	
+	@RequestMapping(value = "modify.do", method = RequestMethod.GET)
+	public ModelAndView modify(@ModelAttribute("user") SessionDTO dto) {
+		ModelAndView mv = new ModelAndView("modify");
 		mv.addObject("memberDTO", MemberService.selectMember(dto.getId()));
 		return mv;
 	}

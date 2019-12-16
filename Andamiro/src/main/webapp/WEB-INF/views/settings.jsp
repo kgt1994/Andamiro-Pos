@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +45,7 @@
 	color: white;
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript">
 	function logout() {
@@ -53,6 +55,14 @@
 			return;
 		}
 	}
+	
+	$(function() {
+		var type = "<c:out value="${user.getSelectedShop().getShop_type()}" />";
+
+		if (type == "order") {
+			$("#tableSet").remove();
+		}
+	});
 </script>
 </head>
 
@@ -72,7 +82,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="probootstrap-navbar">
 					<ul class="navbar-nav ml-auto">
-						<li><div class = "nav-link active" style = "color:white;">${user.getName()}님 안녕하세요!</div></li>
+						<li><div class = "nav-link active" style = "color:white;">${user.getSelectedShop().getShop_name()}</div></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="home.do">Home</a></li>
 						<li><a href="#" class="nav-link">my page</a></li>
@@ -115,13 +125,13 @@
 				
 				<div class="sidebar-item">
 					<div class="box-size"
-						style="background-color: #9b59b6; width: 200px; height: 200px;">
+						style="background-color: #f08080; width: 200px; height: 200px;">
 						<button type="button" class="btn btn-defalut"
-							style="background-color: #9b59b6;" onclick="location.href='sales_account.do'">매출관리</button>
+							style="background-color: #f08080;" onclick="location.href='sales_account.do'">매출관리</button>
 					</div>
 				</div>
 
-				<div class="sidebar-item">
+				<div class="sidebar-item" id="tableSet">
 					<div class="box-size"
 						style="background-color: #f1c40f; width: 200px; height: 200px;">
 						<button type="button" class="btn btn-defalut"

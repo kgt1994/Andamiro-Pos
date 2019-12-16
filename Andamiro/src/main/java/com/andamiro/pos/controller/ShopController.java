@@ -46,10 +46,9 @@ public class ShopController {
 		ShopDTO sdto = new ShopDTO();
 		sdto.setShop_number(sr.getShops().get(Integer.parseInt(index)).getShop_number());
 		sdto.setShop_name(sr.getShops().get(Integer.parseInt(index)).getShop_name());
+		sdto.setShop_type(sr.getShops().get(Integer.parseInt(index)).getShop_type());
 		
-		dto.setSelectedShop(sdto.getShop_number());
-		
-		mv.addObject("shop", sdto);
+		dto.setSelectedShop(sdto);
 
 		return mv;
 	}
@@ -62,7 +61,7 @@ public class ShopController {
 		dto.setShop_number(Integer.parseInt(shop_number));
 		dto.setShop_pw(pw);
 		int idcheck = ShopService.pwCheck(dto);
-		System.out.println(idcheck);
+
 		if(idcheck==1){
 			str = "YES";	
 		}else{

@@ -131,6 +131,8 @@
 										name="shops[${i.index}].shop_number"> 
 								<input type="hidden" value="${shop.shop_name}"
 										name="shops[${i.index}].shop_name"> 
+								<input type="hidden" value="${shop.shop_type}"
+										name="shops[${i.index}].shop_type"> 
 								<input type="image" src="./resources/image/defualt.jpg" 
 									width="150px" height="150px" 
 									onclick="modal(${i.index}, ${shop.shop_number});return false;">

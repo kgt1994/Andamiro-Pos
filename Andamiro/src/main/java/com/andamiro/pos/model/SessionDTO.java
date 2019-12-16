@@ -3,12 +3,12 @@ package com.andamiro.pos.model;
 public class SessionDTO {
 	private String id;
 	private String name;
-	private int selectedShop;
+	private ShopDTO selectedShop;
 	
-	public int getSelectedShop() {
+	public ShopDTO getSelectedShop() {
 		return selectedShop;
 	}
-	public void setSelectedShop(int selectedShop) {
+	public void setSelectedShop(ShopDTO selectedShop) {
 		this.selectedShop = selectedShop;
 	}
 	public String getId() {
