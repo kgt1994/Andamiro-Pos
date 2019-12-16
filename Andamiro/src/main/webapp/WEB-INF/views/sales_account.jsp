@@ -201,7 +201,7 @@ input.btn {
 					<li><div class="nav-link active" style="color: white;">${user.getName()}님
 							안녕하세요!</div></li>
 					<li class="nav-item"><a class="nav-link active" href="home.do">Home</a></li>
-					<li><a href="#" class="nav-link">my page</a></li>
+					<li><a href="mypage.do" class="nav-link">my page</a></li>
 					<li class="nav-item"><a href="#" onclick="logout();"
 						class="nav-link" id="logout">Logout</a></li>
 				</ul>

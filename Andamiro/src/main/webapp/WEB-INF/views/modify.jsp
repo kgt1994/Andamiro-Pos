@@ -112,7 +112,7 @@
 	});
 
 	function cancel() {
-		location.href = "main.do";
+		location.href = "mypage.do";
 	}
 
 	document.addEventListener('keydown', function(event) {
