@@ -46,18 +46,34 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	function goShop() {
-		var chkpw = false;
-
-		// 여기서 모달창에 입력받은 값 아약스 처리
-
-		if (pw == chkpassword) {
-			this.chkpw = !chkpw;
-			$("#shopPwOk").submit();
-		} else {
-			alert("비밀번호를 다시 확인해 주세요!");
-		}
+	function modal(index, shop_number){
+		$('#pwModal').modal('show');
+		$('#Hidindex').val(index);
+		$('#Hidshop_number').val(shop_number);
 	}
+
+	function goShop() {
+		var form = "form" + $('#Hidindex').val();;
+
+		$.ajax({
+			type : "POST",
+			url : "checkPw",
+			data : {
+				"shop_number" : $('#Hidshop_number').val(),
+				"pw" : $('#shop_pw').val()
+			},
+			success : function(data) {
+				if ($.trim(data) == "YES") {
+					$("#"+form).submit();
+				} else {
+					$('#shop_pw').val('');
+					alert("비밀번호를 다시 확인해 주세요!");
+				}
+			}
+		});
+		
+	}
+	
 	function logout() {
 		if (confirm("로그아웃 하시겠습니까?")) {
 			location.href = "logout.do";
@@ -87,7 +103,7 @@
 						<li class="nav-item"><a class="nav-link active"
 							href="home.do">Home</a></li>
 						<li><a href="mypage.do" class="nav-link">my page</a></li>
-						<li class="nav-item"><a href="#logout.do" onclick="logout();"
+						<li class="nav-item"><a href="#" onclick="logout();"
 							class="nav-link" id="logout">Logout</a></li>
 					</ul>
 				</div>
@@ -101,26 +117,34 @@
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-md-6">
+					<table>
 					<c:forEach items="${list}" var="shop" varStatus="i">
-						<tr>
-							<td>
-								<form action="settings.do?index=${i.index}" method="post"
-									id="shopPwOk">
-									<input type="hidden" value="${shop.shop_number}"
-										name="shops[${i.index}].shop_number"> <input
-										type="hidden" value="${shop.shop_name}"
-										name="shops[${i.index}].shop_name"> <input
-										type="submit" value="${shop.shop_name}">
-									<!-- onclick="goShop();"-->
-								</form>
+						<c:choose>
+							<c:when test="${i.index % 3 == 0}">
+								<tr>
+							</c:when>
+						</c:choose>
+						<td>
+							<form action="settings.do?index=${i.index}" method="post"
+								name="form${i.index}" id="form${i.index}" >
+								<input type="hidden" value="${shop.shop_number}" 
+										name="shops[${i.index}].shop_number"> 
+								<input type="hidden" value="${shop.shop_name}"
+										name="shops[${i.index}].shop_name"> 
+								<input type="image" src="./resources/image/defualt.jpg" 
+									width="150px" height="150px" 
+									onclick="modal(${i.index}, ${shop.shop_number});return false;">
+							</form>
+							${shop.shop_name}
 					</c:forEach>
+					</table>
 				</div>
 
 			</div>
 		</div>
 	</section>
 
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+	<div class="modal fade" id="pwModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -132,17 +156,19 @@
 					</button>
 				</div>
 
-				<form action="shoppw.do" method="post">
+				<form>
+					<input type="hidden" id="Hidindex">
+					<input type="hidden" id="Hidshop_number">
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="message-text" class="control-label"></label> <input
-								type="password" class="form-control" name="shop_pw"
+							<label for="message-text" class="control-label"></label> 
+							<input type="password" class="form-control" name="shop_pw" id="shop_pw"
 								placeholder="비밀번호를 입력해 주세요." required autofocus>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-						<input class="btn btn-success" type="submit" value="login">
+						<input class="btn btn-success" type="button" value="login" onclick="goShop()">
 					</div>
 				</form>
 

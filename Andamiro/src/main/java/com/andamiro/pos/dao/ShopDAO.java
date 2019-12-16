@@ -21,4 +21,10 @@ public class ShopDAO implements IShopDAO {
 		return mybatis.selectList("ShopService.selectShop", dto);
 	}
 
+	@Override
+	public int selectPw(ShopDTO dto) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("ShopService.selectPw", dto);
+	}
+
 }

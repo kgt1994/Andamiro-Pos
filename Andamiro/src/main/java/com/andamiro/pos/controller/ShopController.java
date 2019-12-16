@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,6 +52,23 @@ public class ShopController {
 		mv.addObject("shop", sdto);
 
 		return mv;
+	}
+	
+	@RequestMapping(value = "checkPw", method = RequestMethod.POST)
+	public @ResponseBody String AjaxView(@RequestParam("shop_number") String shop_number, 
+						@RequestParam("pw") String pw){
+		String str = "";
+		ShopDTO dto = new ShopDTO();
+		dto.setShop_number(Integer.parseInt(shop_number));
+		dto.setShop_pw(pw);
+		int idcheck = ShopService.pwCheck(dto);
+		System.out.println(idcheck);
+		if(idcheck==1){
+			str = "YES";	
+		}else{
+			str = "No";	
+		}
+		return str;
 	}
 
 	@RequestMapping(value = "order.do", method = RequestMethod.GET)

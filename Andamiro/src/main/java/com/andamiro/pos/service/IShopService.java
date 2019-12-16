@@ -8,4 +8,5 @@ import com.andamiro.pos.model.ShopDTO;
 public interface IShopService {
 
 	public List<ShopDTO> selectShop(SessionDTO dto);
+	public int pwCheck(ShopDTO dto);
 }

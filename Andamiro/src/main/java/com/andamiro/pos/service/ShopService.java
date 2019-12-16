@@ -19,4 +19,10 @@ public class ShopService implements IShopService{
 		// TODO Auto-generated method stub
 		return dao.selectShop(dto);
 	}
+
+	@Override
+	public int pwCheck(ShopDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.selectPw(dto);
+	}
 }

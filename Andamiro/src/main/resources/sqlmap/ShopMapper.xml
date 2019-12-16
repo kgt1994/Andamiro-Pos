@@ -7,4 +7,10 @@
 		FROM SHOP
 		WHERE MEMBER_ID=#{id}
 	</select>
+	
+	<select id="selectPw" parameterType="ShopDTO" resultType="Integer">
+		SELECT COUNT(SHOP_NUMBER)
+		FROM SHOP
+		WHERE SHOP_NUMBER=#{shop_number} AND SHOP_PW=#{shop_pw}
+	</select>
 </mapper>
