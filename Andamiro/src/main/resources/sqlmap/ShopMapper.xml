@@ -3,7 +3,7 @@
 
 <mapper namespace="ShopService" >
 	<select id="selectShop" parameterType="SessionDTO" resultType="ShopDTO">
-		SELECT SHOP_NUMBER, SHOP_NAME, SHOP_PW
+		SELECT SHOP_NUMBER, SHOP_NAME, SHOP_TYPE
 		FROM SHOP
 		WHERE MEMBER_ID=#{id}
 	</select>
