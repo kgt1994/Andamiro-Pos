@@ -46,10 +46,10 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	function modal(index, shop_number){
+	function modal(index, id){
 		$('#pwModal').modal('show');
 		$('#Hidindex').val(index);
-		$('#Hidshop_number').val(shop_number);
+		$('#Hidid').val(id);
 	}
 
 	function goShop() {
@@ -59,14 +59,14 @@
 			type : "POST",
 			url : "checkPw",
 			data : {
-				"shop_number" : $('#Hidshop_number').val(),
-				"pw" : $('#shop_pw').val()
+				"id" : $('#Hidid').val(),
+				"pw" : $('#pw').val()
 			},
 			success : function(data) {
 				if ($.trim(data) == "YES") {
 					$("#"+form).submit();
 				} else {
-					$('#shop_pw').val('');
+					$('#pw').val('');
 					alert("비밀번호를 다시 확인해 주세요!");
 				}
 			}
@@ -127,17 +127,17 @@
 						<td>
 							<form action="settings.do?index=${i.index}" method="post"
 								name="form${i.index}" id="form${i.index}" >
-								<input type="hidden" value="${shop.shop_number}" 
-										name="shops[${i.index}].shop_number"> 
-								<input type="hidden" value="${shop.shop_name}"
-										name="shops[${i.index}].shop_name"> 
-								<input type="hidden" value="${shop.shop_type}"
-										name="shops[${i.index}].shop_type"> 
+								<input type="hidden" value="${shop.id}" 
+										name="shops[${i.index}].id"> 
+								<input type="hidden" value="${shop.name}"
+										name="shops[${i.index}].name"> 
+								<input type="hidden" value="${shop.type}"
+										name="shops[${i.index}].type"> 
 								<input type="image" src="./resources/image/defualt.jpg" 
 									width="150px" height="150px" 
-									onclick="modal(${i.index}, ${shop.shop_number});return false;">
+									onclick="modal(${i.index}, ${shop.id});return false;">
 							</form>
-							${shop.shop_name}
+							${shop.name}
 					</c:forEach>
 					</table>
 				</div>
@@ -160,11 +160,11 @@
 
 				<form>
 					<input type="hidden" id="Hidindex">
-					<input type="hidden" id="Hidshop_number">
+					<input type="hidden" id="Hidid">
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="message-text" class="control-label"></label> 
-							<input type="password" class="form-control" name="shop_pw" id="shop_pw"
+							<input type="password" class="form-control" name="pw" id="pw"
 								placeholder="비밀번호를 입력해 주세요." required autofocus>
 						</div>
 					</div>

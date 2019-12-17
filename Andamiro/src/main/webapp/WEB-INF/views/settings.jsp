@@ -57,7 +57,7 @@
 	}
 	
 	$(function() {
-		var type = "<c:out value="${user.getSelectedShop().getShop_type()}" />";
+		var type = "<c:out value="${user.getSelectedShop().getType()}" />";
 
 		if (type == "order") {
 			$("#tableSet").remove();
@@ -82,7 +82,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="probootstrap-navbar">
 					<ul class="navbar-nav ml-auto">
-						<li><div class = "nav-link active" style = "color:white;">${user.getSelectedShop().getShop_name()}</div></li>
+						<li><div class = "nav-link active" style = "color:white;">${user.getSelectedShop().getName()}</div></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="home.do">Home</a></li>
 						<li><a href="mypage.do" class="nav-link">my page</a></li>

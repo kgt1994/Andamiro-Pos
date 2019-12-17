@@ -5,8 +5,7 @@
 
 	<insert id="insertMember" parameterType="MemberDTO">
 		INSERT INTO MEMBER(ID, PW, NAME, EMAIL, PHONE)
-		SELECT #{id},#{pw},#{name},#{email},#{phone} FROM DUAL
-		WHERE NOT EXISTS(SELECT * FROM MEMBER WHERE ID=#{id})
+		VALUES (#{id},#{pw},#{name},#{email},#{phone})
 	</insert>
 	
 	<select id="selectLogin" parameterType="LoginDTO" resultType="LoginDTO">

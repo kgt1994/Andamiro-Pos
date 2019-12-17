@@ -44,9 +44,9 @@ public class ShopController {
 		
 		ModelAndView mv = new ModelAndView("settings");
 		ShopDTO sdto = new ShopDTO();
-		sdto.setShop_number(sr.getShops().get(Integer.parseInt(index)).getShop_number());
-		sdto.setShop_name(sr.getShops().get(Integer.parseInt(index)).getShop_name());
-		sdto.setShop_type(sr.getShops().get(Integer.parseInt(index)).getShop_type());
+		sdto.setId(sr.getShops().get(Integer.parseInt(index)).getId());
+		sdto.setName(sr.getShops().get(Integer.parseInt(index)).getName());
+		sdto.setType(sr.getShops().get(Integer.parseInt(index)).getType());
 		
 		dto.setSelectedShop(sdto);
 
@@ -54,12 +54,12 @@ public class ShopController {
 	}
 	
 	@RequestMapping(value = "checkPw", method = RequestMethod.POST)
-	public @ResponseBody String AjaxView(@RequestParam("shop_number") String shop_number, 
+	public @ResponseBody String AjaxView(@RequestParam("id") String id, 
 						@RequestParam("pw") String pw){
 		String str = "";
 		ShopDTO dto = new ShopDTO();
-		dto.setShop_number(Integer.parseInt(shop_number));
-		dto.setShop_pw(pw);
+		dto.setId(Integer.parseInt(id));
+		dto.setPw(pw);
 		int idcheck = ShopService.pwCheck(dto);
 
 		if(idcheck==1){

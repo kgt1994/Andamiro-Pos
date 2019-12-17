@@ -3,14 +3,14 @@
 
 <mapper namespace="ShopService" >
 	<select id="selectShop" parameterType="SessionDTO" resultType="ShopDTO">
-		SELECT SHOP_NUMBER, SHOP_NAME, SHOP_TYPE
+		SELECT ID, NAME, TYPE
 		FROM SHOP
 		WHERE MEMBER_ID=#{id}
 	</select>
 	
 	<select id="selectPw" parameterType="ShopDTO" resultType="Integer">
-		SELECT COUNT(SHOP_NUMBER)
+		SELECT COUNT(ID)
 		FROM SHOP
-		WHERE SHOP_NUMBER=#{shop_number} AND SHOP_PW=#{shop_pw}
+		WHERE ID=#{id} AND PW=#{pw}
 	</select>
 </mapper>

@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%
-	String name;
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,7 +132,7 @@
 					<li><div class="nav-link active" style="color: white;">${user.getName()}님
 							안녕하세요!</div></li>
 					<li class="nav-item"><a class="nav-link active" href="home.do">Home</a></li>
-					<li><a href="#" class="nav-link">my page</a></li>
+					<li><a href="mypage.do" class="nav-link">my page</a></li>
 					<li class="nav-item"><a href="#" onclick="logout();"
 						class="nav-link" id="logout">Logout</a></li>
 				</ul>
@@ -316,57 +314,10 @@
 							<col style="width: 20%"></col>
 						</colgroup>
 						<tbody>
+						<!-- 메뉴 읽어들이고 5개 단위로 끊어서 tr 추가 -->
 							<tr style="border-collapse: collapse;">
 								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-							</tr>
-
-							<tr style="border-collapse: collapse;">
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-							</tr>
-
-							<tr style="border-collapse: collapse;">
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-							</tr>
-
-							<tr style="border-collapse: collapse;">
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd()">아메리카노</button></th>
-							</tr>
+										id="addbtn" name="addbtn" onclick="rowAdd();">아메리카노</button></th>
 
 						</tbody>
 					</table>
