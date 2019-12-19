@@ -84,11 +84,6 @@ public class ShopController {
 		return mv;
 	}
 
-	@RequestMapping(value = "sales_account.do", method = RequestMethod.GET)
-	public String sales_account(@ModelAttribute("user") SessionDTO dto, Model model) {
-		return "sales_account";
-	}
-
 	@RequestMapping(value = "table_settings.do", method = RequestMethod.GET)
 	public String table_settings(@ModelAttribute("user") SessionDTO dto, Model model) {
 		return "table_settings";

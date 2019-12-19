@@ -1,73 +1,110 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="utf-8">
-<title>Andamiro</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description"
-	content="Free Bootstrap 4 Template by uicookies.com">
-<meta name="keywords"
-	content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
 
-<link
-	href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400"
-	rel="stylesheet">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<link rel="stylesheet" href="./resources/css/bootstrap/bootstrap.css">
-<link rel="stylesheet"
-	href="./resources/fonts/ionicons/css/ionicons.min.css">
-<link rel="stylesheet"
-	href="./resources/fonts/law-icons/font/flaticon.css">
+  <title>매출확인</title>
 
-<link rel="stylesheet"
-	href="./resources/fonts/fontawesome/css/font-awesome.min.css">
+  <!-- Custom fonts for this template-->
+  <link href="./resources2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+  <!-- Page level plugin CSS-->
+  <link href="./resources2/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
-<link rel="stylesheet" href="./resources/css/slick.css">
-<link rel="stylesheet" href="./resources/css/slick-theme.css">
-<link rel="stylesheet" href="./resources/css/systyle.css">
-
-<link rel="stylesheet" href="./resources/css/helpers.css">
-<link rel="stylesheet" href="./resources/css/style.css">
-<link rel="stylesheet" href="./resources/css/landing-2.css">
-<script type="text/javascript">
-	function logout() {
-		if (confirm("로그아웃 하시겠습니까?")) {
-			location.href = "logout.do";
-		} else {
-			return;
-		}
+  <!-- Custom styles for this template-->
+  <link href="./resources2/css/sb-admin.css" rel="stylesheet">
+  <script>
+     var SumCard=0, SumCash=0, SumAll=0;
+  </script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script> 
+	function dis(){
+		//document.getElementById("test").style.display = "none";	
+		document.getElementById("chart_div").style.display = "block";
 	}
-</script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+  </script> 
+    
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href='main.do'>Andamiro</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar Search -->
+    
+
+    <!-- Navbar -->
+    
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Pages</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">페이지 이동</h6>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href='order.do'>주문관리</a>
+          <a class="dropdown-item" href='open_cash.do'>영업준비금</a>
+          <a class="dropdown-item" href='table_settings.do'>테이블 관리</a>
+          <a class="dropdown-item" href='end_cash.do'>마감관리</a>
+          <a class="dropdown-item" href='menu_settings.do'>메뉴관리</a>
+        </div>
+      </li>
+      
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+      <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawVisualization);
-
+      
+      var num=1;
       function drawVisualization() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
           ['Month', '매출'],
-          ['01',  165],
-          ['02',  135],
-          ['03',  157],
-          ['04',  139],
-          ['05',  136],
-          ['06',  165],
-          ['07',  135],
-          ['08',  157],
-          ['09',  139],
-          ['10',  136],
-          ['11',  139],
-          ['12',  136]
+          ['01',  100000],
+          ['02',  135000],
+          ['03',  157000],
+          ['04',  139000],
+          ['05',  136000],
+          ['06',  165000],
+          ['07',  135000],
+          ['08',  157000],
+          ['09',  139000],
+          ['10',  136000],
+          ['11',  139000],
+          ['12',  136000]
+          
         ]);
-
+        
         var options = {
-          title : '매출 그래프',
+          title : '단위 : 원',
           vAxis: {title: 'sales'},
           hAxis: {title: 'Month'},
           seriesType: 'bars',
@@ -77,217 +114,139 @@
         chart.draw(data, options);
       }
     </script>
-<style>
-ul.mylist li, ol.mylist li {
-	padding: 5px 0px 5px 5px;
-	margin-bottom: 10px;
-	border-bottom: 1px solid #efefef;
-}
+        <!-- Area Chart Example-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            	매출 차트
+            	</div>
+          <div class="card-body">
+          	<div id="chart_div" style="width: 100%; height: 500px;"></div>
+            <!--<canvas id="myAreaChart" width="100%" height="30"></canvas>-->
+          </div>
+          
+        </div>
+        <!-- Breadcrumbs-->
+        <!-- Icon Cards-->
+        
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            	매출표</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>날짜</th>
+                    <th>카테고리</th>
+                    <th>메뉴</th>
+                    <th>현금</th>
+                    <th>카드</th>
+                    <th>합계</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+				<c:forEach items="${replies}" var="dto">
+					<tr>
+						<td>${dto.duedate}</td>
+						<td>${dto.menu}</td>
+						<td>${dto.item}</td>
+						<td>${dto.cash}<script>SumCash += ${dto.cash};</script></td>
+						<td>${dto.card}<script>SumCard += ${dto.card};</script></td>
+						<td>${dto.card+dto.cash}<script>SumAll += ${dto.card+dto.cash};</script></td>
+					</tr>
+				</c:forEach>
+                  
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>합계</th>
+                    <th>-</th>
+                    <th>-</th>
+                    <th><!--<script>document.write(SumCash);</script> -->-</th>
+                    <th><!--<script>document.write(SumCard);</script> -->-</th>
+                    <th><!--<script>document.write(SumAll);</script> -->-</th>
+                  </tr>
+                  <script>
+			         SumCard=0, SumCash=0, SumAll=0;
+			      </script>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
 
-input.btn {
-	background-color: lighgray;
-	width: 50px;
-	height: 40px;
-	margin: 5px;
-	font-size: 15pt;
-	width: 50px;
-}
+      </div>
+      &nbsp&nbsp&nbsp&nbsp&nbsp
+      <button class="btn btn-primary" type="button" onclick='dis()'>차트보기
+      </button>
+      <br><br>
+      
+          
+        
+      <!-- /.container-fluid -->
 
-.clr, .equal {
-	width: 112px;
-	height: 40px;
-	margin: 5px;
-	font-size: 15pt;
-}
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
 
-#disp {
-	width: 295px;
-	height: 40px;
-	margin: 5px;
-	font-size: 22pt;
-	text-align: right;
-}
-</style>
-<script>
-	var flag = true;
-	var totalFlag = true;
-	var flag2 = 0;
-	var flag3 = 0;
+    </div>
+    <!-- /.content-wrapper -->
 
-	function err() {
-		var f = document.calform;
-		f.disp.value = "수식오류";
-		flag = true;
-	}
+  </div>
+  <!-- /#wrapper -->
 
-	function but(su) {
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
-		if (totalFlag == false && isNaN(su) == false) {
-			c();
-		} else {
-			totalFlag = true;
-		}
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-		var f = document.calform;
+  <!-- Bootstrap core JavaScript-->
+  <script src="./resources2/vendor/jquery/jquery.min.js"></script>
+  <script src="./resources2/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-		if (flag) {
-			if (su == 0) {
-				return;
-			}
-			f.disp.value = "";
-			flag = false;
-		}
+  <!-- Core plugin JavaScript-->
+  <script src="./resources2/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-		if (isNaN(su)) {
-			flag2++;
-		} else {
-			flag2 = 0;
-		}
+  <!-- Page level plugin JavaScript-->
+  <script src="./resources2/vendor/chart.js/Chart.min.js"></script>
+  <script src="./resources2/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="./resources2/vendor/datatables/dataTables.bootstrap4.js"></script>
 
-		if (flag2 > 1) {
-			return;
-		}
-		f.disp.value += su;
-	}
+  <!-- Custom scripts for all pages-->
+  <script src="./resources2/js/sb-admin.min.js"></script>
 
-	function c() {
-		var f = document.calform;
-		flag = true;
-		totalFlag = true;
-		f.disp.value = "";
-	}
+  <!-- Demo scripts for this page-->
+  <script src="./resources2/js/demo/datatables-demo.js"></script>
+  <script src="./resources2/js/demo/chart-area-demo.js"></script>
 
-	function total() {
-
-		var f = document.calform;
-
-		try {
-			var a = eval(f.disp.value);
-			if (isNaN(a)) {
-				throw err();
-				return;
-			}
-		} catch (e) {
-			err();
-			return;
-		}
-		totalFlag = false;
-		var b = (parseInt(a * 1000000000000) / 1000000000000)
-		f.disp.value = b;
-
-	}
-</script>
-<script> 
-	function dis(){
-		//document.getElementById("test").style.display = "none";	
-		document.getElementById("chart_div").style.display = "block";
-	}
-</script> 
-</head>
-<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
-	<nav
-		class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light"
-		id="pb-navbar">
-		<div class="container">
-			<a href="main.do" class="navbar-brand">Andamiro</a>
-			<button class="navbar-toggler ml-auto" type="button"
-				data-toggle="collapse" data-target="#probootstrap-navbar"
-				aria-controls="probootstrap-navbar" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span><i class="ion-navicon"></i></span>
-			</button>
-			<div class="collapse navbar-collapse" id="probootstrap-navbar">
-				<ul class="navbar-nav ml-auto">
-					<li><div class="nav-link active" style="color: white;">${user.getName()}님
-							안녕하세요!</div></li>
-					<li class="nav-item"><a class="nav-link active" href="home.do">Home</a></li>
-					<li><a href="mypage.do" class="nav-link">my page</a></li>
-					<li class="nav-item"><a href="#" onclick="logout();"
-						class="nav-link" id="logout">Logout</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<div
-		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
-		<br>
-		<hr>
-
-		<div
-			class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
-			<br>
-			<hr>
-
-			<div class="container">
-				<div style="float: center;">
-					<div>
-						<div class="relative align-self-center" id="login">
-							<div class="bg-white rounded pb_form_v1">
-								<form>
-									<fieldset>
-									<legend>검색 정보</legend>
-									날짜 : <select name="seday">
-											<option value="date">일 별</option>
-											<option value="week" selected>주 별</option>
-											<option value="month">월 별</option>
-										</select>
-										
-									메뉴 : <select name="menu">
-											<option value="1" selected>아메리카노</option>
-											<option value="2">카푸치노</option>
-											<option value="3">녹차라떼</option>
-											<option value="4">밀크티</option>
-										</select>
-									day : 	<input id="day" type=date>
-									<input type="button" value="검색"><br><br>
-									</fieldset>
-							</form>
-							<table>
-								<thead>
-									<tr><th>날짜</th><th>메뉴</th><th>가격</th><th>수량</th><th>결제 수단</th><th>합계</th></tr>
-								</thead>
-								<tbody>
-									<tr><td>123123</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-									<tr><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td></tr>
-									<tr><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
-									<tr><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
-								</tbody>
-								<tfoot>
-									<tr><th>-</th><th>-</th><th>-</th><th>-</th><th>-</th><th>-</th></tr>
-								</tfoot>
-							</table>
-								<br> <br>
-								
-								
-								<div class="form-group">
-									<input type="submit"
-										class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue"
-										value="매출표 확인" onclick='dis()'><br>
-								</div>
-								<div id="chart_div" style="width: 600px; height: 300px; display:none;"></div>
-								
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 부트스트랩 스크립트 지우면 사망 -->
-	<script src="./resources/js/jquery.min.js"></script>
-
-	<script src="./resources/js/popper.min.js"></script>
-	<script src="./resources/js/bootstrap.min.js"></script>
-	<script src="./resources/js/slick.min.js"></script>
-	<script src="./resources/js/jquery.mb.YTPlayer.min.js"></script>
-
-	<script src="./resources/js/jquery.waypoints.min.js"></script>
-	<script src="./resources/js/jquery.easing.1.3.js"></script>
-
-	<script src="./resources/js/main.js"></script>
-	<!-- 스크립트 모음 -->
 </body>
 
 </html>
