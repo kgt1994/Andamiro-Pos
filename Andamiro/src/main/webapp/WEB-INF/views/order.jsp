@@ -28,10 +28,8 @@
 <link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
-<link
-	href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-<link
-	href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css">
+<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<link href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css">
 
 <style>
 .menu_service {
@@ -63,47 +61,42 @@
 	var totalFlag = true;
 	var flag2 = 0;
 	var flag3 = 0;
-
-	var col_kor = [ {
-		title : "No."
-	}, {
-		title : "메뉴"
-	}, {
-		title : "가격"
-	}, {
-		title : "수량"
-	}, {
-		title : "비고"
-	} ];
-
+	
+	var col_kor = [
+        { title: "No." },
+        { title: "메뉴" },
+        { title: "가격" },
+        { title: "수량" },
+        { title: "비고" }
+    ];
+	
 	var lang_kor = {
-		"emptyTable" : "주문한 메뉴가 없습니다.",
-		"loadingRecords" : "로딩중...",
-		"processing" : "처리중...",
-		"aria" : {
-			"sortAscending" : " :  오름차순 정렬",
-			"sortDescending" : " :  내림차순 정렬"
-		}
-	};
-
+	        "emptyTable" : "주문한 메뉴가 없습니다.",
+	        "loadingRecords" : "로딩중...",
+	        "processing" : "처리중...",
+	        "aria" : {
+	            "sortAscending" : " :  오름차순 정렬",
+	            "sortDescending" : " :  내림차순 정렬"
+	        }
+	    };
+	
 	$(function() {
 		table = $('#orderList').DataTable({
-			columns : col_kor,
-			language : lang_kor,
-			paging : false,
-			searching : false,
-			select : {
-				style : 'single'
-			},
-			info : false,
-			infoEmpty : false,
-			scrollY : 250
+            columns: col_kor,
+            language : lang_kor,
+            paging: false,
+            searching: false,
+            select: {
+                style: 'single'
+            },
+            info: false,
+            infoEmpty: false,
+            scrollY: 250
 		});
-
-		$('#orderList tbody').on('click', 'tr', function() {
-			var rowData = table.row(this).data();
-			//alert(rowData);
-			//$(this).css('background', 'white');
+		
+		$('#orderList tbody').on( 'click', 'tr', function () {
+		  $('#orderList tbody tr').css('background', '');
+		  $(this).css('background', 'white');
 		});
 
 		$('#1').attr('class', 'tab-pane active');
@@ -114,38 +107,170 @@
 			$('#' + tabid.substr(1, 1)).attr('class', 'tab-pane active');
 		});
 
+		$('#allcancle').click(function(){
+			var result = confirm("모든 메뉴를 취소 하시겠습니까?");
+			if(result){
+				for(var i=0; i < table.rows().count(); i++){
+					table.cell( i, 3 ).data(0).draw();
+					table.cell( i, 4 ).data('취소됨').draw();
+				}
+				$('#total').val('0');
+				$('#pay').val('0');
+			}else{
+				
+			}
+		});
+		
+		$('#rowcancle').click(function(){
+			var result = confirm("선택한 메뉴를 취소 하시겠습니까?");
+			if(result){
+				var canclecash = $('#orderList tbody tr[style*="background"] > td:eq(2)').text() * $('#orderList tbody tr[style*="background"] > td:eq(3)').text();
+				if(table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data() != '서비스'){
+					table.cell( $('#orderList tbody tr[style*="background"]'), 3 ).data(0).draw();
+					table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data('취소됨').draw();
+				}else{
+					table.cell( $('#orderList tbody tr[style*="background"]'), 3 ).data(0).draw();
+					table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data('취소됨').draw();
+				}
+				calc();
+			}else{
+				
+			}
+		});
+		
+		$('#servicebtn').click(function(){
+			if(table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data() != '서비스'){
+				table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data('서비스').draw();
+			}else{
+				table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data('').draw();
+			}
+			calc();
+		});
+		
+		$('#delivery').click(function(){
+			table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data('포장').draw();
+		});
+		
+		$('#minusbtn').click(function(){
+			var itemamount = parseInt(table.cell( $('#orderList tbody tr[style*="background"]'), 3 ).data());
+			
+			if(itemamount > 0){
+				table.cell( $('#orderList tbody tr[style*="background"]'), 3 ).data(itemamount - 1).draw();
+			}
+			
+			if(itemamount-1 == 0){
+				table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data('취소됨').draw();
+			}
+			calc();
+		});
+		
+		$('#plusbtn').click(function(){
+			var itemamount = parseInt(table.cell( $('#orderList tbody tr[style*="background"]'), 3 ).data());
+			if(table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data() == '취소됨'){
+				table.cell( $('#orderList tbody tr[style*="background"]'), 4 ).data('').draw();
+			}
+			table.cell( $('#orderList tbody tr[style*="background"]'), 3 ).data(itemamount + 1).draw();
+			calc();
+		});
+		
+		$('#downbtn').click(function(){
+			var itemamount = parseInt(table.cell( $('#orderList tbody tr[style*="background"]'), 0 ).data());
+			table.cell( itemamount, 0 ).data(itemamount).draw();
+			table.cell( $('#orderList tbody tr[style*="background"]'), 0 ).data(itemamount + 1).draw();
+		});
+		
+		$('#upbtn').click(function(){
+			var itemamount = parseInt(table.cell( $('#orderList tbody tr[style*="background"]'), 0 ).data());
+			table.cell( itemamount-2, 0 ).data(itemamount).draw();
+			table.cell( $('#orderList tbody tr[style*="background"]'), 0 ).data(itemamount - 1).draw();
+		});
+		
 	});
+	
+	function calc(){
+		total = 0;
+		service = 0;
+		for(var i=0; i < table.rows().count(); i++){
+			if(table.cell( i, 4 ).data() != '취소됨'){
+				total += parseInt(table.cell( i, 2 ).data()) * parseInt(table.cell( i, 3 ).data());
+			}
+			
+			if(table.cell( i, 4 ).data() == '서비스'){
+				service += parseInt(table.cell( i, 2 ).data()) * parseInt(table.cell( i, 3 ).data());
+			}
+		}
+		$('#total').val(total);
+		$('#discount').val(service);
+		$('#pay').val(total - service);
+	}
 
 	function rowAdd(item, price) {
 		var menu = $('#menu_show td').text();
 		var cash = parseInt($('#total').val());
-
-		if (table.rows().count() !== 0) {
-			for (var i = 0; i < table.rows().count(); i++) {
-				if (table.cell(i, 1).data() == item) {
-					var amont = parseInt(table.cell(i, 3).data()) + 1;
-
-					table.cell(i, 3).data(amont).draw();
-
-					$('#total').val(cash + parseInt(price));
-					break;
-				} else if (i == table.rows().count() - 1) {
-					table.row.add(
-							[ table.rows().count() + 1, item, price, "1", "" ])
-							.draw();
+		
+		if(table.rows().count() !== 0){
+			for(var i=0; i < table.rows().count(); i++){
+				if(table.cell( i, 1 ).data() == item){
+					if(table.cell( i, 4 ).data() == '서비스'){
+						var count = 0;
+						for(var j=0; j < table.rows().count(); j++){
+							if(table.cell( i, 4 ).data() == '서비스'){
+								count++;
+							}
+						}
+						if(count > 1){
+							if(table.cell( i, 4 ).data() != '서비스'){
+								var amont = parseInt(table.cell( i, 3 ).data()) + 1;
+								
+								table.cell( i, 3 ).data(amont).draw();
+								table.cell( i, 4 ).data('').draw();
+								
+								$('#total').val(cash + parseInt(price));
+								break;
+							}
+						}else{
+							table.row.add( [
+								table.rows().count() + 1,
+							    item,
+							    price,
+							    "1",
+							    ""
+							] ).draw();
+							break;
+						}
+					}else{
+						var amont = parseInt(table.cell( i, 3 ).data()) + 1;
+						
+						table.cell( i, 3 ).data(amont).draw();
+						table.cell( i, 4 ).data('').draw();
+						
+						$('#total').val(cash + parseInt(price));
+						break;
+					}
+				}else if (i == table.rows().count() - 1){
+					table.row.add( [
+						table.rows().count() + 1,
+					    item,
+					    price,
+					    "1",
+					    ""
+					] ).draw();
 					$('#total').val(cash + parseInt(price));
 					break;
 				}
 			}
-		} else {
-			table.row.add([ table.rows().count() + 1, item, price, "1", "" ])
-					.draw();
+		}else{
+			table.row.add( [
+				table.rows().count() + 1,
+			    item,
+			    price,
+			    "1",
+			    ""
+			] ).draw();
 			$('#total').val(price);
 		}
-
-		$('#pay').val(
-				parseInt($('#total').val()) - parseInt($('#discount').val())
-						- parseInt($('#paid').val()));
+		
+		$('#pay').val(parseInt($('#total').val()) - parseInt($('#discount').val()) - parseInt($('#paid').val()));
 	}
 
 	function logout() {
@@ -174,7 +299,7 @@
             document.getElementById('paid').value = "";
             document.getElementById('result').value = "";
         }
-    </script>
+</script>
 <script>
     var numberClicked = false; // 전역 변수로 numberClicked를 설정
     function add (char) {
@@ -197,10 +322,10 @@
         }
     }
     function calculate() {
-        ...
+        
     }
     function reset() {
-        ...
+        
     }
 </script>
 
@@ -334,28 +459,28 @@ $(function() {
 						<tbody>
 							<tr>
 								<td>
-									<button type="button" class="menu_service">전체취소</button>
+									<button type="button" class="menu_service" id="allcancle">전체취소</button>
 								</td>
 								<td>
-									<button type="button" class="menu_service">한줄취소</button>
+									<button type="button" class="menu_service" id="rowcancle">한줄취소</button>
 								</td>
 								<td>
-									<button type="button" class="menu_service">서비스</button>
+									<button type="button" class="menu_service" id="servicebtn">서비스</button>
 								</td>
 								<td>
-									<button type="button" class="menu_service">포장</button>
+									<button type="button" class="menu_service" id="delivery">포장</button>
 								</td>
 								<td>
-									<button type="button" class="menu_service">-</button>
+									<button type="button" class="menu_service" id="minusbtn">-</button>
 								</td>
 								<td>
-									<button type="button" class="menu_service">+</button>
+									<button type="button" class="menu_service" id="plusbtn">+</button>
 								</td>
 								<td>
-									<button type="button" class="menu_service">▽</button>
+									<button type="button" class="menu_service" id="downbtn">▽</button>
 								</td>
 								<td>
-									<button type="button" class="menu_service">△</button>
+									<button type="button" class="menu_service" id="upbtn">△</button>
 								</td>
 							</tr>
 						</tbody>
@@ -377,14 +502,10 @@ $(function() {
 					</div>
 
 					<div style="float: right; width: 50%; text-align: center;">
-						<input type="text" id="total" name="total" class="form-control"
-							required autofocus readonly value=0> <br> <input
-							type="text" id="discount" name="discount" class="form-control"
-							required autofocus readonly value=0> <br> <input
-							type="text" id="pay" name="pay" class="form-control" required
-							autofocus readonly value=0> <br> <input type="text"
-							id="paid" name="paid" class="form-control" required autofocus>
-						<br>
+						<input type="text" id="total" name="total" class="form-control" required autofocus readonly value=0> <br> 
+						<input type="text" id="discount" name="discount" class="form-control" required autofocus readonly value=0> <br> 
+						<input type="text" id="pay" name="pay" class="form-control" required autofocus readonly value=0> <br> 
+						<input type="text" id="paid" name="paid" class="form-control" required autofocus readonly value=0> <br>
 					</div>
 				</div>
 
@@ -635,10 +756,8 @@ $(function() {
 	<script src="./resources/js/jquery.easing.1.3.js"></script>
 
 	<script src="./resources/js/main.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-	<script
-		src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
 	<!-- 스크립트 모음 -->
 </body>
 </html>
