@@ -10,6 +10,7 @@
 	<typeAlias type="com.andamiro.pos.model.ShopDTO" alias="ShopDTO"></typeAlias>
 	<typeAlias type="com.andamiro.pos.model.UpdateDTO" alias="UpdateDTO"></typeAlias>
 	<typeAlias type="com.andamiro.pos.model.SessionDTO" alias="SessionDTO"></typeAlias>
+	<typeAlias type="com.andamiro.pos.model.MenuDTO" alias="MenuDTO"></typeAlias>
 	</typeAliases>
 	
 	<mappers>

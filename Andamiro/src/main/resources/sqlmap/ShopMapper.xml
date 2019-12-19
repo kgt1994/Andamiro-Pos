@@ -13,4 +13,10 @@
 		FROM SHOP
 		WHERE ID=#{id} AND PW=#{pw}
 	</select>
+	
+	<select id="selectMenu" parameterType="SessionDTO" resultType="MenuDTO">
+		SELECT *
+		FROM MENU
+		WHERE SHOP_ID=#{selectedShop.id}
+	</select>
 </mapper>

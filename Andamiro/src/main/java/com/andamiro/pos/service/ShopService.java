@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.andamiro.pos.dao.IShopDAO;
+import com.andamiro.pos.model.MenuDTO;
 import com.andamiro.pos.model.SessionDTO;
 import com.andamiro.pos.model.ShopDTO;
 
@@ -24,5 +25,11 @@ public class ShopService implements IShopService{
 	public int pwCheck(ShopDTO dto) {
 		// TODO Auto-generated method stub
 		return dao.selectPw(dto);
+	}
+
+	@Override
+	public List<MenuDTO> selectMenu(SessionDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.selectMenu(dto);
 	}
 }
