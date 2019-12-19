@@ -88,18 +88,18 @@
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
           ['Month', '매출'],
-          ['01',  100000],
-          ['02',  135000],
-          ['03',  157000],
-          ['04',  139000],
-          ['05',  136000],
-          ['06',  165000],
-          ['07',  135000],
-          ['08',  157000],
-          ['09',  139000],
-          ['10',  136000],
-          ['11',  139000],
-          ['12',  136000]
+          ['1월',  16000],
+          ['2월',  26500],
+          ['3월',  25000],
+          ['4월',  27000],
+          ['5월',  11500],
+          ['6월',  23500],
+          ['7월',  17000],
+          ['8월',  3000],
+          ['9월',  18000],
+          ['10월',  8500],
+          ['11월',  14000],
+          ['12월',  29500]
           
         ]);
         
@@ -166,9 +166,9 @@
                     <th>합계</th>
                     <th>-</th>
                     <th>-</th>
-                    <th><!--<script>document.write(SumCash);</script> -->-</th>
-                    <th><!--<script>document.write(SumCard);</script> -->-</th>
-                    <th><!--<script>document.write(SumAll);</script> -->-</th>
+                    <th><script>document.write(SumCash);</script></th>
+                    <th><script>document.write(SumCard);</script></th>
+                    <th><script>document.write(SumAll);</script></th>
                   </tr>
                   <script>
 			         SumCard=0, SumCash=0, SumAll=0;
