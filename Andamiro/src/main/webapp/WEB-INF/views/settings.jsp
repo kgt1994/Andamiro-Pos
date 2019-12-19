@@ -82,7 +82,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="probootstrap-navbar">
 					<ul class="navbar-nav ml-auto">
-						<li><div class = "nav-link active" style = "color:white;">${user.getSelectedShop().getName()}</div></li>
+						<li><div class="nav-link active" style="color: white;">${user.getSelectedShop().getName()}</div></li>
 						<li class="nav-item"><a class="nav-link active"
 							href="home.do">Home</a></li>
 						<li><a href="mypage.do" class="nav-link">my page</a></li>
@@ -98,52 +98,60 @@
 		class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
-				<div class="sidebar-item">
-					<div class="box-size"
-						style="background-color: #1abc9c; width: 200px; height: 200px;">
-						<button type="button" class="btn btn-defalut"
-							style="background-color: #1abc9c;"
-							onclick="location.href='order.do'">주문관리</button>
+				<div>
+					<div class="sidebar-item">
+						<div class="box-size"
+							style="background-color: #1abc9c; width: 200px; height: 200px;">
+							<button type="button" class="btn btn-defalut"
+								style="background-color: #1abc9c;"
+								onclick="location.href='order.do'">주문관리</button>
+						</div>
 					</div>
-				</div>
-				<div class="sidebar-item">
-					<div class="box-size"
-						style="background-color: #2ecc71; width: 200px; height: 200px;">
-						<button type="button" class="btn btn-defalut"
-							style="background-color: #2ecc71;"
-							onclick="location.href='open_cash.do'">영업준비금</button>
-					</div>
+					<div class="sidebar-item">
+						<div class="box-size"
+							style="background-color: #2ecc71; width: 200px; height: 200px;">
+							<button type="button" class="btn btn-defalut"
+								style="background-color: #2ecc71;"
+								onclick="location.href='open_cash.do'">영업준비금</button>
+						</div>
 
-				</div>
-				<div class="sidebar-item">
-					<div class="box-size"
-						style="background-color: #9b59b6; width: 200px; height: 200px;">
-						<button type="button" class="btn btn-defalut"
-							style="background-color: #9b59b6;" onclick="location.href='end_cash.do'">마감관리</button>
+					</div>
+					<div class="sidebar-item">
+						<div class="box-size"
+							style="background-color: #9b59b6; width: 200px; height: 200px;">
+							<button type="button" class="btn btn-defalut"
+								style="background-color: #9b59b6;"
+								onclick="location.href='end_cash.do'">마감관리</button>
+						</div>
 					</div>
 				</div>
 				
-				<div class="sidebar-item">
-					<div class="box-size"
-						style="background-color: #f08080; width: 200px; height: 200px;">
-						<button type="button" class="btn btn-defalut"
-							style="background-color: #f08080;" onclick="location.href='sales_account.do'">매출관리</button>
+				<div>
+					<div class="sidebar-item">
+						<div class="box-size"
+							style="background-color: #FFBB00; width: 200px; height: 200px;">
+							<button type="button" class="btn btn-defalut"
+								style="background-color: #FFBB00;"
+								onclick="location.href='sales_account.do'">매출관리</button>
+						</div>
 					</div>
-				</div>
 
-				<div class="sidebar-item" id="tableSet">
-					<div class="box-size"
-						style="background-color: #f1c40f; width: 200px; height: 200px;">
-						<button type="button" class="btn btn-defalut"
-							style="background-color: #f1c40f;" onclick="location.href='table_settings.do'">테이블
-							관리</button>
+					<div class="sidebar-item">
+						<div class="box-size"
+							style="background-color: #CC9933; width: 200px; height: 200px;">
+							<button type="button" class="btn btn-defalut"
+								style="background-color: #CC9933;"
+								onclick="location.href='table_settings.do'">테이블 관리</button>
+						</div>
 					</div>
-				</div>
-				<div class="sidebar-item">
-					<div class="box-size"
-						style="background-color: #c0392b; width: 200px; height: 200px;">
-						<button type="button" class="btn btn-defalut"
-							style="background-color: #c0392b;" onclick="location.href='menu_settings.do'">메뉴관리</button>
+
+					<div class="sidebar-item">
+						<div class="box-size"
+							style="background-color: #c0392b; width: 200px; height: 200px;">
+							<button type="button" class="btn btn-defalut"
+								style="background-color: #c0392b;"
+								onclick="location.href='menu_settings.do'">메뉴관리</button>
+						</div>
 					</div>
 				</div>
 			</div>
