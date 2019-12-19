@@ -28,8 +28,10 @@
 <link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
-<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-<link href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css">
+<link
+	href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<link
+	href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css">
 
 <style>
 .menu_service {
@@ -39,6 +41,16 @@
 	font-size: 16px;
 	border: 2px solid rgb(137, 201, 244);
 	background-color: rgb(137, 201, 244);
+	color: white;
+}
+
+.menu_service2 {
+	width: 80px;
+	height: 60px;
+	margin-right: 10px;
+	font-size: 16px;
+	border: 2px solid rgb(0, 120, 240, 0.2);
+	background-color: rgb(0, 120, 240, 0.4);
 	color: white;
 }
 </style>
@@ -51,94 +63,90 @@
 	var totalFlag = true;
 	var flag2 = 0;
 	var flag3 = 0;
-	
-	var col_kor = [
-        { title: "No." },
-        { title: "메뉴" },
-        { title: "가격" },
-        { title: "수량" },
-        { title: "비고" }
-    ];
-	
+
+	var col_kor = [ {
+		title : "No."
+	}, {
+		title : "메뉴"
+	}, {
+		title : "가격"
+	}, {
+		title : "수량"
+	}, {
+		title : "비고"
+	} ];
+
 	var lang_kor = {
-	        "emptyTable" : "주문한 메뉴가 없습니다.",
-	        "loadingRecords" : "로딩중...",
-	        "processing" : "처리중...",
-	        "aria" : {
-	            "sortAscending" : " :  오름차순 정렬",
-	            "sortDescending" : " :  내림차순 정렬"
-	        }
-	    };
-	
+		"emptyTable" : "주문한 메뉴가 없습니다.",
+		"loadingRecords" : "로딩중...",
+		"processing" : "처리중...",
+		"aria" : {
+			"sortAscending" : " :  오름차순 정렬",
+			"sortDescending" : " :  내림차순 정렬"
+		}
+	};
+
 	$(function() {
 		table = $('#orderList').DataTable({
-            columns: col_kor,
-            language : lang_kor,
-            paging: false,
-            searching: false,
-            select: {
-                style: 'single'
-            },
-            info: false,
-            infoEmpty: false,
-            scrollY: 250
+			columns : col_kor,
+			language : lang_kor,
+			paging : false,
+			searching : false,
+			select : {
+				style : 'single'
+			},
+			info : false,
+			infoEmpty : false,
+			scrollY : 250
 		});
-		
-		$('#orderList tbody').on( 'click', 'tr', function () {
-		  var rowData = table.row( this ).data();
-		  //alert(rowData);
-		  //$(this).css('background', 'white');
+
+		$('#orderList tbody').on('click', 'tr', function() {
+			var rowData = table.row(this).data();
+			//alert(rowData);
+			//$(this).css('background', 'white');
 		});
-		
+
 		$('#1').attr('class', 'tab-pane active');
-		
-		$('#myTab a').click(function(){
+
+		$('#myTab a').click(function() {
 			var tabid = $(this).attr('href');
 			$('.tab-content .active').attr('class', 'tab-pane');
-			$('#'+tabid.substr(1,1)).attr('class', 'tab-pane active');
+			$('#' + tabid.substr(1, 1)).attr('class', 'tab-pane active');
 		});
-		
+
 	});
 
 	function rowAdd(item, price) {
 		var menu = $('#menu_show td').text();
 		var cash = parseInt($('#total').val());
-		
-		if(table.rows().count() !== 0){
-			for(var i=0; i < table.rows().count(); i++){
-				if(table.cell( i, 1 ).data() == item){
-					var amont = parseInt(table.cell( i, 3 ).data()) + 1;
-					
-					table.cell( i, 3 ).data(amont).draw();
-					
+
+		if (table.rows().count() !== 0) {
+			for (var i = 0; i < table.rows().count(); i++) {
+				if (table.cell(i, 1).data() == item) {
+					var amont = parseInt(table.cell(i, 3).data()) + 1;
+
+					table.cell(i, 3).data(amont).draw();
+
 					$('#total').val(cash + parseInt(price));
 					break;
-				}else if (i == table.rows().count() - 1){
-					table.row.add( [
-						table.rows().count() + 1,
-					    item,
-					    price,
-					    "1",
-					    ""
-					] ).draw();
+				} else if (i == table.rows().count() - 1) {
+					table.row.add(
+							[ table.rows().count() + 1, item, price, "1", "" ])
+							.draw();
 					$('#total').val(cash + parseInt(price));
 					break;
 				}
 			}
-		}else{
-			table.row.add( [
-				table.rows().count() + 1,
-			    item,
-			    price,
-			    "1",
-			    ""
-			] ).draw();
+		} else {
+			table.row.add([ table.rows().count() + 1, item, price, "1", "" ])
+					.draw();
 			$('#total').val(price);
 		}
-		
-		$('#pay').val(parseInt($('#total').val()) - parseInt($('#discount').val()) - parseInt($('#paid').val()));
+
+		$('#pay').val(
+				parseInt($('#total').val()) - parseInt($('#discount').val())
+						- parseInt($('#paid').val()));
 	}
-	
 
 	function logout() {
 		if (confirm("로그아웃 하시겠습니까?")) {
@@ -148,68 +156,69 @@
 		}
 	}
 
-	function err() {
-		var f = document.calform;
-		f.disp.value = "수식오류";
-		flag = true;
-	}
+</script>
+<script>
+        function add(char) {
+            var display = document.getElementById('paid'); // 우리가 식을 입력할 input 태그를 불러옵니다.
+            // display.value는 input 태그 안에 들어 있는 값을 의미합니다.
+            display.value = display.value + char;
+            // display.value += char; 로 쓸 수도 있습니다.
+            // input 태그의 값 뒤에 char 문자를 추가해 주는 역할을 합니다.
+        }
+        function calculate() {
+            var display = document.getElementById('paid');
+            var result = eval(display.value); // 식을 계산하고 result 변수에 저장합니다.
+            document.getElementById('result').value = result;
+        }
+        function reset() {
+            document.getElementById('paid').value = "";
+            document.getElementById('result').value = "";
+        }
+    </script>
+<script>
+    var numberClicked = false; // 전역 변수로 numberClicked를 설정
+    function add (char) {
+        if(numberClicked == false) { // 만약 이전에 연산자를 입력 했는데,
+            if(isNaN(char) == true) { // 입력 받은 값이 또 다시 연산자면,
+                // 아무것도 하지 않는다.
+            } else { // 연산자가 아니라면!
+                document.getElementById('paid').value += char; // 식 뒤에 값을 추가한다.
+            }
+        } else { // 만약에 이전에 숫자를 입력 했으면,
+            document.getElementById('paid').value += char; // 식 뒤에 값을 추가한다.
+        }
+ 
+ 
+        // 다음 입력을 위해 이번 입력에 숫자가 눌렸는지 연산자가 눌렸는지 설정한다.
+        if(isNaN(char) == true) { // "만약 숫자가 아닌게 참이라면" = "연산자를 눌렀다면"
+            numberClicked = false; // numberClicked를 false로 설정한다.
+        } else {
+            numberClicked = true; // numberClicked를 true로 설정한다.
+        }
+    }
+    function calculate() {
+        ...
+    }
+    function reset() {
+        ...
+    }
+</script>
 
-	function but(su) {
-
-		if (totalFlag == false && isNaN(su) == false) {
-			c();
-		} else {
-			totalFlag = true;
-		}
-
-		var f = document.calform;
-
-		if (flag) {
-			if (su == 0) {
-				return;
-			}
-			f.disp.value = "";
-			flag = false;
-		}
-
-		if (isNaN(su)) {
-			flag2++;
-		} else {
-			flag2 = 0;
-		}
-
-		if (flag2 > 1) {
-			return;
-		}
-		f.disp.value += su;
-	}
-
-	function c() {
-		var f = document.calform;
-		flag = true;
-		totalFlag = true;
-		f.disp.value = "";
-	}
-
-	function total() {
-
-		var f = document.calform;
-
-		try {
-			var a = eval(f.disp.value);
-			if (isNaN(a)) {
-				throw err();
-				return;
-			}
-		} catch (e) {
-			err();
-			return;
-		}
-		totalFlag = false;
-		var b = (parseInt(a * 1000000000000) / 1000000000000)
-		f.disp.value = b;
-
-	}
+<script>
+// 테이블 자동계산
+$(function() {
+	$('input.num_select').on('change', function() {
+		var sub_cash = parseInt($("#sub_cash").val() || 0);
+		var sub_count = parseInt($("#sub_count").val() || 0);
+		
+		$("#sub_cash").val(sub_cash);
+		$("#sub_count").val(sub_count);
+		
+		var result = sub_cash/sub_count;
+		
+		$("#fn_total").val(result);
+		});
+	});
 </script>
 </head>
 
@@ -334,74 +343,53 @@
 					</div>
 
 					<div style="float: right; width: 50%; text-align: center;">
-						<input type="text" id="total" name="total" class="form-control" required autofocus readonly value=0> <br> 
-						<input type="text" id="discount" name="discount" class="form-control" required autofocus readonly value=0> <br> 
-						<input type="text" id="pay" name="pay" class="form-control" required autofocus readonly value=0> <br> 
-						<input type="text" id="paid" name="paid" class="form-control" required autofocus readonly value=0> <br>
+						<input type="text" id="total" name="total" class="form-control"
+							required autofocus readonly value=0> <br> <input
+							type="text" id="discount" name="discount" class="form-control"
+							required autofocus readonly value=0> <br> <input
+							type="text" id="pay" name="pay" class="form-control" required
+							autofocus readonly value=0> <br> <input type="text"
+							id="paid" name="paid" class="form-control" required autofocus>
+						<br>
 					</div>
 				</div>
 
 				<div style="float: right; width: 50%;">
-					<table class="table table-bordered" text-align="center"
-						style="border: 1px solid darkgray; background-color: gray;">
+					<!-- 		<div style="float: left; text-align: center;">
+						<div style="color: white;">더치페이</div>
+					</div>
+					<div style="float: right; text-align: center;">
+						<input type="text" id="total" name="total" style="width:50px;">/
+						<input type="text" id="total" name="total" style="width:50px;">
+					</div>
+					 -->
 
-						<thead>
-							<tr>
-								<td class="pl-4" colspan="2"><input type="text"
-									class="form-control text-right font-weight-bold num_only num_comma num_sum"
-									id="fn_total" name="fn_total" value="" placeholder=""
-									readonly="readonly"></td>
-							</tr>
-						</thead>
+					<table class="table table-bordered">
+						<!-- 	<tr>
+							<td colspan="4"><input type="text" id="result"></td>
+						</tr> -->
 						<tr>
-							<td colspan="5"><input type="text" name="disp" id="disp"
-								value="0"></td>
+							<td onclick="add(7)" class="menu_service2">7</td>
+							<td onclick="add(8)" class="menu_service2">8</td>
+							<td onclick="add(9)" class="menu_service2">9</td>
 						</tr>
 						<tr>
-							<td><input type="button" value="7" class="btn"
-								onclick="but(7)"></td>
-							<td><input type="button" value="8" class="btn"
-								onclick="but(8)"></td>
-							<td><input type="button" value="9" class="btn"
-								onclick="but(9)"></td>
-							<td colspan="2"><input type="button" value="C" class="clr"
-								onclick="c()"></td>
+							<td onclick="add(4)" class="menu_service2">4</td>
+							<td onclick="add(5)" class="menu_service2">5</td>
+							<td onclick="add(6)" class="menu_service2">6</td>
 						</tr>
 						<tr>
-							<td><input type="button" value="4" class="btn"
-								onclick="but(4)"></td>
-							<td><input type="button" value="5" class="btn"
-								onclick="but(5)"></td>
-							<td><input type="button" value="6" class="btn"
-								onclick="but(6)"></td>
-							<td><input type="button" value="/" class="btn"
-								onclick="but('/')"></td>
-							<td><input type="button" value="%" class="btn"
-								onclick="but('%')"></td>
+							<td onclick="add(1)" class="menu_service2">1</td>
+							<td onclick="add(2)" class="menu_service2">2</td>
+							<td onclick="add(3)" class="menu_service2">3</td>
 						</tr>
 						<tr>
-							<td><input type="button" value="1" class="btn"
-								onclick="but(1)"></td>
-							<td><input type="button" value="2" class="btn"
-								onclick="but(2)"></td>
-							<td><input type="button" value="3" class="btn"
-								onclick="but(3)"></td>
-							<td><input type="button" value="*" class="btn"
-								onclick="but('*')"></td>
-							<td><input type="button" value="+" class="btn"
-								onclick="but('+')"></td>
-						</tr>
-						<tr>
-							<td><input type="button" value="0" class="btn"
-								onclick="but(0)"></td>
-							<td><input type="button" value="." class="btn"
-								onclick="but('.')"></td>
-							<td colspan="2"><input type="button" value="=" class="equal"
-								onclick="total()"></td>
-							<td><input type="button" value="-" class="btn"
-								onclick="but('-')"></td>
+							<td colspan="2" onclick="add(0)" class="menu_service2">0</td>
+							<td onclick="reset()" class="menu_service2">AC</td>
+							<!-- 	<td onclick="calculate()" class="menu_service2">=</td> -->
 						</tr>
 					</table>
+
 				</div>
 			</section>
 		</div>
@@ -410,52 +398,51 @@
 			style="float: right; width: 50%; text-align: center;">
 			<section style="float: left; width: 100%; text-align: center;">
 				<article style="clear: both;">
-				<div role="tabpanel">
-					<ul class="nav nav-pills" role="tablist" id="myTab">
-						<c:forEach items="${category}" var="category" varStatus="i">
-							<li class="presentation">
-								<a aria-controls="${category.id}" role="tab" data-toggle="tab"
-									href="#${category.id}">${category.name}</a>
-							</li>
-						</c:forEach>
-					</ul>
+					<div role="tabpanel">
+						<ul class="nav nav-pills" role="tablist" id="myTab">
+							<c:forEach items="${category}" var="category" varStatus="i">
+								<li class="presentation"><a aria-controls="${category.id}"
+									role="tab" data-toggle="tab" href="#${category.id}">${category.name}</a>
+								</li>
+							</c:forEach>
+						</ul>
 
-					<!-- 탭 누르면 바뀜 -->
-					<div class="tab-content">
-						<c:forEach items="${category}" var="category" varStatus="i">
-						<c:set var="x" value="0"/>
-						<div role="tabpanel" class="tab-pane" id="${category.id}">
-							<table class="table table-bordered dataTable" id="menubtn"
-								style="width: 100%; height: 80%;" cellspacing="0" role="grid">
-								<colgroup>
-									<col style="width: 20%"></col>
-									<col style="width: 20%"></col>
-									<col style="width: 20%"></col>
-									<col style="width: 20%"></col>
-									<col style="width: 20%"></col>
-								</colgroup>
-								<thead>
-									<tr style="border-collapse: collapse;">
-										<c:forEach items="${menu}" var="menu" varStatus="j">
-											<c:if test="${x%5 == 0}">
-												<tr>
-											</c:if>
-											<c:if test="${category.id == menu.category_id}">
-													<c:set var="x" value="${x + 1}"/>
-											</c:if>
-											
-											<c:if test="${category.id == menu.category_id}">
-												<th><button type="button" class="btn btn-default"
-														id="addbtn" name="addbtn"
-														onclick="rowAdd('${menu.item}', '${menu.price}');">${menu.item}</button></th>
-											</c:if>
-										</c:forEach>
-								</thead>
-							</table>
+						<!-- 탭 누르면 바뀜 -->
+						<div class="tab-content">
+							<c:forEach items="${category}" var="category" varStatus="i">
+								<c:set var="x" value="0" />
+								<div role="tabpanel" class="tab-pane" id="${category.id}">
+									<table class="table table-bordered dataTable" id="menubtn"
+										style="width: 100%; height: 80%;" cellspacing="0" role="grid">
+										<colgroup>
+											<col style="width: 20%"></col>
+											<col style="width: 20%"></col>
+											<col style="width: 20%"></col>
+											<col style="width: 20%"></col>
+											<col style="width: 20%"></col>
+										</colgroup>
+										<thead>
+											<tr style="border-collapse: collapse;">
+												<c:forEach items="${menu}" var="menu" varStatus="j">
+													<c:if test="${x%5 == 0}">
+														<tr>
+													</c:if>
+													<c:if test="${category.id == menu.category_id}">
+														<c:set var="x" value="${x + 1}" />
+													</c:if>
+
+													<c:if test="${category.id == menu.category_id}">
+														<th><button type="button" class="btn btn-default"
+																id="addbtn" name="addbtn"
+																onclick="rowAdd('${menu.item}', '${menu.price}');">${menu.item}</button></th>
+													</c:if>
+												</c:forEach>
+										</thead>
+									</table>
+								</div>
+							</c:forEach>
+
 						</div>
-						</c:forEach>
-						
-					</div>
 					</div>
 				</article>
 
@@ -487,14 +474,34 @@
 							data-target="#cash_payment" data-whatever="@mdo"
 							style="width: 150px; height: 210px;">현금</button>
 					</div>
+
+					<div style="float: left; margin-right: 10px; text-align: center;">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="">
+									<th class="align-middle w-10 bg-light text-center">더치페이</th>
+
+									<td class="w-20 pl-4"><input type="text" id="sub_cash"
+										class="form-control num_select">원</td>
+									<td class="w-20 pl-4"><input type="text" id="sub_count"
+										class="form-control num_select">명</td>
+								</tr>
+								<tr class="">
+									<th class="align-middle w-10 bg-light text-center">합계</th>
+									<td class="pl-4" colspan="2"><input type="text"
+										class="form-control text-right font-weight-bold num_only num_comma num_sum"
+										id="fn_total" name="fn_total" value="" placeholder=""
+										readonly="readonly">
+										<div id="han_money" class="text-right"></div></td>
+								</tr>
+							</thead>
+						</table>
+
+					</div>
 				</div>
 			</section>
 		</div>
-
 	</div>
-
-
-
 
 	<!-- 모달창 -->
 	<div class="modal fade" id="card_payment" tabindex="-1" role="dialog"
@@ -554,30 +561,34 @@
 							</div>
 						</div>
 					</form>
-					<table class="table">
-						<tbody>
-							<tr>
-								<td><button type="button" class="number">1</button></td>
-								<td><button type="button" class="number" id="2">2</button></td>
-								<td><button type="button" class="number" id="3">3</button></td>
-								<td>
-							</tr>
-							<tr>
-								<td><button type="button" class="number" id="4">4</button></td>
-								<td><button type="button" class="number" id="5">5</button></td>
-								<td><button type="button" class="number" id="6">6</button></td>
-							</tr>
-							<tr>
-								<td><button type="button" class="number" id="7">7</button></td>
-								<td><button type="button" class="number" id="8">8</button></td>
-								<td><button type="button" class="number" id="9">9</button></td>
-							</tr>
-							<tr>
-								<td><button type="button" class="btn btn-warning">CH</button></td>
-								<td><button type="button" class="number" id="0">0</button></td>
-								<td><button type="button" class="btn btn-warning"><-</button></td>
-							</tr>
-						</tbody>
+					<table class="table table-bordered">
+						<!-- 	<tr>
+							<td colspan="4"><input type="text" id="result"></td>
+						</tr> -->
+						<!-- 	<tr>
+							<td colspan="3" onclick="reset()" class="menu_service">AC</td>
+							<td onclick="add('/')" class="menu_service">/</td>
+						</tr> -->
+						<tr>
+							<td onclick="add(7)" class="menu_service2">7</td>
+							<td onclick="add(8)" class="menu_service2">8</td>
+							<td onclick="add(9)" class="menu_service2">9</td>
+						</tr>
+						<tr>
+							<td onclick="add(4)" class="menu_service2">4</td>
+							<td onclick="add(5)" class="menu_service2">5</td>
+							<td onclick="add(6)" class="menu_service2">6</td>
+						</tr>
+						<tr>
+							<td onclick="add(1)" class="menu_service2">1</td>
+							<td onclick="add(2)" class="menu_service2">2</td>
+							<td onclick="add(3)" class="menu_service2">3</td>
+						</tr>
+						<tr>
+							<td colspan="2" onclick="add(0)" class="menu_service2">0</td>
+							<td onclick="reset()" class="menu_service2">AC</td>
+							<!-- 	<td onclick="calculate()" class="menu_service2">=</td> -->
+						</tr>
 					</table>
 				</div>
 				<div class="modal-footer">
@@ -606,8 +617,10 @@
 	<script src="./resources/js/jquery.easing.1.3.js"></script>
 
 	<script src="./resources/js/main.js"></script>
-	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-	<script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<script
+		src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
 	<!-- 스크립트 모음 -->
 </body>
 </html>
