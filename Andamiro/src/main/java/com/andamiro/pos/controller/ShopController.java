@@ -104,5 +104,9 @@ public class ShopController {
 	public String menu_settings(@ModelAttribute("user") SessionDTO dto, Model model) {
 		return "menu_settings";
 	}
+	@RequestMapping(value = "join_restaurant.do", method = RequestMethod.GET)
+	public String join_restaurant(@ModelAttribute("user") SessionDTO dto, Model model) {
+		return "join_restaurant";
+	}
 	
 }

@@ -52,11 +52,10 @@
 			if ($('#id').val() == '') {
 				$('#id').focus();
 				this.idcheck = false;
-			}else{
+			} else {
 				$('#errorId').remove();
 			}
-			
-			
+
 			$.ajax({
 				type : "POST",
 				url : "checkSignup",
@@ -122,14 +121,14 @@
 			}
 		});
 	});
-	
+
 	document.addEventListener('keydown', function(event) {
 		if (event.keyCode === 13) {
 			event.preventDefault();
 		}
 		;
 	}, true);
-	
+
 	$(function() {
 		$(".form-control").keyup(function() {
 			var txt = $(this).val().replace(/ /gi, '');
@@ -145,16 +144,14 @@
 		<br> <br> <br>
 		<div class="card-title text-center">
 			<h1>
-				<span class="text-primary">Andamiro에 오신것을 환영합니다!</span>
+				<span class="text-primary">가게 추가 페이지</span>
 			</h1>
 		</div>
 		<div class="row">
 			<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 				<div class="card card-signin my-5">
 					<div class="card-body">
-						<h5 class="card-title text-center">회원가입</h5>
-
-						<!-- form class="form-label-group"-->
+						<%-- <!-- form class="form-label-group"-->
 						<form:form modelAttribute="memberDTO" name="memberDTO"
 							class="form-horizontal" role="form" action="join.do"
 							method="post" id="joinForm">
@@ -176,12 +173,69 @@
 								<input type="submit" class="btn btn-lg btn-dark btn-block text-uppercase"
 									value="등록하기" id="btnSubmit" />
 							</div>
-						</form:form>
+						</form:form> --%>
+
+						<!-- 기존 회원정보 수정 복붙 했으니까 양식에 맞게 수정하면 댐 예를 들면 form 넘기는거 -->
+						<div class="form-group">
+							<h6>※원하시는 가게를 선택하여 주십시오.</h6>
+							<label class="radio-inline"> <input type="radio"
+								name="inlineRadioOptions" id="inlineRadio1" value="option1">
+								카페
+							</label> <label class="radio-inline"> <input type="radio"
+								name="inlineRadioOptions" id="inlineRadio1" value="option1">
+								식당
+							</label>
+						</div>
+
+						<div class="form-group">
+							<input type="file" name="FileName" id="imgInp">
+						</div>
+
+						<div>
+							<img id="foo" style="width: 300px; height: 300px;" />
+						</div>
+
+						<br>
+						<div class="form-group">
+							<input type="text" class="form-control" name="id"
+								placeholder="가게명을 입력해 주세요." />
+							<div class="error" id="CheckId"></div>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="id"
+								placeholder="가게 비밀번호를 입력해 주세요." />
+							<div class="error" id="CheckId"></div>
+						</div>
+
+
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-danger btn-lg" value="취소하기"
+							id="btnSubmit" /> <input type="submit"
+							class="btn btn-primary btn-lg" value="등록하기" id="btnSubmit" />
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- 파일 첨부 스크립트 -->
+	<script type="text/javascript">
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('#foo').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#imgInp").change(function() {
+			readURL(this);
+		});
+	</script>
+
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
 	<script src="./resources/js/jquery.min.js"></script>
 
