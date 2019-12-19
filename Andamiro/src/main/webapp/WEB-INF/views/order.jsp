@@ -22,19 +22,65 @@
 <link rel="stylesheet"
 	href="./resources/fonts/ionicons/css/ionicons.min.css">
 <link rel="stylesheet"
-	href="./resources/fonts/law-icons/font/flaticon.css">
-
-<link rel="stylesheet"
 	href="./resources/fonts/fontawesome/css/font-awesome.min.css">
-
-
 <link rel="stylesheet" href="./resources/css/slick.css">
 <link rel="stylesheet" href="./resources/css/slick-theme.css">
-
 <link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
+<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+
 <script type="text/javascript">
+	var flag = true;
+	var totalFlag = true;
+	var flag2 = 0;
+	var flag3 = 0;
+	
+	var col_kor = [
+        { title: "No." },
+        { title: "메뉴" },
+        { title: "가격" },
+        { title: "수량" },
+        { title: "비고" }
+    ];
+	
+	var lang_kor = {
+	        "emptyTable" : "주문한 메뉴가 없습니다.",
+	        "loadingRecords" : "로딩중...",
+	        "processing" : "처리중...",
+	        "aria" : {
+	            "sortAscending" : " :  오름차순 정렬",
+	            "sortDescending" : " :  내림차순 정렬"
+	        }
+	    };
+	
+	$(function() {
+		table = $('#orderList').DataTable({
+            columns: col_kor,
+            language : lang_kor,
+            paging: false,
+            searching: false,
+            select: true,
+            info: false,
+            infoEmpty: false,
+            scrollY: 250
+		});
+	});
+	
+	
+	function rowAdd(item, price) {
+		table.row.add( [
+			table.rows().count() + 1,
+		    item,
+		    price,
+		    "1",
+		    ""
+		] ).draw();
+	}
+	
 	function logout() {
 		if (confirm("로그아웃 하시겠습니까?")) {
 			location.href = "logout.do";
@@ -42,12 +88,6 @@
 			return;
 		}
 	}
-</script>
-<script>
-	var flag = true;
-	var totalFlag = true;
-	var flag2 = 0;
-	var flag3 = 0;
 
 	function err() {
 		var f = document.calform;
@@ -112,27 +152,7 @@
 
 	}
 	
-	function rowAdd(item, price) {
-		var objRow;
-
-		objRow = document.all("menu_show").insertRow();
-
-		var objCell_num = objRow.insertCell();
-		objCell_num.innerHTML = "<td>1</td>";
-
-		var objCell_menu = objRow.insertCell();
-		objCell_menu.innerHTML = "<td>" + item + "</td>";
-
-		var objCell_price = objRow.insertCell();
-		objCell_price.innerHTML = "<td>" + price + "</td>";
-
-		var objCell_count = objRow.insertCell();
-		objCell_count.innerHTML = "<td>1</td>";
-
-		var objCell_memo = objRow.insertCell();
-		objCell_memo.innerHTML = "<td>3200원</td>";
-
-	}
+	
 </script>
 </head>
 
@@ -176,9 +196,9 @@
 			<!-- 비율 1:1 왼쪽 -->
 			<section style="text-align: center;">
 
-				<!-- table header부분 -->
+				<!-- table -->
 				<div style="width: 100%">
-					<table class="table table-bordered dataTable" id="dataTable"
+					<table class="table table-bordered dataTable" id="orderList"
 						width="50%" cellspacing="0" role="grid"
 						aria-describedby="dataTable_info;">
 						<colgroup>
@@ -188,42 +208,21 @@
 							<col style="width: 10%"></col>
 							<col style="width: 20%"></col>
 						</colgroup>
-						<tr id="menu_list">
-							<th>No.</th>
-							<th>메뉴</th>
-							<th>가격</th>
-							<th>수량</th>
-							<th>비고</th>
-						</tr>
-
-						<!-- 	<tbody id="menu_show">
-
-						</tbody> -->
-					</table>
-				</div>
-				<!-- 	header END -->
-
-				<!-- table body부분  스크롤바 생김-->
-				<div
-					style="overflow: auto; height: 250px; text-align: center; width: 100%">
-					<table class="table table-bordered dataTable" id="dataTable"
-						role="grid" aria-describedby="dataTable_info;">
-						<colgroup>
-							<col style="width: 10%"></col>
-							<col style="width: *%"></col>
-							<col style="width: 15%"></col>
-							<col style="width: 10%"></col>
-							<col style="width: 20%"></col>
-						</colgroup>
+						<thead>
+							<tr id="menu_list">
+								<th>No.</th>
+								<th>메뉴</th>
+								<th>가격</th>
+								<th>수량</th>
+								<th>비고</th>
+							</tr>
+						</thead>
 
 						<tbody id="menu_show">
 
 						</tbody>
-
 					</table>
-
 				</div>
-				<!-- 	body END -->
 
 				<br>
 				<div>
@@ -326,7 +325,7 @@
 			style="float: right; width: 50%; text-align: center;">
 			<section style="float: left; width: 100%; text-align: center;">
 				<article style="clear: both;">
-					<table class="table table-bordered dataTable" id="dataTable"
+					<table class="table table-bordered dataTable" id="menubtn"
 						style="width: 100%; height: 80%;" cellspacing="0" role="grid">
 						<colgroup>
 							<col style="width: 20%"></col>
@@ -335,8 +334,7 @@
 							<col style="width: 20%"></col>
 							<col style="width: 20%"></col>
 						</colgroup>
-						<tbody>
-						<!-- 메뉴 읽어들이고 5개 단위로 끊어서 tr 추가 -->
+						<thead>
 							<tr style="border-collapse: collapse;">
 								<c:forEach items="${menu}" var="menu" varStatus="i">
 									<c:choose>
@@ -345,9 +343,9 @@
 										</c:when>
 									</c:choose>
 									<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd(${menu.item},${menu.price});">${menu.item}</button></th>
+										id="addbtn" name="addbtn" onclick="rowAdd('${menu.item}', '${menu.price}');">${menu.item}</button></th>
 								</c:forEach>
-						</tbody>
+						</thead>
 					</table>
 				</article>
 
@@ -498,6 +496,7 @@
 	<script src="./resources/js/jquery.easing.1.3.js"></script>
 
 	<script src="./resources/js/main.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 	<!-- 스크립트 모음 -->
 </body>
 </html>

@@ -135,7 +135,7 @@
 										name="shops[${i.index}].type"> 
 								<input type="image" src="./resources/image/defualt.jpg" 
 									width="150px" height="150px" 
-									onclick="modal(${i.index}, ${shop.id});return false;">
+									onclick="modal('${i.index}', '${shop.id}');return false;">
 							</form>
 							${shop.name}
 					</c:forEach>

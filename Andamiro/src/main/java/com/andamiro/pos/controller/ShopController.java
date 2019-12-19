@@ -73,8 +73,9 @@ public class ShopController {
 
 	@RequestMapping(value = "order.do", method = RequestMethod.GET)
 	public ModelAndView order(@ModelAttribute("user") SessionDTO dto) {
-		ModelAndView mv = new ModelAndView("order");
 		List<MenuDTO> menuList = ShopService.selectMenu(dto);
+		
+		ModelAndView mv = new ModelAndView("order");
 		
 		mv.addObject("menu", menuList);
 		return mv;
