@@ -205,6 +205,23 @@
 </script>
 
 <script>
+function add2(char) {
+    var display = document.getElementById('Input_Price'); // 우리가 식을 입력할 input 태그를 불러옵니다.
+  
+    // display.value는 input 태그 안에 들어 있는 값을 의미합니다.
+    display.value = display.value + char;
+    
+    // display.value += char; 로 쓸 수도 있습니다.
+    // input 태그의 값 뒤에 char 문자를 추가해 주는 역할을 합니다.
+}
+function reset2() {
+    document.getElementById('Input_Price').value = "";
+    document.getElementById('phoneNumber').value = "";
+    document.getElementById('result').value = "";
+}
+</script>
+
+<script>
 // 테이블 자동계산
 $(function() {
 	$('input.num_select').on('change', function() {
@@ -217,6 +234,23 @@ $(function() {
 		var result = sub_cash/sub_count;
 		
 		$("#fn_total").val(result);
+		});
+	});
+</script>
+
+<script>
+// 테이블 자동계산
+$(function() {
+	$('input.num_select').on('change', function() {
+		var modal_totalcash = parseInt($("#modal_totalcash").val() || 0);
+		var modal_price = parseInt($("#modal_price").val() || 0);
+		
+		$("#modal_totalcash").val(modal_totalcash);
+		$("#modal_price").val(modal_price);
+		
+		var result = modal_totalcash-modal_price;
+		
+		$("#result_cash").val(result);
 		});
 	});
 </script>
@@ -355,19 +389,8 @@ $(function() {
 				</div>
 
 				<div style="float: right; width: 50%;">
-					<!-- 		<div style="float: left; text-align: center;">
-						<div style="color: white;">더치페이</div>
-					</div>
-					<div style="float: right; text-align: center;">
-						<input type="text" id="total" name="total" style="width:50px;">/
-						<input type="text" id="total" name="total" style="width:50px;">
-					</div>
-					 -->
 
 					<table class="table table-bordered">
-						<!-- 	<tr>
-							<td colspan="4"><input type="text" id="result"></td>
-						</tr> -->
 						<tr>
 							<td onclick="add(7)" class="menu_service2">7</td>
 							<td onclick="add(8)" class="menu_service2">8</td>
@@ -386,7 +409,6 @@ $(function() {
 						<tr>
 							<td colspan="2" onclick="add(0)" class="menu_service2">0</td>
 							<td onclick="reset()" class="menu_service2">AC</td>
-							<!-- 	<td onclick="calculate()" class="menu_service2">=</td> -->
 						</tr>
 					</table>
 
@@ -540,63 +562,59 @@ $(function() {
 					</button>
 				</div>
 				<div class="modal-body">
-					<form class="form-horizontal">
 						<div class="form-group form-group-sm">
-							<label>결제 금액</label>
+							<label>총금액</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="priceNumber">
+								<input type="text" id="modal_totalcash"
+									class="form-control num_select">
 							</div>
 						</div>
 						<div class="form-group form-group-sm">
 							<label>받은 금액</label>
 							<div class="col-sm-10" id="pay">
-								<input class="form-control" type="text" id="Input_Price">
-							</div>
-							<div class="col-sm-10">
-								<button type="button" class="btn btn-success">개인 소득공재용</button>
-								<button type="button" class="btn btn-success">사업자 소득공재용</button>
-
-								<input type="text" class="form-control" id="phoneNumber"
-									placeholder="'-'없이 입력">
+								<input class="form-control" type="text" id="modal_price">
 							</div>
 						</div>
-					</form>
-					<table class="table table-bordered">
-						<!-- 	<tr>
-							<td colspan="4"><input type="text" id="result"></td>
-						</tr> -->
-						<!-- 	<tr>
-							<td colspan="3" onclick="reset()" class="menu_service">AC</td>
-							<td onclick="add('/')" class="menu_service">/</td>
-						</tr> -->
-						<tr>
-							<td onclick="add(7)" class="menu_service2">7</td>
-							<td onclick="add(8)" class="menu_service2">8</td>
-							<td onclick="add(9)" class="menu_service2">9</td>
-						</tr>
-						<tr>
-							<td onclick="add(4)" class="menu_service2">4</td>
-							<td onclick="add(5)" class="menu_service2">5</td>
-							<td onclick="add(6)" class="menu_service2">6</td>
-						</tr>
-						<tr>
-							<td onclick="add(1)" class="menu_service2">1</td>
-							<td onclick="add(2)" class="menu_service2">2</td>
-							<td onclick="add(3)" class="menu_service2">3</td>
-						</tr>
-						<tr>
-							<td colspan="2" onclick="add(0)" class="menu_service2">0</td>
-							<td onclick="reset()" class="menu_service2">AC</td>
-							<!-- 	<td onclick="calculate()" class="menu_service2">=</td> -->
-						</tr>
-					</table>
+						<div class="form-group form-group-sm">
+							<label>결제금액</label>
+							<div class="col-sm-10">
+								<input type="text" id="result_cash"
+									class="form-control num_select">
+							</div>
+						</div>
+						<div class="form-group form-group-sm">
+							<button type="button" class="btn btn-success">개인 소득공재용</button>
+							<button type="button" class="btn btn-success">사업자 소득공재용</button>
+						</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-success">결제하기</button>
-				</div>
+				<table class="table table-bordered">
+					<tr>
+						<td onclick="add2(7)" class="menu_service2">7</td>
+						<td onclick="add2(8)" class="menu_service2">8</td>
+						<td onclick="add2(9)" class="menu_service2">9</td>
+					</tr>
+					<tr>
+						<td onclick="add2(4)" class="menu_service2">4</td>
+						<td onclick="add2(5)" class="menu_service2">5</td>
+						<td onclick="add2(6)" class="menu_service2">6</td>
+					</tr>
+					<tr>
+						<td onclick="add2(1)" class="menu_service2">1</td>
+						<td onclick="add2(2)" class="menu_service2">2</td>
+						<td onclick="add2(3)" class="menu_service2">3</td>
+					</tr>
+					<tr>
+						<td colspan="2" onclick="add2(0)" class="menu_service2">0</td>
+						<td onclick="reset2()" class="menu_service2">AC</td>
+					</tr>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-success">결제하기</button>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- Footer -->
 	<footer>
