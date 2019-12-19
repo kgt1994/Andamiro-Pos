@@ -28,7 +28,21 @@
 <link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
-<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+<style>
+.menu_service {
+	width: 80px;
+	height: 60px;
+	margin-right: 10px;
+	font-size: 16px;
+	border: 2px solid rgb(137, 201, 244);
+	background-color: rgb(137, 201, 244);
+	color: white;
+}
+</style>
+
+<link
+	href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
@@ -38,49 +52,47 @@
 	var totalFlag = true;
 	var flag2 = 0;
 	var flag3 = 0;
-	
-	var col_kor = [
-        { title: "No." },
-        { title: "메뉴" },
-        { title: "가격" },
-        { title: "수량" },
-        { title: "비고" }
-    ];
-	
+
+	var col_kor = [ {
+		title : "No."
+	}, {
+		title : "메뉴"
+	}, {
+		title : "가격"
+	}, {
+		title : "수량"
+	}, {
+		title : "비고"
+	} ];
+
 	var lang_kor = {
-	        "emptyTable" : "주문한 메뉴가 없습니다.",
-	        "loadingRecords" : "로딩중...",
-	        "processing" : "처리중...",
-	        "aria" : {
-	            "sortAscending" : " :  오름차순 정렬",
-	            "sortDescending" : " :  내림차순 정렬"
-	        }
-	    };
-	
+		"emptyTable" : "주문한 메뉴가 없습니다.",
+		"loadingRecords" : "로딩중...",
+		"processing" : "처리중...",
+		"aria" : {
+			"sortAscending" : " :  오름차순 정렬",
+			"sortDescending" : " :  내림차순 정렬"
+		}
+	};
+
 	$(function() {
 		table = $('#orderList').DataTable({
-            columns: col_kor,
-            language : lang_kor,
-            paging: false,
-            searching: false,
-            select: true,
-            info: false,
-            infoEmpty: false,
-            scrollY: 250
+			columns : col_kor,
+			language : lang_kor,
+			paging : false,
+			searching : false,
+			select : true,
+			info : false,
+			infoEmpty : false,
+			scrollY : 250
 		});
 	});
-	
-	
+
 	function rowAdd(item, price) {
-		table.row.add( [
-			table.rows().count() + 1,
-		    item,
-		    price,
-		    "1",
-		    ""
-		] ).draw();
+		table.row.add([ table.rows().count() + 1, item, price, "1", "" ])
+				.draw();
 	}
-	
+
 	function logout() {
 		if (confirm("로그아웃 하시겠습니까?")) {
 			location.href = "logout.do";
@@ -151,8 +163,6 @@
 		f.disp.value = b;
 
 	}
-	
-	
 </script>
 </head>
 
@@ -202,11 +212,11 @@
 						width="50%" cellspacing="0" role="grid"
 						aria-describedby="dataTable_info;">
 						<colgroup>
-							<col style="width: 10%"></col>
 							<col style="width: *%"></col>
-							<col style="width: 15%"></col>
-							<col style="width: 10%"></col>
-							<col style="width: 20%"></col>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
 						</colgroup>
 						<thead>
 							<tr id="menu_list">
@@ -224,26 +234,53 @@
 					</table>
 				</div>
 
-				<br>
-				<div>
-					<input type="button" value="전체취소"
-						class="btn btn-primary btn-block pb_btn-pill  btn-shadow-blue"
-						style="width: 25%; float: left;"> <input type="button"
-						value="+"
-						class="btn btn-primary btn-block pb_btn-pill  btn-shadow-blue"
-						style="width: 25%; float: left;"> <input type="button"
-						value="-"
-						class="btn btn-primary btn-block pb_btn-pill  btn-shadow-blue"
-						style="width: 25%; float: left;"> <input type="button"
-						value="한줄취소"
-						class="btn btn-primary btn-block pb_btn-pill  btn-shadow-blue"
-						style="width: 25%; float: left;">
-				</div>
-				<br>
 
+				<div style="width: 100%;">
+					<table>
+						<colgroup>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
+							<col style="width: *%"></col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<td>
+									<button type="button" class="menu_service">전체취소</button>
+								</td>
+								<td>
+									<button type="button" class="menu_service">한줄취소</button>
+								</td>
+								<td>
+									<button type="button" class="menu_service">서비스</button>
+								</td>
+								<td>
+									<button type="button" class="menu_service">포장</button>
+								</td>
+								<td>
+									<button type="button" class="menu_service">-</button>
+								</td>
+								<td>
+									<button type="button" class="menu_service">+</button>
+								</td>
+								<td>
+									<button type="button" class="menu_service">▽</button>
+								</td>
+								<td>
+									<button type="button" class="menu_service">△</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<br>
 				<!-- section 하단 -->
 				<div style="float: left; width: 50%; align: center;">
-					<br>
 					<div style="float: left; text-align: center;">
 						<div class="nav-link" style="color: white;">총금액</div>
 						<br>
@@ -266,8 +303,17 @@
 				</div>
 
 				<div style="float: right; width: 50%;">
-					<table class = "table table-bordered"text-align="center" cellspacing="0"
+					<table class="table table-bordered" text-align="center"
 						style="border: 1px solid darkgray; background-color: gray;">
+
+						<thead>
+							<tr>
+								<td class="pl-4" colspan="2"><input type="text"
+									class="form-control text-right font-weight-bold num_only num_comma num_sum"
+									id="fn_total" name="fn_total" value="" placeholder=""
+									readonly="readonly"></td>
+							</tr>
+						</thead>
 						<tr>
 							<td colspan="5"><input type="text" name="disp" id="disp"
 								value="0"></td>
@@ -325,28 +371,45 @@
 			style="float: right; width: 50%; text-align: center;">
 			<section style="float: left; width: 100%; text-align: center;">
 				<article style="clear: both;">
-					<table class="table table-bordered dataTable" id="menubtn"
-						style="width: 100%; height: 80%;" cellspacing="0" role="grid">
-						<colgroup>
-							<col style="width: 20%"></col>
-							<col style="width: 20%"></col>
-							<col style="width: 20%"></col>
-							<col style="width: 20%"></col>
-							<col style="width: 20%"></col>
-						</colgroup>
-						<thead>
-							<tr style="border-collapse: collapse;">
-								<c:forEach items="${menu}" var="menu" varStatus="i">
-									<c:choose>
-										<c:when test="${i.index % 5 == 0}">
-											<tr>
-										</c:when>
-									</c:choose>
-									<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd('${menu.item}', '${menu.price}');">${menu.item}</button></th>
-								</c:forEach>
-						</thead>
-					</table>
+					<ul class="nav nav-tabs">
+						<li class="nav-item"><a class="nav-link active"
+							data-toggle="tab" href="#qwe">Coffee</a></li>
+						<li class="nav-item"><a class="nav-link" data-toggle="tab"
+							href="#asd">NonCoffee</a></li>
+						<li class="nav-item"><a class="nav-link" data-toggle="tab"
+							href="#zxc">Tea</a></li>
+					</ul>
+
+					<!-- 탭 누르면 바뀜 -->
+					<div class="tab-content">
+
+						<!-- Tab1 -->
+						<div class="tab-pane fade show active" id="qwe">
+							<table class="table table-bordered dataTable" id="menubtn"
+								style="width: 100%; height: 80%;" cellspacing="0" role="grid">
+								<colgroup>
+									<col style="width: 20%"></col>
+									<col style="width: 20%"></col>
+									<col style="width: 20%"></col>
+									<col style="width: 20%"></col>
+									<col style="width: 20%"></col>
+								</colgroup>
+								<thead>
+									<tr style="border-collapse: collapse;">
+										<c:forEach items="${menu}" var="menu" varStatus="i">
+											<c:choose>
+												<c:when test="${i.index % 5 == 0}">
+													<tr>
+												</c:when>
+											</c:choose>
+											<th><button type="button" class="btn btn-default"
+													id="addbtn" name="addbtn"
+													onclick="rowAdd('${menu.item}', '${menu.price}');">${menu.item}</button></th>
+										</c:forEach>
+								</thead>
+							</table>
+						</div>
+					</div>
 				</article>
 
 				<div style="width: 100%;">
@@ -484,6 +547,15 @@
 	</footer>
 	<!-- END Footer -->
 
+
+	<!-- 탭 스크립트 -->
+
+	<script>
+		$('#myTab a').click(function(e) {
+			e.preventDefault()
+			$(this).tab('show')
+		});
+	</script>
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
 	<script src="./resources/js/jquery.min.js"></script>
 
@@ -496,7 +568,8 @@
 	<script src="./resources/js/jquery.easing.1.3.js"></script>
 
 	<script src="./resources/js/main.js"></script>
-	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 	<!-- 스크립트 모음 -->
 </body>
 </html>
