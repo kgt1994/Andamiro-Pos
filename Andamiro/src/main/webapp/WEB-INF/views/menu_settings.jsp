@@ -41,107 +41,6 @@
 		}
 	}
 </script>
-
-<style>
-ul.mylist li, ol.mylist li {
-	padding: 5px 0px 5px 5px;
-	margin-bottom: 10px;
-	border-bottom: 1px solid #efefef;
-}
-
-input.btn {
-	background-color: lighgray;
-	width: 50px;
-	height: 40px;
-	margin: 5px;
-	font-size: 15pt;
-	width: 50px;
-}
-
-.clr, .equal {
-	width: 112px;
-	height: 40px;
-	margin: 5px;
-	font-size: 15pt;
-}
-
-#disp {
-	width: 295px;
-	height: 40px;
-	margin: 5px;
-	font-size: 22pt;
-	text-align: right;
-}
-</style>
-<script>
-	var flag = true;
-	var totalFlag = true;
-	var flag2 = 0;
-	var flag3 = 0;
-
-	function err() {
-		var f = document.calform;
-		f.disp.value = "수식오류";
-		flag = true;
-	}
-
-	function but(su) {
-
-		if (totalFlag == false && isNaN(su) == false) {
-			c();
-		} else {
-			totalFlag = true;
-		}
-
-		var f = document.calform;
-
-		if (flag) {
-			if (su == 0) {
-				return;
-			}
-			f.disp.value = "";
-			flag = false;
-		}
-
-		if (isNaN(su)) {
-			flag2++;
-		} else {
-			flag2 = 0;
-		}
-
-		if (flag2 > 1) {
-			return;
-		}
-		f.disp.value += su;
-	}
-
-	function c() {
-		var f = document.calform;
-		flag = true;
-		totalFlag = true;
-		f.disp.value = "";
-	}
-
-	function total() {
-
-		var f = document.calform;
-
-		try {
-			var a = eval(f.disp.value);
-			if (isNaN(a)) {
-				throw err();
-				return;
-			}
-		} catch (e) {
-			err();
-			return;
-		}
-		totalFlag = false;
-		var b = (parseInt(a * 1000000000000) / 1000000000000)
-		f.disp.value = b;
-
-	}
-</script>
 </head>
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 	<nav
@@ -180,6 +79,7 @@ input.btn {
 							<fieldset>
 								<legend>메뉴 관리</legend>
 								<div>
+									<h3>여기자리에 투썸플레이스 </h3>
 									<table class="table table-bordered dataTable">
 										<thead>
 											<tr>
@@ -187,15 +87,15 @@ input.btn {
 												<th>가격</th>
 											</tr>
 										</thead>
-										<tbody>
+										<tbody id="menu_show">
 											<tr>
 												<td><input type="text" class="form-control"></td>
 												<td><input type="text" class="form-control"></td>
 											</tr>
 										</tbody>
 									</table>
-									<button type="button" class="btn btn-primary"
-										name="addbtn">추가</button>
+									<button type="button" class="btn btn-primary" onclick="rowAdd()" name="addbtn" style = "float:left;">행추가</button>
+									<button type="button" class="btn btn-success" style = "float:right">메뉴 추가</button>
 								</div>
 							</fieldset>
 						</div>
@@ -205,6 +105,23 @@ input.btn {
 			</div>
 		</div>
 	</div>
+
+	<!-- 행추가 스크립트 -->
+	<script>
+		function rowAdd() {
+			var objRow;
+
+			objRow = document.all("menu_show").insertRow();
+
+			var objCell_num = objRow.insertCell();
+			objCell_num.innerHTML = "<input type='text' class='form-control'>";
+
+			var objCell_menu = objRow.insertCell();
+			objCell_menu.innerHTML = "<input type='text' class='form-control'>";
+
+		}
+	</script>
+	
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
 	<script src="./resources/js/jquery.min.js"></script>
 
