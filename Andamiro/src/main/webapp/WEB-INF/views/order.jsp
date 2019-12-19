@@ -505,7 +505,7 @@ $(function() {
 						<input type="text" id="total" name="total" class="form-control" required autofocus readonly value=0> <br> 
 						<input type="text" id="discount" name="discount" class="form-control" required autofocus readonly value=0> <br> 
 						<input type="text" id="pay" name="pay" class="form-control" required autofocus readonly value=0> <br> 
-						<input type="text" id="paid" name="paid" class="form-control" required autofocus readonly value=0> <br>
+						<input type="text" id="paid" name="paid" class="form-control" required autofocus readonly> <br>
 					</div>
 				</div>
 
