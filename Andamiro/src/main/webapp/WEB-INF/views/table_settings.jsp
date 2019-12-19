@@ -53,6 +53,7 @@
 		$("#btnCreate").click(function() {
 			//해당 아이디를 클릭 하면 다음 메서드를 실행 합니다.
 			$("#lblTable").empty();
+			$('#nxtTable').empty();
 			//해당 아이디를 초기화 해 두고
 			var row = $("#row").val();
 			//해당 아이디 값을 가져오는 변수
@@ -67,27 +68,26 @@
 				for (var j = 0; j < col; j++) {
 					//j는 col변수 보다 작게 반복 한다.
 					strTable += "<td>"
-							+ "<input type='image' src='./resources/image/3.png' width='50px' height='50px' "
-							+ "onclick='clk(" + String(i) + "," + String(j) + ");return false;' id='" + String(i) + String(j) + "'>";
+							+ "<input type='button' class='btn btn-info' value='0' "
+							+ "onclick='clk(" + String(i) + "," + String(j) + ");' id='" + String(i) + String(j) + "'>";
 				}
 			}
 			strTable += "</table>";
 			//</table>로 마무리        
 			$("#lblTable").append(strTable);
+			$('#nxtTable').append('<input type="button" class="btn btn-info" id="plusbtn" value="+"/>');
+			$('#nxtTable').append('<input type="button" class="btn btn-info" id="minusbtn" value="-"/>');
 			//해당 아이디에 해당 변수 태그값 입력
 		});
 	});
+	
 	function clk(i, j){
-		if($('#' + i + j).attr('src') == './resources/image/3.png'){
-			$('#' + i + j).attr('src', './resources/image/4.png');
-			$('#' + i + j).val(1);
-			$('#' + i + j).append('<p>1</p>');
-		}else{
-			$('#' + i + j).attr('src', './resources/image/3.png');
-		}
+		//$('#' + i + j).attr('src', './resources/image/4.png');
+		$('#' + i + j).val(1 + parseInt($('#' + i + j).val()));
+			/*
 		$('[src="./resources/image/4.png"]').each(function(index,item){
 			//$(item).attr('id');
-		});
+		});*/
 	}
 </script>
 </head>
@@ -130,6 +130,7 @@
 						<input type="text" id="col" style="width: 50px;" placeholder="열" /> 
 						<input type="text" id="floor" style="width: 50px;" placeholder="층" />
 						<input type="button" class="btn btn-info" id="btnCreate" value="자리 생성" />
+						<div id="nxtTable"></div>
 						<!-- 버튼 아이디만 변경 o 위에 id변경x -->
 						<button type="button" class="btn btn-info"
 							style="float: right; width: 100px; height: 50px;">확인</button>
