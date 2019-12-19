@@ -18,5 +18,13 @@
 		SELECT *
 		FROM MENU
 		WHERE SHOP_ID=#{selectedShop.id}
+		ORDER BY COORDINATES
+	</select>
+	
+	<select id="selectCategory" parameterType="SessionDTO" resultType="CategoryDTO">
+		SELECT *
+		FROM CATEGORY
+		WHERE SHOP_ID=#{selectedShop.id}
+		ORDER BY COORDINATES
 	</select>
 </mapper>

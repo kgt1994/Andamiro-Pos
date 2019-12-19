@@ -89,6 +89,15 @@
 		  //alert(rowData);
 		  //$(this).css('background', 'white');
 		});
+		
+		$('#1').attr('class', 'tab-pane active');
+		
+		$('#myTab a').click(function(){
+			var tabid = $(this).attr('href');
+			$('.tab-content .active').attr('class', 'tab-pane');
+			$('#'+tabid.substr(1,1)).attr('class', 'tab-pane active');
+		});
+		
 	});
 
 	function rowAdd(item, price) {
@@ -129,6 +138,7 @@
 		
 		$('#pay').val(parseInt($('#total').val()) - parseInt($('#discount').val()) - parseInt($('#paid').val()));
 	}
+	
 
 	function logout() {
 		if (confirm("로그아웃 하시겠습니까?")) {
@@ -400,19 +410,21 @@
 			style="float: right; width: 50%; text-align: center;">
 			<section style="float: left; width: 100%; text-align: center;">
 				<article style="clear: both;">
-					<ul class="nav nav-tabs">
-						<li class="nav-item"><a class="nav-link active"
-							data-toggle="tab" href="#qwe">Coffee</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#asd">NonCoffee</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#zxc">Tea</a></li>
+				<div role="tabpanel">
+					<ul class="nav nav-pills" role="tablist" id="myTab">
+						<c:forEach items="${category}" var="category" varStatus="i">
+							<li class="presentation">
+								<a aria-controls="${category.id}" role="tab" data-toggle="tab"
+									href="#${category.id}">${category.name}</a>
+							</li>
+						</c:forEach>
 					</ul>
 
 					<!-- 탭 누르면 바뀜 -->
 					<div class="tab-content">
-						<!-- Tab1 -->
-						<div class="tab-pane fade show active" id="qwe">
+						<c:forEach items="${category}" var="category" varStatus="i">
+						<c:set var="x" value="0"/>
+						<div role="tabpanel" class="tab-pane" id="${category.id}">
 							<table class="table table-bordered dataTable" id="menubtn"
 								style="width: 100%; height: 80%;" cellspacing="0" role="grid">
 								<colgroup>
@@ -424,19 +436,26 @@
 								</colgroup>
 								<thead>
 									<tr style="border-collapse: collapse;">
-										<c:forEach items="${menu}" var="menu" varStatus="i">
-											<c:choose>
-												<c:when test="${i.index % 5 == 0}">
-													<tr>
-												</c:when>
-											</c:choose>
-											<th><button type="button" class="btn btn-default"
-													id="addbtn" name="addbtn"
-													onclick="rowAdd('${menu.item}', '${menu.price}');">${menu.item}</button></th>
+										<c:forEach items="${menu}" var="menu" varStatus="j">
+											<c:if test="${x%5 == 0}">
+												<tr>
+											</c:if>
+											<c:if test="${category.id == menu.category_id}">
+													<c:set var="x" value="${x + 1}"/>
+											</c:if>
+											
+											<c:if test="${category.id == menu.category_id}">
+												<th><button type="button" class="btn btn-default"
+														id="addbtn" name="addbtn"
+														onclick="rowAdd('${menu.item}', '${menu.price}');">${menu.item}</button></th>
+											</c:if>
 										</c:forEach>
 								</thead>
 							</table>
 						</div>
+						</c:forEach>
+						
+					</div>
 					</div>
 				</article>
 
@@ -575,15 +594,6 @@
 	</footer>
 	<!-- END Footer -->
 
-
-	<!-- 탭 스크립트 -->
-
-	<script>
-		$('#myTab a').click(function(e) {
-			e.preventDefault()
-			$(this).tab('show')
-		});
-	</script>
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
 	<script src="./resources/js/jquery.min.js"></script>
 
