@@ -210,9 +210,10 @@
 
 					</div>
 					<div class="modal-footer">
-						<input type="submit" class="btn btn-danger btn-lg" value="취소하기"
-							id="btnSubmit" /> <input type="submit"
-							class="btn btn-primary btn-lg" value="등록하기" id="btnSubmit" />
+						<button type="button" class="btn btn-danger btn-lg"
+							onclick="cancel();">취소하기</button>
+						<input type="submit" class="btn btn-primary btn-lg" value="등록하기"
+							id="btnSubmit" />
 					</div>
 				</div>
 			</div>
