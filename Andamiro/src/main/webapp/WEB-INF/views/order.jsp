@@ -28,6 +28,8 @@
 <link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
+<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<link href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css">
 
 <style>
 .menu_service {
@@ -41,9 +43,6 @@
 }
 </style>
 
-<link
-	href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 
@@ -52,45 +51,83 @@
 	var totalFlag = true;
 	var flag2 = 0;
 	var flag3 = 0;
-
-	var col_kor = [ {
-		title : "No."
-	}, {
-		title : "메뉴"
-	}, {
-		title : "가격"
-	}, {
-		title : "수량"
-	}, {
-		title : "비고"
-	} ];
-
+	
+	var col_kor = [
+        { title: "No." },
+        { title: "메뉴" },
+        { title: "가격" },
+        { title: "수량" },
+        { title: "비고" }
+    ];
+	
 	var lang_kor = {
-		"emptyTable" : "주문한 메뉴가 없습니다.",
-		"loadingRecords" : "로딩중...",
-		"processing" : "처리중...",
-		"aria" : {
-			"sortAscending" : " :  오름차순 정렬",
-			"sortDescending" : " :  내림차순 정렬"
-		}
-	};
-
+	        "emptyTable" : "주문한 메뉴가 없습니다.",
+	        "loadingRecords" : "로딩중...",
+	        "processing" : "처리중...",
+	        "aria" : {
+	            "sortAscending" : " :  오름차순 정렬",
+	            "sortDescending" : " :  내림차순 정렬"
+	        }
+	    };
+	
 	$(function() {
 		table = $('#orderList').DataTable({
-			columns : col_kor,
-			language : lang_kor,
-			paging : false,
-			searching : false,
-			select : true,
-			info : false,
-			infoEmpty : false,
-			scrollY : 250
+            columns: col_kor,
+            language : lang_kor,
+            paging: false,
+            searching: false,
+            select: {
+                style: 'single'
+            },
+            info: false,
+            infoEmpty: false,
+            scrollY: 250
+		});
+		
+		$('#orderList tbody').on( 'click', 'tr', function () {
+		  var rowData = table.row( this ).data();
+		  //alert(rowData);
+		  //$(this).css('background', 'white');
 		});
 	});
 
 	function rowAdd(item, price) {
-		table.row.add([ table.rows().count() + 1, item, price, "1", "" ])
-				.draw();
+		var menu = $('#menu_show td').text();
+		var cash = parseInt($('#total').val());
+		
+		if(table.rows().count() !== 0){
+			for(var i=0; i < table.rows().count(); i++){
+				if(table.cell( i, 1 ).data() == item){
+					var amont = parseInt(table.cell( i, 3 ).data()) + 1;
+					
+					table.cell( i, 3 ).data(amont).draw();
+					
+					$('#total').val(cash + parseInt(price));
+					break;
+				}else if (i == table.rows().count() - 1){
+					table.row.add( [
+						table.rows().count() + 1,
+					    item,
+					    price,
+					    "1",
+					    ""
+					] ).draw();
+					$('#total').val(cash + parseInt(price));
+					break;
+				}
+			}
+		}else{
+			table.row.add( [
+				table.rows().count() + 1,
+			    item,
+			    price,
+			    "1",
+			    ""
+			] ).draw();
+			$('#total').val(price);
+		}
+		
+		$('#pay').val(parseInt($('#total').val()) - parseInt($('#discount').val()) - parseInt($('#paid').val()));
 	}
 
 	function logout() {
@@ -219,13 +256,7 @@
 							<col style="width: *%"></col>
 						</colgroup>
 						<thead>
-							<tr id="menu_list">
-								<th>No.</th>
-								<th>메뉴</th>
-								<th>가격</th>
-								<th>수량</th>
-								<th>비고</th>
-							</tr>
+
 						</thead>
 
 						<tbody id="menu_show">
@@ -293,12 +324,10 @@
 					</div>
 
 					<div style="float: right; width: 50%; text-align: center;">
-						<input type="text" name="id" class="form-control" required
-							autofocus> <br> <input type="text" name="id"
-							class="form-control" required autofocus> <br> <input
-							type="text" name="id" class="form-control" required autofocus>
-						<br> <input type="text" name="id" class="form-control"
-							required autofocus><br>
+						<input type="text" id="total" name="total" class="form-control" required autofocus readonly value=0> <br> 
+						<input type="text" id="discount" name="discount" class="form-control" required autofocus readonly value=0> <br> 
+						<input type="text" id="pay" name="pay" class="form-control" required autofocus readonly value=0> <br> 
+						<input type="text" id="paid" name="paid" class="form-control" required autofocus readonly value=0> <br>
 					</div>
 				</div>
 
@@ -568,8 +597,8 @@
 	<script src="./resources/js/jquery.easing.1.3.js"></script>
 
 	<script src="./resources/js/main.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
 	<!-- 스크립트 모음 -->
 </body>
 </html>
