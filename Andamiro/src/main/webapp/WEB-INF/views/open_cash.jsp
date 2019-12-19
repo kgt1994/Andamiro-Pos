@@ -11,7 +11,7 @@
 	content="Free Bootstrap 4 Template by uicookies.com">
 <meta name="keywords"
 	content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
-
+<!-- 부트스트랩 -->
 <link
 	href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400"
 	rel="stylesheet">
@@ -32,6 +32,10 @@
 <link rel="stylesheet" href="./resources/css/helpers.css">
 <link rel="stylesheet" href="./resources/css/style.css">
 <link rel="stylesheet" href="./resources/css/landing-2.css">
+
+<!-- 제이쿼리 -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <script type="text/javascript">
 	function logout() {
 		if (confirm("로그아웃 하시겠습니까?")) {
@@ -41,44 +45,14 @@
 		}
 	}
 </script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <style>
-ul.mylist li, ol.mylist li {
-	padding: 5px 0px 5px 5px;
-	margin-bottom: 10px;
-	border-bottom: 1px solid #efefef;
-}
-
-input.btn {
-	background-color: lighgray;
-	width: 50px;
-	height: 40px;
-	margin: 5px;
-	font-size: 15pt;
-	width: 50px;
-}
-
-.clr, .equal {
-	width: 112px;
-	height: 40px;
-	margin: 5px;
-	font-size: 15pt;
-}
-
-#disp {
-	width: 295px;
-	height: 40px;
-	margin: 5px;
-	font-size: 22pt;
-	text-align: right;
-}
-
 .exam {
 	width: 50% !important;
 }
 </style>
 </head>
+
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 	<nav
 		class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light"
@@ -228,6 +202,8 @@ input.btn {
 			</div>
 		</div>
 	</div>
+
+	<!-- 테이블 계산 스크립트 -->
 	<script>
 		// 테이블 자동계산
 		$(function() {
@@ -284,12 +260,6 @@ input.btn {
 						console.log(sum);
 						$("#fn_total").val(sum);
 					});
-		});
-	</script>
-
-	<script>
-		$(function() {
-			$('input.num_only')
 		});
 	</script>
 	<!-- 부트스트랩 스크립트 지우면 사망 -->
