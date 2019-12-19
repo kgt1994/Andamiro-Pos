@@ -83,137 +83,131 @@
 		<br>
 		<hr>
 
-		<div
-			class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1">
-			<br>
-			<hr>
+		<div class="container">
+			<div class="relative align-self-center" id="login">
+				<div class="bg-white rounded pb_form_v1">
+					<fieldset>
+						<legend>마감정산</legend>
+						<div style="width: 100%;">
+							<table class="table table-bordered exam" style="float: left;">
+								<tbody>
+									<tr class="">
+										<th class="align-middle w-10 bg-light text-center">50000</th>
 
-			<div class="container">
-				<div class="relative align-self-center" id="login">
-					<div class="bg-white rounded pb_form_v1">
-						<fieldset>
-							<legend>마감정산</legend>
-							<div style="width: 100%;">
-								<table class="table table-bordered exam" style="float: left;">
-									<tbody>
-										<tr class="">
-											<th class="align-middle w-10 bg-light text-center">50000</th>
+										<td class="w-20 pl-4"><input type="text" id="am_50000"
+											class="form-control num_select"></td>
+										<td class="w-70 pl-4"><input type="text"
+											class="form-control num_only num_comma num_sum"
+											id="fn_type1_price" name="fn_type1_price" value=""
+											placeholder="" readonly="readonly"></td>
+									</tr>
+									<tr>
+										<th class="align-middle w-10 bg-light text-center">10000</th>
 
-											<td class="w-20 pl-4"><input type="text" id="am_50000"
-												class="form-control num_select"></td>
-											<td class="w-70 pl-4"><input type="text"
-												class="form-control num_only num_comma num_sum"
-												id="fn_type1_price" name="fn_type1_price" value=""
-												placeholder="" readonly="readonly"></td>
-										</tr>
-										<tr>
-											<th class="align-middle w-10 bg-light text-center">10000</th>
+										<td class="w-20 pl-4"><input type="text" id="am_10000"
+											class="form-control num_select"></td>
+										<td class="w-70 pl-4"><input type="text"
+											class="form-control num_only num_comma num_sum"
+											id="fn_type2_price" name="fn_type2_price" value=""
+											placeholder="" readonly="readonly"></td>
+									</tr>
+									<tr>
+										<th class="align-middle w-10 bg-light text-center">5000</th>
 
-											<td class="w-20 pl-4"><input type="text" id="am_10000"
-												class="form-control num_select"></td>
-											<td class="w-70 pl-4"><input type="text"
-												class="form-control num_only num_comma num_sum"
-												id="fn_type2_price" name="fn_type2_price" value=""
-												placeholder="" readonly="readonly"></td>
-										</tr>
-										<tr>
-											<th class="align-middle w-10 bg-light text-center">5000</th>
+										<td class="w-20 pl-4"><input type="text" id="am_5000"
+											class="form-control num_select"></td>
+										<td class="w-70 pl-4"><input type="text"
+											class="form-control num_only num_comma num_sum"
+											id="fn_one_price" name="fn_one_price" value="" placeholder=""
+											readonly="readonly"></td>
+									</tr>
+									<tr>
+										<th class="align-middle w-10 bg-light text-center">1000</th>
 
-											<td class="w-20 pl-4"><input type="text" id="am_5000"
-												class="form-control num_select"></td>
-											<td class="w-70 pl-4"><input type="text"
-												class="form-control num_only num_comma num_sum"
-												id="fn_one_price" name="fn_one_price" value=""
-												placeholder="" readonly="readonly"></td>
-										</tr>
-										<tr>
-											<th class="align-middle w-10 bg-light text-center">1000</th>
+										<td class="w-20 pl-4"><input type="text" id="am_1000"
+											class="form-control num_select"></td>
+										<td class="w-70 pl-4"><input type="text"
+											class="form-control num_only num_comma num_sum"
+											id="fn_flw_price" name="fn_flw_price" value="" placeholder=""
+											readonly="readonly"></td>
+									</tr>
+									<tr>
+										<th class="align-middle w-10 bg-light text-center">500</th>
 
-											<td class="w-20 pl-4"><input type="text" id="am_1000"
-												class="form-control num_select"></td>
-											<td class="w-70 pl-4"><input type="text"
-												class="form-control num_only num_comma num_sum"
-												id="fn_flw_price" name="fn_flw_price" value=""
-												placeholder="" readonly="readonly"></td>
-										</tr>
-										<tr>
-											<th class="align-middle w-10 bg-light text-center">500</th>
+										<td class="w-20 pl-4"><input type="text" id="am_500"
+											class="form-control num_select"></td>
+										<td class="w-70 pl-4"><input type="text"
+											class="form-control num_only num_comma num_sum"
+											id="fn_flag_price" name="fn_flag_price" value=""
+											placeholder="" readonly="readonly"></td>
+									</tr>
+									<tr>
+										<th class="align-middle w-10 bg-light text-center">100</th>
 
-											<td class="w-20 pl-4"><input type="text" id="am_500"
-												class="form-control num_select"></td>
-											<td class="w-70 pl-4"><input type="text"
-												class="form-control num_only num_comma num_sum"
-												id="fn_flag_price" name="fn_flag_price" value=""
-												placeholder="" readonly="readonly"></td>
-										</tr>
-										<tr>
-											<th class="align-middle w-10 bg-light text-center">100</th>
+										<td class="w-20 pl-4"><input type="text" id="am_100"
+											class="form-control num_select"></td>
+										<td class="w-70 pl-4"><input type="text"
+											class="form-control num_only num_comma num_sum"
+											id="fn_etc_price" name="fn_etc_price" value="" placeholder=""
+											readonly="readonly"></td>
+									</tr>
+									<tr>
 
-											<td class="w-20 pl-4"><input type="text" id="am_100"
-												class="form-control num_select"></td>
-											<td class="w-70 pl-4"><input type="text"
-												class="form-control num_only num_comma num_sum"
-												id="fn_etc_price" name="fn_etc_price" value=""
-												placeholder="" readonly="readonly"></td>
-										</tr>
-										<tr>
+										<th class="align-middle w-10 bg-light text-center">50</th>
 
-											<th class="align-middle w-10 bg-light text-center">50</th>
+										<td class="w-20 pl-4"><input type="text" id="am_50"
+											class="form-control num_select"></td>
+										<td class="w-70 pl-4"><input type="text"
+											class="form-control num_only num_comma num_sum"
+											id="fn_change_price" name="fn_change_price" value=""
+											placeholder="" readonly="readonly"></td>
+									</tr>
+									<tr>
 
-											<td class="w-20 pl-4"><input type="text" id="am_50"
-												class="form-control num_select"></td>
-											<td class="w-70 pl-4"><input type="text"
-												class="form-control num_only num_comma num_sum"
-												id="fn_change_price" name="fn_change_price" value=""
-												placeholder="" readonly="readonly"></td>
-										</tr>
-										<tr>
+										<th class="align-middle w-10 bg-light text-center">10</th>
 
-											<th class="align-middle w-10 bg-light text-center">10</th>
+										<td class="w-20 pl-4"><input type="text" id="am_10"
+											class="form-control num_select"></td>
+										<td class="w-70 pl-4"><input type="text"
+											class="form-control num_only num_comma num_sum"
+											id="fn_change2_price" name="fn_change2_price" value=""
+											placeholder="" readonly="readonly"></td>
+									</tr>
 
-											<td class="w-20 pl-4"><input type="text" id="am_10"
-												class="form-control num_select"></td>
-											<td class="w-70 pl-4"><input type="text"
-												class="form-control num_only num_comma num_sum"
-												id="fn_change2_price" name="fn_change2_price" value=""
-												placeholder="" readonly="readonly"></td>
-										</tr>
+								</tbody>
+							</table>
+							<table class="table table-bordered exam">
+								<tbody>
+									<tr>
+										<th class="align-middle bg-light text-center p-2">합계</th>
+										<td class="pl-4" colspan="2"><input type="text"
+											class="form-control text-right font-weight-bold num_only num_comma num_sum"
+											id="fn_total" name="fn_total" value="" placeholder=""
+											readonly="readonly">
+											<div id="han_money" class="text-right"></div></td>
+									</tr>
+								</tbody>
+							</table>
+							<br>
 
-									</tbody>
-								</table>
-								<table class="table table-bordered exam">
-									<tbody>
-										<tr>
-											<th class="align-middle bg-light text-center p-2">합계</th>
-											<td class="pl-4" colspan="2"><input type="text"
-												class="form-control text-right font-weight-bold num_only num_comma num_sum"
-												id="fn_total" name="fn_total" value="" placeholder=""
-												readonly="readonly">
-												<div id="han_money" class="text-right"></div></td>
-										</tr>
-									</tbody>
-								</table>
-								<br>
-
-								<table>
-									<thead>
-										<tr>
-											<td>마감관리자 : </td>
-											<td><input type="text" class="form-control"
-												style="width: 100px;" required autofocus></td>
-										</tr>
-									</thead>
-								</table>
-								<br>
-								<div>
-									<h3>Memo</h3>
-									<textarea rows="10" cols="45" style="resize: none;"></textarea>
-									<button type="button" class="btn btn-info"
-										style="float: right; width: 100px; height: 100px;">확인</button>
-								</div>
+							<table>
+								<thead>
+									<tr>
+										<td>마감관리자 :</td>
+										<td><input type="text" class="form-control"
+											style="width: 100px;" required autofocus></td>
+									</tr>
+								</thead>
+							</table>
+							<br>
+							<div>
+								<h3>Memo</h3>
+								<textarea rows="10" cols="45" style="resize: none;"></textarea>
+								<button type="button" class="btn btn-info"
+									style="float: right; width: 100px; height: 100px;">확인</button>
 							</div>
-						</fieldset>
-					</div>
+						</div>
+					</fieldset>
 				</div>
 			</div>
 		</div>
