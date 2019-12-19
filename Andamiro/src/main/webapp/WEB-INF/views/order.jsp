@@ -111,6 +111,28 @@
 		f.disp.value = b;
 
 	}
+	
+	function rowAdd(item, price) {
+		var objRow;
+
+		objRow = document.all("menu_show").insertRow();
+
+		var objCell_num = objRow.insertCell();
+		objCell_num.innerHTML = "<td>1</td>";
+
+		var objCell_menu = objRow.insertCell();
+		objCell_menu.innerHTML = "<td>" + item + "</td>";
+
+		var objCell_price = objRow.insertCell();
+		objCell_price.innerHTML = "<td>" + price + "</td>";
+
+		var objCell_count = objRow.insertCell();
+		objCell_count.innerHTML = "<td>1</td>";
+
+		var objCell_memo = objRow.insertCell();
+		objCell_memo.innerHTML = "<td>3200원</td>";
+
+	}
 </script>
 </head>
 
@@ -316,35 +338,17 @@
 						<tbody>
 						<!-- 메뉴 읽어들이고 5개 단위로 끊어서 tr 추가 -->
 							<tr style="border-collapse: collapse;">
-								<th><button type="button" class="btn btn-default"
-										id="addbtn" name="addbtn" onclick="rowAdd();">아메리카노</button></th>
-
+								<c:forEach items="${menu}" var="menu" varStatus="i">
+									<c:choose>
+										<c:when test="${i.index % 5 == 0}">
+											<tr>
+										</c:when>
+									</c:choose>
+									<th><button type="button" class="btn btn-default"
+										id="addbtn" name="addbtn" onclick="rowAdd(${menu.item},${menu.price});">${menu.item}</button></th>
+								</c:forEach>
 						</tbody>
 					</table>
-
-					<script>
-						function rowAdd() {
-							var objRow;
-
-							objRow = document.all("menu_show").insertRow();
-
-							var objCell_num = objRow.insertCell();
-							objCell_num.innerHTML = "<td>1</td>";
-
-							var objCell_menu = objRow.insertCell();
-							objCell_menu.innerHTML = "<td>아메리카노</td>";
-
-							var objCell_price = objRow.insertCell();
-							objCell_price.innerHTML = "<td>4000</td>";
-
-							var objCell_count = objRow.insertCell();
-							objCell_count.innerHTML = "<td>1</td>";
-
-							var objCell_memo = objRow.insertCell();
-							objCell_memo.innerHTML = "<td>3200원</td>";
-
-						}
-					</script>
 				</article>
 
 				<div style="width: 100%;">

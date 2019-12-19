@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.andamiro.pos.model.MemberDTO;
+import com.andamiro.pos.model.MenuDTO;
 import com.andamiro.pos.model.SessionDTO;
 import com.andamiro.pos.model.ShopDTO;
 import com.andamiro.pos.model.ShopRow;
@@ -71,8 +72,12 @@ public class ShopController {
 	}
 
 	@RequestMapping(value = "order.do", method = RequestMethod.GET)
-	public String order(@ModelAttribute("user") SessionDTO dto, Model model) {
-		return "order";
+	public ModelAndView order(@ModelAttribute("user") SessionDTO dto) {
+		ModelAndView mv = new ModelAndView("order");
+		List<MenuDTO> menuList = ShopService.selectMenu(dto);
+		
+		mv.addObject("menu", menuList);
+		return mv;
 	}
 
 	@RequestMapping(value = "sales_account.do", method = RequestMethod.GET)

@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.andamiro.pos.model.MenuDTO;
 import com.andamiro.pos.model.SessionDTO;
 import com.andamiro.pos.model.ShopDTO;
 
@@ -25,6 +26,12 @@ public class ShopDAO implements IShopDAO {
 	public int selectPw(ShopDTO dto) {
 		// TODO Auto-generated method stub
 		return mybatis.selectOne("ShopService.selectPw", dto);
+	}
+
+	@Override
+	public List<MenuDTO> selectMenu(SessionDTO dto) {
+		System.out.println("select Menu() 처리");
+		return mybatis.selectList("ShopService.selectMenu", dto);
 	}
 
 }
