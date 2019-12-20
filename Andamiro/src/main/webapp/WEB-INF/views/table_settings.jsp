@@ -130,12 +130,12 @@
 						<input type="text" id="col" style="width: 50px;" placeholder="열" /> 
 						<input type="text" id="floor" style="width: 50px;" placeholder="층" />
 						<input type="button" class="btn btn-info" id="btnCreate" value="자리 생성" />
-						<div id="nxtTable"></div>
+						<div id="nxtTable" ></div>
 						<!-- 버튼 아이디만 변경 o 위에 id변경x -->
 						<button type="button" class="btn btn-info"
 							style="float: right; width: 100px; height: 50px;">확인</button>
 
-						<div id="lblTable"></div>
+						<div id="lblTable" style = "width:500px; height:400px;overflow:auto;"></div>
 
 					</fieldset>
 				</div>
