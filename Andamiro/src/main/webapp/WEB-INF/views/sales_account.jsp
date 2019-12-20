@@ -102,7 +102,7 @@
           ['12월',  29500]
           
         ]);
-        
+       
         var options = {
           title : '단위 : 원',
           vAxis: {title: 'sales'},
@@ -114,18 +114,7 @@
         chart.draw(data, options);
       }
     </script>
-        <!-- Area Chart Example-->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-chart-area"></i>
-            	매출 차트
-            	</div>
-          <div class="card-body">
-          	<div id="chart_div" style="width: 100%; height: 500px;"></div>
-            <!--<canvas id="myAreaChart" width="100%" height="30"></canvas>-->
-          </div>
-          
-        </div>
+        
         <!-- Breadcrumbs-->
         <!-- Icon Cards-->
         
@@ -184,7 +173,17 @@
       <button class="btn btn-primary" type="button" onclick='dis()'>차트보기
       </button>
       <br><br>
-      
+      <!--  Area Chart Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            	매출 차트
+            	</div>
+          <div class="card-body">
+          	<div id="chart_div" style="width: 100%; height: 500px;"></div>
+          </div>
+          
+        </div>
           
         
       <!-- /.container-fluid -->
