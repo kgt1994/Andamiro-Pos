@@ -180,7 +180,7 @@
             	매출 차트
             	</div>
           <div class="card-body">
-          	<div id="chart_div" style="width: 100%; height: 500px;"></div>
+          	<!-- <div id="chart_div" style="width: 100%; height: 500px;"></div> -->
           </div>
           
         </div>
