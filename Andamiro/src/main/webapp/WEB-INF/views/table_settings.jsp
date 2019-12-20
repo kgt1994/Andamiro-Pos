@@ -56,34 +56,58 @@
 			$('#nxtTable').empty();
 			//해당 아이디를 초기화 해 두고
 			var row = $("#row").val();
-			//해당 아이디 값을 가져오는 변수
 			var col = $("#col").val();
-			//해당 아이디 값을 가져오는 변수
-			var strTable = "<table>";
-			//테이블 보더 값
-			for (var i = 0; i < row; i++) {
-				//i는 row변수 보다 작게 반복 한다.
-				strTable += "<tr>";
-				//tr테그를 계속 만든다.
-				for (var j = 0; j < col; j++) {
-					//j는 col변수 보다 작게 반복 한다.
-					strTable += "<td>"
-							+ "<input type='button' class='btn btn-info' value='0' "
-							+ "onclick='clk(" + String(i) + "," + String(j) + ");' id='" + String(i) + String(j) + "'>";
-				}
+			var floor = $("#floor").val();
+			var strTable = "";
+			if(floor == "" || floor == "0"){
+				floor = 1;
+				$("#floor").val("1");
 			}
-			strTable += "</table>";
+			for(var x=0; x<floor; x++){
+				strTable += '<h1>' + (x+1) + '층</h1>';
+				strTable += "<table>";
+				//테이블 보더 값
+				for (var i = 0; i < row; i++) {
+					//i는 row변수 보다 작게 반복 한다.
+					strTable += "<tr>";
+					//tr테그를 계속 만든다.
+					for (var j = 0; j < col; j++) {
+						//j는 col변수 보다 작게 반복 한다.
+						strTable += "<td>"
+								+ "<input type='button' class='btn btn-info' value='0' "
+								+ "onclick='clk(" + String(i) + "," + String(j) + String(x) +");' id='" + String(i) + String(j) + String(x) +"'>";
+					}
+				}
+				strTable += "</table>";
+				strTable += "<hr>";
+			}
 			//</table>로 마무리        
 			$("#lblTable").append(strTable);
 			$('#nxtTable').append('<input type="button" class="btn btn-info" id="plusbtn" value="+"/>');
 			$('#nxtTable').append('<input type="button" class="btn btn-info" id="minusbtn" value="-"/>');
-			//해당 아이디에 해당 변수 태그값 입력
+			$('#nxtTable').append('<input type="hidden" id="hidtable" value="+"/>');
+			$('#nxtTable').append('<p id="hidp">' + $('#hidtable').val() + '</p>');
+			
+			$('#plusbtn').click(function(){
+				$('#hidtable').val('+');
+				$('#hidp').text($('#hidtable').val());
+			});
+			
+			$('#minusbtn').click(function(){
+				$('#hidtable').val('-');
+				$('#hidp').text($('#hidtable').val());
+			});
+			
 		});
 	});
 	
-	function clk(i, j){
-		//$('#' + i + j).attr('src', './resources/image/4.png');
-		$('#' + i + j).val(1 + parseInt($('#' + i + j).val()));
+	function clk(i, j ,x){
+		if($('#hidtable').val() == '+'){
+			$('#' + i + j + x).val(parseInt($('#' + i + j + x).val()) + 1);
+		}else{
+			$('#' + i + j + x).val(parseInt($('#' + i + j + x).val()) - 1);
+		}
+		
 			/*
 		$('[src="./resources/image/4.png"]').each(function(index,item){
 			//$(item).attr('id');
@@ -122,7 +146,7 @@
 		<hr>
 		<div class="container">
 			<div class="relative align-self-center" id="login">
-				<div class="bg-white rounded pb_form_v1" >
+				<div class="bg-white rounded pb_form_v1" style = "height:600px;overflow:auto;">
 					<fieldset>
 						<legend>테이블 세팅</legend>
 						<!--동적으로 태그 추가 -->
@@ -130,13 +154,11 @@
 						<input type="text" id="col" style="width: 50px;" placeholder="열" /> 
 						<input type="text" id="floor" style="width: 50px;" placeholder="층" />
 						<input type="button" class="btn btn-info" id="btnCreate" value="자리 생성" />
-						<div id="nxtTable" ></div>
 						<!-- 버튼 아이디만 변경 o 위에 id변경x -->
 						<button type="button" class="btn btn-info"
 							style="float: right; width: 100px; height: 50px;">확인</button>
-
-						<div id="lblTable" style = "width:500px; height:400px;overflow:auto;"></div>
-
+						<div id="nxtTable"></div>
+						<div id="lblTable" class="bg-white rounded pb_form_v1" style = "height:600px; overflow:auto;"></div>
 					</fieldset>
 				</div>
 			</div>
