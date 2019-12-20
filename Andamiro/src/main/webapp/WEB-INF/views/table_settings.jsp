@@ -75,7 +75,7 @@
 						//j는 col변수 보다 작게 반복 한다.
 						strTable += "<td>"
 								+ "<input type='button' class='btn btn-info' value='0' "
-								+ "onclick='clk(" + String(i) + "," + String(j) + String(x) +");' id='" + String(i) + String(j) + String(x) +"'>";
+								+ "onclick='clk(" + String(i) + "," + String(j) + "," + String(x) + ");' id='" + String(i) + String(j) + String(x) +"'>";
 					}
 				}
 				strTable += "</table>";
@@ -101,11 +101,12 @@
 		});
 	});
 	
-	function clk(i, j ,x){
+	function clk(i, j , x){
 		if($('#hidtable').val() == '+'){
 			$('#' + i + j + x).val(parseInt($('#' + i + j + x).val()) + 1);
 		}else{
-			$('#' + i + j + x).val(parseInt($('#' + i + j + x).val()) - 1);
+			if(parseInt($('#' + i + j + x).val()) != 0)
+				$('#' + i + j + x).val(parseInt($('#' + i + j + x).val()) - 1);
 		}
 		
 			/*
