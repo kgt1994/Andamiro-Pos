@@ -105,7 +105,7 @@
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-md-6">
-					<h2 class="heading mb-3">Andamiro_POS</h2>
+					<h2 class="heading mb-3">Andamiro POS</h2>
 					<div class="sub-heading">
 						<a class="btn btn-success btn-lg pb_btn-pill smoothscroll"
 							href="home.do" id="home"><span
